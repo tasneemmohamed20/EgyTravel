@@ -8,7 +8,7 @@ class ColorsManager {
 
   static Color dotColor = const Color(0xFFD9D9D9);
 
-  static Color secondPrimary = const Color(0xff263B74);
+  static Color secondPrimary = const Color.fromRGBO(0, 49, 48, 100);
 
   static Color white = const Color(0xffD9D9D9);
 

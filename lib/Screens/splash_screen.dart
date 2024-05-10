@@ -2,7 +2,6 @@ import 'package:egy_travel/Screens/pick_language.dart';
 import 'package:flutter/material.dart';
 import 'package:egy_travel/constants/colors_manager.dart';
 import 'package:egy_travel/constants/app_assets.dart';
-import 'package:egy_travel/Shared/const_functions.dart';
 
 class SplashScreen extends StatefulWidget {
   // final Widget startWidget ;
