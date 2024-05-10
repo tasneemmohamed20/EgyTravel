@@ -6,4 +6,5 @@ class OnBoardingInfo {
 
   OnBoardingInfo(
       {required this.title, required this.descripton, required this.image});
+
 }
