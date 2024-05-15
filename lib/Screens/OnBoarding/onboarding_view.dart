@@ -1,4 +1,5 @@
 import 'package:egy_travel/Screens/OnBoarding/onboarding_items.dart';
+import 'package:egy_travel/Screens/login_screen.dart';
 import 'package:egy_travel/Screens/test_screen.dart';
 import 'package:egy_travel/Shared/const_functions.dart';
 import 'package:egy_travel/Shared/shared_button.dart';
@@ -106,7 +107,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       onPressed: () async {
                         SharedPreferences preferences = await _pref;
                         await preferences.setBool(_onboarding, true);
-                        navigateFish(context, TestPage());
+                        navigateFish(context,  LogInScreen());
                         // if (!mounted) return;
                       },
                       // onPressed: () => Navigator.push(

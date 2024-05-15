@@ -1,3 +1,4 @@
+import 'package:egy_travel/Screens/login_screen.dart';
 import 'package:egy_travel/Screens/pick_language.dart';
 import 'package:egy_travel/Screens/test_screen.dart';
 import 'package:egy_travel/Shared/const_functions.dart';
@@ -42,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
       navigateToHome();
     } else {
       Future.delayed(const Duration(seconds: 2), () {
-        navigateFish(context, const TestPage());
+        navigateFish(context, LogInScreen());
       });
       // navigateFish(context, const TestPage());
       // navigateToHome();
