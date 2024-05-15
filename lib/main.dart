@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:egy_travel/Screens/splash_screen.dart';
 // ignore: unused_import
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   // final prefs = await SharedPreferences.getInstance();

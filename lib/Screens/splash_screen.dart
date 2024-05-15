@@ -1,6 +1,5 @@
 import 'package:egy_travel/Screens/login_screen.dart';
 import 'package:egy_travel/Screens/pick_language.dart';
-import 'package:egy_travel/Screens/test_screen.dart';
 import 'package:egy_travel/Shared/const_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:egy_travel/constants/colors_manager.dart';
@@ -37,8 +36,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _checkIfUserSeenOnBoarding() async {
-    SharedPreferences _sharedPreferences = await _pref;
-    bool? hasSeenOnBoarding = _sharedPreferences.getBool(_onboarding);
+    SharedPreferences sharedPreferences = await _pref;
+    bool? hasSeenOnBoarding = sharedPreferences.getBool(_onboarding);
     if (hasSeenOnBoarding == null || hasSeenOnBoarding == false) {
       navigateToHome();
     } else {
@@ -60,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorsManager.primary,
+        backgroundColor: ColorsManager.primary.withOpacity(1),
         body: SafeArea(
           child: Center(
             child: Column(

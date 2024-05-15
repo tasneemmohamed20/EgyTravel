@@ -1,5 +1,4 @@
 import 'package:egy_travel/Screens/OnBoarding/onboarding_view.dart';
-import 'package:egy_travel/Screens/test_screen.dart';
 import 'package:egy_travel/Shared/shared_button.dart';
 import 'package:egy_travel/constants/app_assets.dart';
 import 'package:egy_travel/constants/colors_manager.dart';
@@ -22,7 +21,7 @@ class _PickLanguageState extends State<PickLanguage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsManager.primary,
+      backgroundColor: ColorsManager.primary.withOpacity(1),
       body: SafeArea(
         child: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -40,13 +39,13 @@ class _PickLanguageState extends State<PickLanguage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * (1 / 25),
             ),
-            Text('Select Your Language:',
-                style: TextStyle(color: ColorsManager.subTitle, fontSize: 22)),
+            const Text('Select Your Language:',
+                style: TextStyle(color: Colors.white70, fontSize: 22)),
             DropdownButton<String>(
               iconSize: MediaQuery.of(context).size.width * 0.1,
-              hint: Text(
+              hint: const Text(
                 'Pick Your Language',
-                style: TextStyle(color: ColorsManager.subTitle),
+                style: TextStyle(color: Colors.white70),
               ),
               value: selectedOption,
               onChanged: (String? newValue) {
@@ -88,11 +87,6 @@ class _PickLanguageState extends State<PickLanguage> {
                 SharedPreferences preferences = await _pref;
                 await preferences.setBool(_onboarding, true);
                 navigateFish(context, const OnBoardingView());
-                // Navigator.pushAndRemoveUntil(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => const OnBoardingView()),
-                //     (route) => false);
               },
               padding: const EdgeInsets.symmetric(
                 vertical: 8,
@@ -102,11 +96,11 @@ class _PickLanguageState extends State<PickLanguage> {
               text: 'Let\'s go',
               foregroundColor: Colors.grey.shade700,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
+            const Padding(
+              padding: EdgeInsets.only(top: 10),
               child: Text('You can change language any time in drawer.',
                   style: TextStyle(
-                      color: ColorsManager.subTitle,
+                      color: Colors.white70,
                       fontSize: 16,
                       fontWeight: FontWeight.w100)),
             ),
