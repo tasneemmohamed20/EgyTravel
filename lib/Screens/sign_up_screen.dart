@@ -48,7 +48,7 @@ class SignUPScreen extends StatelessWidget {
                                   child: Text(
                                     'Sign up and start your journey with EgyTravel.',
                                     style: TextStyle(
-                                        fontSize: 16,
+                                        fontSize: 22,
                                         fontWeight: FontWeight.w700,
                                         color: ColorsManager.secondPrimary
                                             .withOpacity(1)),
@@ -62,7 +62,7 @@ class SignUPScreen extends StatelessWidget {
                           CustomTextField(
                             borderColor: ColorsManager.secondPrimary,
                             controller: emailController,
-                            labelText: 'Email',
+                            labelText: 'Email Address',
                           ),
                           const SizedBox(height: 16.0),
                           CustomPasswordField(

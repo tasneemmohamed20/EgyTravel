@@ -53,4 +53,8 @@ class Assets {
   /// Assets for Lock
   /// assets/images/Lock.svg
   static const String lock = "assets/images/Lock.svg";
+
+  /// Assets for OTP
+  /// assets/images/OTP.svg
+  static const String otp = "assets/images/OTP.svg";
 }

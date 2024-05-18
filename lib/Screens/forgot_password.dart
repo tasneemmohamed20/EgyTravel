@@ -55,7 +55,7 @@ class ForgotPassword extends StatelessWidget {
                                     child: Text(
                                       'Forgot your password?',
                                       style: TextStyle(
-                                          fontSize: 16,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.w700,
                                           color: ColorsManager.secondPrimary
                                               .withOpacity(1)),
@@ -63,9 +63,10 @@ class ForgotPassword extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    'Enter your registered email below to receive \npassword reset code',
+                                    'Enter your registered Email below to receive \npassword reset code',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
+                                        fontSize: 16,
                                         color: ColorsManager.secondPrimary),
                                   ),
                                 )
@@ -74,7 +75,7 @@ class ForgotPassword extends StatelessWidget {
                         CustomTextField(
                           borderColor: ColorsManager.secondPrimary,
                           controller: emailController,
-                          labelText: 'Email',
+                          labelText: 'Email Address',
                         ),
                       ],
                     ),
