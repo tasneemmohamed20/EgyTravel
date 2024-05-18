@@ -1,4 +1,6 @@
+import 'package:egy_travel/Screens/forgot_password.dart';
 import 'package:egy_travel/Screens/sign_up_screen.dart';
+import 'package:egy_travel/Shared/shared_appbar.dart';
 import 'package:egy_travel/Shared/shared_button.dart';
 import 'package:egy_travel/Shared/shared_text_field.dart';
 import 'package:egy_travel/constants/app_assets.dart';
@@ -16,16 +18,9 @@ class LogInScreen extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: ColorsManager.primary.withOpacity(1),
-        appBar: AppBar(
-          title: Text(
-            "Login",
-            style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
-                color: ColorsManager.primary.withOpacity(1)),
-          ),
-          centerTitle: true,
-          backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
+        appBar: const CustomAppBar(
+          title: 'Login',
+          enableBack: false,
         ),
         body: Builder(builder: (context) {
           return Stack(
@@ -88,15 +83,18 @@ class LogInScreen extends StatelessWidget {
                   ),
                   Center(
                     child: TextButton(
-                      child: Text(
-                        'Forget password?',
-                        style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            color: ColorsManager.secondPrimary,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      onPressed: () {},
-                    ),
+                        child: Text(
+                          'Forgot password?',
+                          style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              color: ColorsManager.secondPrimary,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ForgotPassword()),
+                            )),
                   ),
                   Padding(
                     padding: EdgeInsets.only(
@@ -126,13 +124,10 @@ class LogInScreen extends StatelessWidget {
                             color: ColorsManager.secondPrimary,
                             fontWeight: FontWeight.w500),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUPScreen()),
-                        );
-                      },
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUPScreen()),
+                      ),
                     ),
                   ])
                 ],

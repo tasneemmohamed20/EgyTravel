@@ -1,9 +1,9 @@
+import 'package:egy_travel/Shared/shared_appbar.dart';
 import 'package:egy_travel/Shared/shared_button.dart';
 import 'package:egy_travel/Shared/shared_text_field.dart';
 import 'package:egy_travel/constants/app_assets.dart';
 import 'package:egy_travel/constants/colors_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 // ignore: must_be_immutable
 class SignUPScreen extends StatelessWidget {
@@ -17,30 +17,10 @@ class SignUPScreen extends StatelessWidget {
         child: Scaffold(
             resizeToAvoidBottomInset: false,
             backgroundColor: ColorsManager.primary.withOpacity(1),
-            appBar: AppBar(
-              leading: GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: SvgPicture.asset(
-                    Assets.backicon,
-                    height: 16,
-                    width: 16,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-              title: Text(
-                "Regestration",
-                style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                    color: ColorsManager.primary.withOpacity(1)),
-              ),
-              centerTitle: true,
-              backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
+            appBar: CustomAppBar(
+              enableBack: false,
+              title: 'Regestration',
+              leading: backButton(context),
             ),
             body: Stack(
               children: [

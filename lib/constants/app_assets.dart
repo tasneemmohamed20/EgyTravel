@@ -49,4 +49,8 @@ class Assets {
   /// Assets for backicon
   /// assets/images/back_icon.svg
   static const String backicon = "assets/images/back_icon.svg";
+
+  /// Assets for Lock
+  /// assets/images/Lock.svg
+  static const String lock = "assets/images/Lock.svg";
 }
