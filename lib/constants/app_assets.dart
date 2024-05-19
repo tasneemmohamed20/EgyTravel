@@ -57,4 +57,8 @@ class Assets {
   /// Assets for OTP
   /// assets/images/OTP.svg
   static const String otp = "assets/images/OTP.svg";
+
+  /// Assets for Profile
+  /// assets/images/profile.jpeg
+  static const String profile = "assets/images/profile.jpeg";
 }

@@ -1,6 +1,6 @@
 import 'package:egy_travel/Screens/login_screen.dart';
 import 'package:egy_travel/Screens/pick_language.dart';
-import 'package:egy_travel/Shared/const_functions.dart';
+import 'package:egy_travel/Widgets/const_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:egy_travel/constants/colors_manager.dart';
 import 'package:egy_travel/constants/app_assets.dart';

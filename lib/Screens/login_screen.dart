@@ -1,8 +1,11 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:egy_travel/Screens/forgot_password.dart';
+import 'package:egy_travel/Screens/home_screen.dart';
 import 'package:egy_travel/Screens/sign_up_screen.dart';
-import 'package:egy_travel/Shared/shared_appbar.dart';
-import 'package:egy_travel/Shared/shared_button.dart';
-import 'package:egy_travel/Shared/shared_text_field.dart';
+import 'package:egy_travel/Widgets/shared_appbar.dart';
+import 'package:egy_travel/Widgets/shared_button.dart';
+import 'package:egy_travel/Widgets/shared_text_field.dart';
 import 'package:egy_travel/constants/app_assets.dart';
 import 'package:egy_travel/constants/colors_manager.dart';
 import 'package:flutter/material.dart';
@@ -74,6 +77,10 @@ class LogInScreen extends StatelessWidget {
                     onPressed: () {
                       String email = emailController.text;
                       String password = passwordController.text;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Home()),
+                      );
                     },
                     padding: EdgeInsets.symmetric(
                         vertical: 16,

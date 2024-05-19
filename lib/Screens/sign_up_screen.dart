@@ -1,6 +1,8 @@
-import 'package:egy_travel/Shared/shared_appbar.dart';
-import 'package:egy_travel/Shared/shared_button.dart';
-import 'package:egy_travel/Shared/shared_text_field.dart';
+// ignore_for_file: unused_local_variable
+
+import 'package:egy_travel/Widgets/shared_appbar.dart';
+import 'package:egy_travel/Widgets/shared_button.dart';
+import 'package:egy_travel/Widgets/shared_text_field.dart';
 import 'package:egy_travel/constants/app_assets.dart';
 import 'package:egy_travel/constants/colors_manager.dart';
 import 'package:flutter/material.dart';
