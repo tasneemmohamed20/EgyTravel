@@ -1,3 +1,4 @@
+import 'package:egy_travel/Data/dummy_data.dart';
 import 'package:egy_travel/constants/colors_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +7,7 @@ class MainDrawer extends StatelessWidget {
     super.key,
   });
 
-  Widget customListTile({
+  Widget customDrawerTile({
     required IconData leadingIcon,
     required String title,
     required VoidCallback onTap,
@@ -62,29 +63,26 @@ class MainDrawer extends StatelessWidget {
                 ),
               ),
             ),
-            customListTile(
-                title: 'Profile',
-                leadingIcon: Icons.person_2_rounded,
-                onTap: () {}),
-            customListTile(
-                title: 'Favorites',
-                leadingIcon: Icons.favorite_rounded,
-                onTap: () {}),
-            customListTile(
-                title: 'My Trips',
-                leadingIcon: Icons.map_rounded,
-                onTap: () {}),
-            customListTile(
-                title: 'App Language',
-                leadingIcon: Icons.language,
-                onTap: () {}),
-            customListTile(
-                title: 'Settings', leadingIcon: Icons.settings, onTap: () {}),
-            const Spacer(),
-            customListTile(
-                title: 'Logout',
-                leadingIcon: Icons.logout_rounded,
-                onTap: () {}),
+            Expanded(
+              child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  itemCount: drawerItems.length - 1,
+                  itemBuilder: (context, index) {
+                    final tiles = drawerItems[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 4, bottom: 6),
+                      child: customDrawerTile(
+                          leadingIcon: tiles['leadingIcon'],
+                          title: tiles['title'],
+                          onTap: tiles['onTap']),
+                    );
+                  }),
+            ),
+            customDrawerTile(
+                leadingIcon: drawerItems.last['leadingIcon'],
+                title: drawerItems.last['title'],
+                onTap: drawerItems.last['onTap'])
           ],
         ));
   }
