@@ -43,7 +43,6 @@ dependencies:
   lorem_ipsum: ^0.0.3
   flutter_expandable_fab: ^2.0.0
   dot_navigation_bar: ^1.0.2
-  flashy_tab_bar2: ^0.0.10
 
 dev_dependencies:
   flutter_test:
