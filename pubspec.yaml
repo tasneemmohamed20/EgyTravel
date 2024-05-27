@@ -40,6 +40,9 @@ dependencies:
   shared_preferences: ^2.2.3
   flutter_svg: ^2.0.10+1
   pinput: ^4.0.0
+  lorem_ipsum: ^0.0.3
+  flutter_expandable_fab: ^2.0.0
+  dot_navigation_bar: ^1.0.2
 
 dev_dependencies:
   flutter_test:

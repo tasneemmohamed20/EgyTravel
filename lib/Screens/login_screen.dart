@@ -79,7 +79,7 @@ class LogInScreen extends StatelessWidget {
                       String password = passwordController.text;
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Home()),
+                        MaterialPageRoute(builder: (context) => const Home()),
                       );
                     },
                     padding: EdgeInsets.symmetric(
