@@ -47,7 +47,7 @@ class CustomGridCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(6.0),
+              padding: const EdgeInsets.all(4.0),
               child: Text(
                 title,
                 maxLines: 2,
@@ -55,8 +55,9 @@ class CustomGridCard extends StatelessWidget {
                 style: TextStyle(
                   color: titleColor,
                   fontWeight: FontWeight.bold,
-                  fontSize: 16,
+                  fontSize: 15,
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
             Padding(
@@ -66,7 +67,7 @@ class CustomGridCard extends StatelessWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 11,
                   color: subtitleColor,
                 ),
               ),

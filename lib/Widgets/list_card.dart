@@ -61,11 +61,11 @@ class CustomListCard extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 16),
                       child: Text(
                         subtitle,
-                        maxLines: 3,
+                        maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: subtitleColor,
-                          fontSize: 16,
+                          fontSize: 14,
                         ),
                       ),
                     ),
