@@ -193,6 +193,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  dot_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: dot_navigation_bar
+      sha256: "753e1d91644e39beddd0a4ed7e366f37a95e38cafb601c3b7496120ae0532f63"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   fake_async:
     dependency: transitive
     description:
@@ -230,6 +238,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_expandable_fab:
+    dependency: "direct main"
+    description:
+      name: flutter_expandable_fab
+      sha256: "2aa5735bebcdbc49f43bcb32a29f9f03a9b7029212b8cd9837ae332ab2edf647"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   flutter_gen_core:
     dependency: transitive
     description:
@@ -397,6 +413,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  lorem_ipsum:
+    dependency: "direct main"
+    description:
+      name: lorem_ipsum
+      sha256: b018535db8525a45bbcd7a44e151480e2618e2111c5305725e3713ce7c6ba677
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   matcher:
     dependency: transitive
     description:
