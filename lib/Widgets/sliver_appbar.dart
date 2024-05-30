@@ -50,6 +50,7 @@ class CustomSliverAppBar extends StatelessWidget {
           color: ColorsManager.primary.withOpacity(1),
         ),
         onPressed: onLeadingPressed,
+        
       ),
     );
   }

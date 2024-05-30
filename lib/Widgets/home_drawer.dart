@@ -1,4 +1,6 @@
-import 'package:egy_travel/Data/dummy_data.dart';
+import 'package:egy_travel/Screens/Settings/settings_screen.dart';
+import 'package:egy_travel/Screens/test_screen.dart';
+import 'package:egy_travel/Widgets/shared_list_tile.dart';
 import 'package:egy_travel/constants/colors_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -6,27 +8,6 @@ class MainDrawer extends StatelessWidget {
   const MainDrawer({
     super.key,
   });
-
-  Widget customDrawerTile({
-    required IconData leadingIcon,
-    required String title,
-    required VoidCallback onTap,
-  }) {
-    return ListTile(
-        leading: Icon(
-          leadingIcon,
-          size: 30,
-          color: ColorsManager.primary.withOpacity(1),
-        ),
-        title: Text(
-          title,
-          style: TextStyle(
-            color: ColorsManager.primary.withOpacity(1),
-            fontSize: 24,
-          ),
-        ),
-        onTap: onTap);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,26 +44,67 @@ class MainDrawer extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
-              child: ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  scrollDirection: Axis.vertical,
-                  itemCount: drawerItems.length - 1,
-                  itemBuilder: (context, index) {
-                    final tiles = drawerItems[index];
-                    return Padding(
-                      padding: const EdgeInsets.only(top: 4, bottom: 6),
-                      child: customDrawerTile(
-                          leadingIcon: tiles['leadingIcon'],
-                          title: tiles['title'],
-                          onTap: tiles['onTap']),
-                    );
-                  }),
-            ),
-            customDrawerTile(
-                leadingIcon: drawerItems.last['leadingIcon'],
-                title: drawerItems.last['title'],
-                onTap: drawerItems.last['onTap'])
+            CustomListTile(
+                leadingIcon: Icons.person_2_rounded,
+                title: 'Profile',
+                elementsColor: ColorsManager.primary.withOpacity(1),
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TestPage(),
+                      ),
+                    )),
+            CustomListTile(
+                leadingIcon: Icons.favorite_rounded,
+                title: 'Favorites',
+                elementsColor: ColorsManager.primary.withOpacity(1),
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TestPage(),
+                      ),
+                    )),
+            CustomListTile(
+                leadingIcon: Icons.map_rounded,
+                title: 'Plans',
+                elementsColor: ColorsManager.primary.withOpacity(1),
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TestPage(),
+                      ),
+                    )),
+            CustomListTile(
+                leadingIcon: Icons.language,
+                title: 'App Language',
+                elementsColor: ColorsManager.primary.withOpacity(1),
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TestPage(),
+                      ),
+                    )),
+            CustomListTile(
+                leadingIcon: Icons.settings,
+                title: 'Settings',
+                elementsColor: ColorsManager.primary.withOpacity(1),
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SettingsScreen(),
+                      ),
+                    )),
+            const Spacer(),
+            CustomListTile(
+                leadingIcon: Icons.logout_rounded,
+                title: 'Logout',
+                elementsColor: ColorsManager.primary.withOpacity(1),
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TestPage(),
+                      ),
+                    ))
           ],
         ));
   }

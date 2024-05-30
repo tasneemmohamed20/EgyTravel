@@ -1,4 +1,3 @@
-import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:egy_travel/Data/dummy_data.dart';
 import 'package:egy_travel/Screens/details_screen.dart';
 import 'package:egy_travel/Widgets/grid_card.dart';
@@ -20,12 +19,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final _searchController = TextEditingController();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   var _selectedTab = _SelectedTab.home;
 
-  void _handleIndexChanged(int i) {
+  void _handleIndexChanged(int index) {
     setState(() {
-      _selectedTab = _SelectedTab.values[i];
+      _selectedTab = _SelectedTab.values[index];
     });
   }
 
@@ -36,6 +36,7 @@ class _HomeState extends State<Home> {
 
     return SafeArea(
       child: Scaffold(
+        key: _scaffoldKey,
         extendBody: true,
         resizeToAvoidBottomInset: false,
         backgroundColor: ColorsManager.primary.withOpacity(1),
@@ -47,7 +48,7 @@ class _HomeState extends State<Home> {
               leadingIcon: Icons.menu,
               expandedHeight: 64.0,
               onLeadingPressed: () {
-                Scaffold.of(context).openDrawer();
+                _scaffoldKey.currentState?.openDrawer();
               },
             ),
             SliverToBoxAdapter(
@@ -230,38 +231,26 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
-        bottomNavigationBar: SizedBox(
-          height: 135,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 10.0),
-            child: DotNavigationBar(
-              // enableFloatingNavBar: false,
-              currentIndex: _SelectedTab.values.indexOf(_selectedTab),
-              onTap: _handleIndexChanged,
-              dotIndicatorColor: Colors.black,
-              splashBorderRadius: 50,
-              margin: EdgeInsets.zero,
-              items: [
-                /// Home
-                DotNavigationBarItem(
-                  icon: const Icon(Icons.home),
-                  selectedColor: Colors.purple,
-                ),
-
-                /// trips
-                DotNavigationBarItem(
-                  icon: const Icon(Icons.favorite_border),
-                  selectedColor: Colors.pink,
-                ),
-
-                /// events
-                DotNavigationBarItem(
-                  icon: const Icon(Icons.search),
-                  selectedColor: Colors.orange,
-                ),
-              ],
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _SelectedTab.values.indexOf(_selectedTab),
+          onTap: _handleIndexChanged,
+          backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
+          fixedColor: ColorsManager.primary.withOpacity(1),
+          unselectedItemColor: ColorsManager.white,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.map_outlined),
+              label: 'Trips',
             ),
-          ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.event_rounded),
+              label: 'Events',
+            ),
+          ],
         ),
       ),
     );
