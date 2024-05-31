@@ -1,5 +1,5 @@
-import 'package:egy_travel/constants/app_assets.dart';
-import 'package:egy_travel/constants/colors_manager.dart';
+import 'package:egy_travel/res/app_assets.dart';
+import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/Data/dummy_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';

@@ -1,8 +1,8 @@
-import 'package:egy_travel/Screens/OnBoarding/onboarding_items.dart';
-import 'package:egy_travel/Screens/login_screen.dart';
-import 'package:egy_travel/Widgets/const_functions.dart';
-import 'package:egy_travel/Widgets/shared_button.dart';
-import 'package:egy_travel/constants/colors_manager.dart';
+import 'package:egy_travel/view/Screens/OnBoarding/onboarding_items.dart';
+import 'package:egy_travel/view/Screens/login_screen.dart';
+import 'package:egy_travel/view/Widgets/const_functions.dart';
+import 'package:egy_travel/view/Widgets/shared_button.dart';
+import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

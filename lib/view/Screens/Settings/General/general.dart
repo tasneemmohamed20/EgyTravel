@@ -1,7 +1,7 @@
-import 'package:egy_travel/Widgets/shared_appbar.dart';
-import 'package:egy_travel/Widgets/shared_button.dart';
-import 'package:egy_travel/Widgets/shared_text_field.dart';
-import 'package:egy_travel/constants/colors_manager.dart';
+import 'package:egy_travel/view/Widgets/shared_appbar.dart';
+import 'package:egy_travel/view/Widgets/shared_button.dart';
+import 'package:egy_travel/view/Widgets/shared_text_field.dart';
+import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
 
 class GeneralSettingse extends StatelessWidget {

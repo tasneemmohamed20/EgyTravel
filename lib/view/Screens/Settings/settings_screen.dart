@@ -1,8 +1,9 @@
-import 'package:egy_travel/Screens/Settings/general.dart';
-import 'package:egy_travel/Screens/Settings/privacy.dart';
-import 'package:egy_travel/Widgets/shared_appbar.dart';
-import 'package:egy_travel/Widgets/shared_list_tile.dart';
-import 'package:egy_travel/constants/colors_manager.dart';
+import 'package:egy_travel/view/Screens/Settings/General/general.dart';
+import 'package:egy_travel/view/Screens/Settings/Privacy/privacy.dart';
+import 'package:egy_travel/view/Screens/test_screen.dart';
+import 'package:egy_travel/view/Widgets/shared_appbar.dart';
+import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
+import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -91,6 +92,16 @@ class SettingsScreen extends StatelessWidget {
                             builder: (context) => const Privacy()),
                       ),
                   leadingIcon: Icons.shield_rounded),
+              CustomListTile(
+                  title: 'App Language',
+                  hint: 'Select Your Language',
+                  elementsColor: ColorsManager.secondPrimary.withOpacity(1),
+                  onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TestPage()),
+                      ),
+                  leadingIcon: Icons.language)
             ],
           ),
         ),

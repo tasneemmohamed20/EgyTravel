@@ -1,4 +1,4 @@
-import 'package:egy_travel/constants/colors_manager.dart';
+import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {

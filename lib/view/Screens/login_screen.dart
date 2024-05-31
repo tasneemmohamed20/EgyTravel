@@ -1,13 +1,11 @@
-// ignore_for_file: unused_local_variable
-
-import 'package:egy_travel/Screens/forgot_password.dart';
-import 'package:egy_travel/Screens/home_screen.dart';
-import 'package:egy_travel/Screens/sign_up_screen.dart';
-import 'package:egy_travel/Widgets/shared_appbar.dart';
-import 'package:egy_travel/Widgets/shared_button.dart';
-import 'package:egy_travel/Widgets/shared_text_field.dart';
-import 'package:egy_travel/constants/app_assets.dart';
-import 'package:egy_travel/constants/colors_manager.dart';
+import 'package:egy_travel/view/Screens/forgot_password.dart';
+import 'package:egy_travel/view/Screens/home_screen.dart';
+import 'package:egy_travel/view/Screens/sign_up_screen.dart';
+import 'package:egy_travel/view/Widgets/shared_appbar.dart';
+import 'package:egy_travel/view/Widgets/shared_button.dart';
+import 'package:egy_travel/view/Widgets/shared_text_field.dart';
+import 'package:egy_travel/res/app_assets.dart';
+import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -62,20 +60,20 @@ class LogInScreen extends StatelessWidget {
                           controller: emailController,
                           labelText: 'Email Address',
                         ),
-                        const SizedBox(height: 16.0),
                         CustomPasswordField(
                           borderColor: ColorsManager.secondPrimary,
                           controller: passwordController,
                           labelText: 'Password',
                           validator: validatePassword,
                         ),
-                        const SizedBox(height: 16.0),
                       ],
                     ),
                   ),
                   CustomButton(
                     onPressed: () {
+                      // ignore: unused_local_variable
                       String email = emailController.text;
+                      // ignore: unused_local_variable
                       String password = passwordController.text;
                       Navigator.push(
                         context,

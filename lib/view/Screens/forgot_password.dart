@@ -1,11 +1,11 @@
 // ignore_for_file: unused_local_variable
 
-import 'package:egy_travel/Screens/verfication_code_screen.dart';
-import 'package:egy_travel/Widgets/shared_appbar.dart';
-import 'package:egy_travel/Widgets/shared_button.dart';
-import 'package:egy_travel/Widgets/shared_text_field.dart';
-import 'package:egy_travel/constants/app_assets.dart';
-import 'package:egy_travel/constants/colors_manager.dart';
+import 'package:egy_travel/view/Screens/verfication_code_screen.dart';
+import 'package:egy_travel/view/Widgets/shared_appbar.dart';
+import 'package:egy_travel/view/Widgets/shared_button.dart';
+import 'package:egy_travel/view/Widgets/shared_text_field.dart';
+import 'package:egy_travel/res/app_assets.dart';
+import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

@@ -1,5 +1,5 @@
-import 'package:egy_travel/Screens/OnBoarding/onboarding_info.dart';
-import 'package:egy_travel/constants/app_assets.dart';
+import 'package:egy_travel/view/Screens/OnBoarding/onboarding_info.dart';
+import 'package:egy_travel/res/app_assets.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingItems {

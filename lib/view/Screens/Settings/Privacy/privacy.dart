@@ -1,7 +1,8 @@
-import 'package:egy_travel/Screens/test_screen.dart';
-import 'package:egy_travel/Widgets/shared_appbar.dart';
-import 'package:egy_travel/Widgets/shared_list_tile.dart';
-import 'package:egy_travel/constants/colors_manager.dart';
+import 'package:egy_travel/view/Screens/Settings/Privacy/change_password.dart';
+import 'package:egy_travel/view/Screens/Settings/Privacy/delete_account.dart';
+import 'package:egy_travel/view/Widgets/shared_appbar.dart';
+import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
+import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
 
 class Privacy extends StatelessWidget {
@@ -32,11 +33,12 @@ class Privacy extends StatelessWidget {
               ),
             ),
             CustomListTile(
-                title: 'Change Password',
+                title: 'Reset Password',
                 elementsColor: ColorsManager.secondPrimary.withOpacity(1),
                 onTap: () => Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const TestPage()),
+                      MaterialPageRoute(
+                          builder: (context) => ChangePasswordScreen()),
                     ),
                 leadingIcon: Icons.password_rounded),
             Padding(
@@ -48,7 +50,11 @@ class Privacy extends StatelessWidget {
             CustomListTile(
                 title: 'Delete Account',
                 elementsColor: ColorsManager.secondPrimary.withOpacity(1),
-                onTap: () {},
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DeleteAccount()),
+                    ),
                 leadingIcon: Icons.delete_outline),
           ],
         ),

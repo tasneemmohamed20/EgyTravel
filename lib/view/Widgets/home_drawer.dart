@@ -1,7 +1,7 @@
-import 'package:egy_travel/Screens/Settings/settings_screen.dart';
-import 'package:egy_travel/Screens/test_screen.dart';
-import 'package:egy_travel/Widgets/shared_list_tile.dart';
-import 'package:egy_travel/constants/colors_manager.dart';
+import 'package:egy_travel/view/Screens/Settings/settings_screen.dart';
+import 'package:egy_travel/view/Screens/test_screen.dart';
+import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
+import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -55,28 +55,18 @@ class MainDrawer extends StatelessWidget {
                       ),
                     )),
             CustomListTile(
+                leadingIcon: Icons.map_rounded,
+                title: 'My Trips',
+                elementsColor: ColorsManager.primary.withOpacity(1),
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TestPage(),
+                      ),
+                    )),
+            CustomListTile(
                 leadingIcon: Icons.favorite_rounded,
                 title: 'Favorites',
-                elementsColor: ColorsManager.primary.withOpacity(1),
-                onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const TestPage(),
-                      ),
-                    )),
-            CustomListTile(
-                leadingIcon: Icons.map_rounded,
-                title: 'Plans',
-                elementsColor: ColorsManager.primary.withOpacity(1),
-                onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const TestPage(),
-                      ),
-                    )),
-            CustomListTile(
-                leadingIcon: Icons.language,
-                title: 'App Language',
                 elementsColor: ColorsManager.primary.withOpacity(1),
                 onTap: () => Navigator.push(
                       context,
@@ -92,6 +82,16 @@ class MainDrawer extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => const SettingsScreen(),
+                      ),
+                    )),
+            CustomListTile(
+                leadingIcon: Icons.contact_support_rounded,
+                title: 'Contact Us',
+                elementsColor: ColorsManager.primary.withOpacity(1),
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TestPage(),
                       ),
                     )),
             const Spacer(),
