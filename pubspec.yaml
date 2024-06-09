@@ -46,6 +46,13 @@ dependencies:
   flashy_tab_bar2: ^0.0.10
   bloc: ^8.1.4
   meta: ^1.11.0
+  flutter_gemini: ^2.0.4
+  http: ^1.2.1
+  flutter_bloc: ^8.1.5
+  google_generative_ai: ^0.4.3
+  equatable: ^2.0.5
+  image_picker: ^1.1.2
+  dash_chat_2: ^0.0.20
 
 dev_dependencies:
   flutter_test:

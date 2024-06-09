@@ -2,13 +2,13 @@ import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class Dropdown extends StatefulWidget {
+class CustomDropdown extends StatefulWidget {
   String? selectedOption;
   final String? hint;
   final List<String> items;
   final List<String> language = ['Arabic', 'English'];
 
-  Dropdown({
+  CustomDropdown({
     super.key,
     this.selectedOption,
     required this.items,
@@ -16,10 +16,10 @@ class Dropdown extends StatefulWidget {
   });
 
   @override
-  DropdownState createState() => DropdownState();
+  CustomDropdownState createState() => CustomDropdownState();
 }
 
-class DropdownState extends State<Dropdown> {
+class CustomDropdownState extends State<CustomDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(

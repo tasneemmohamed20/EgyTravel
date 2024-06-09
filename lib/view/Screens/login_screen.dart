@@ -48,7 +48,7 @@ class LogInScreen extends StatelessWidget {
                             child: Align(
                                 alignment: Alignment.topLeft,
                                 child: Text(
-                                  'Login and start your journey with EgyTravel.',
+                                  'Start your journey with EgyTravel.',
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w700,

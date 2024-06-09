@@ -1,16 +1,16 @@
 import 'package:egy_travel/res/colors_manager.dart';
-import 'package:egy_travel/view/Screens/details_screen.dart';
+import 'package:egy_travel/view/Screens/places_details_screen.dart';
 import 'package:egy_travel/view/Widgets/list_card.dart';
 import 'package:flutter/material.dart';
 
 class ViewAllW extends StatelessWidget {
   const ViewAllW({
     super.key,
-    required this.screenTitle,
+    this.screenTitle,
     required this.items,
   });
 
-  final String screenTitle;
+  final String? screenTitle;
   final List<Map<String, dynamic>> items;
 
   @override
@@ -31,7 +31,12 @@ class ViewAllW extends StatelessWidget {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const DetailsScreen(),
+                  builder: (context) => PlacesDetailsScreen(
+                    description: items[index]['description'],
+                    image: items[index]['image'],
+                    subtitle: items[index]['subtitle'],
+                    title: items[index]['title'],
+                  ),
                 ),
               ),
               child: CustomListCard(

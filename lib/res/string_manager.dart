@@ -35,4 +35,6 @@ class AppStrings {
   static const endPointGetFavorite = 'favorite';
 
   static const endPointUserTips = 'usertips';
+  
+  static const geminiApiKey = 'AIzaSyDcGWFM0GBKHl-VZML7ihIJyYCUeEIsxGo';
 }

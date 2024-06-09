@@ -1,5 +1,6 @@
 // ignore_for_file: unused_local_variable
 
+import 'package:egy_travel/view/Screens/home_screen.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_button.dart';
 import 'package:egy_travel/view/Widgets/shared_text_field.dart';
@@ -13,7 +14,8 @@ class SignUPScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
-  
+  final TextEditingController addressController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -49,7 +51,7 @@ class SignUPScreen extends StatelessWidget {
                               child: Align(
                                   alignment: Alignment.topLeft,
                                   child: Text(
-                                    'Sign up and start your journey with EgyTravel.',
+                                    'Start your journey with EgyTravel.',
                                     style: TextStyle(
                                         fontSize: 22,
                                         fontWeight: FontWeight.w700,
@@ -67,6 +69,11 @@ class SignUPScreen extends StatelessWidget {
                             controller: emailController,
                             labelText: 'Email Address',
                           ),
+                          CustomTextField(
+                            borderColor: ColorsManager.secondPrimary,
+                            controller: addressController,
+                            labelText: 'Your Address',
+                          ),
                           const SizedBox(height: 16.0),
                           CustomPasswordField(
                             borderColor: ColorsManager.secondPrimary,
@@ -83,6 +90,10 @@ class SignUPScreen extends StatelessWidget {
                         String email = emailController.text;
                         String password = passwordController.text;
                         String name = nameController.text;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Home()),
+                        );
                       },
                       padding: EdgeInsets.symmetric(
                           vertical: 16,

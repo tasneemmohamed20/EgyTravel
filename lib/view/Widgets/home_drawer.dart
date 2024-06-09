@@ -1,7 +1,10 @@
 import 'package:egy_travel/view/Screens/Settings/settings_screen.dart';
+import 'package:egy_travel/view/Screens/chatbot.dart';
+import 'package:egy_travel/view/Screens/mytrips_screen.dart';
 import 'package:egy_travel/view/Screens/test_screen.dart';
 import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
 import 'package:egy_travel/res/colors_manager.dart';
+import 'package:egy_travel/view/Widgets/tab_bar.dart';
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -61,7 +64,9 @@ class MainDrawer extends StatelessWidget {
                 onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const TestPage(),
+                        builder: (context) => const TripsScreen(
+                          screenTilte: 'My Trips',
+                        ),
                       ),
                     )),
             CustomListTile(
@@ -71,7 +76,7 @@ class MainDrawer extends StatelessWidget {
                 onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const TestPage(),
+                        builder: (context) => const Tabs(),
                       ),
                     )),
             CustomListTile(
@@ -91,7 +96,7 @@ class MainDrawer extends StatelessWidget {
                 onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const TestPage(),
+                        builder: (context) => const ChatbotScreen(),
                       ),
                     )),
             const Spacer(),

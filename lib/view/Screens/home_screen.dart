@@ -1,5 +1,6 @@
 import 'package:egy_travel/Data/dummy_data.dart';
-import 'package:egy_travel/view/Screens/details_screen.dart';
+import 'package:egy_travel/view/Screens/articles_details.dart';
+import 'package:egy_travel/view/Screens/places_details_screen.dart';
 import 'package:egy_travel/view/Screens/view_all.dart';
 import 'package:egy_travel/view/Widgets/bottom_navbar.dart';
 import 'package:egy_travel/view/Widgets/grid_card.dart';
@@ -13,7 +14,9 @@ import 'package:flutter/material.dart';
 // enum _SelectedTab { home, plans, events }
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({
+    super.key,
+  });
 
   @override
   State<Home> createState() => _HomeState();
@@ -83,8 +86,13 @@ class _HomeState extends State<Home> {
                                 onTap: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          const DetailsScreen()),
+                                      builder: (context) => PlacesDetailsScreen(
+                                            image: items[index]['image'],
+                                            subtitle: items[index]['subtitle'],
+                                            title: items[index]['title'],
+                                            description: items[index]
+                                                ['description'],
+                                          )),
                                 ),
                                 child: CustomListCard(
                                   image: item['image'],
@@ -156,15 +164,28 @@ class _HomeState extends State<Home> {
                         itemCount: items.length > 4 ? 4 : items.length,
                         itemBuilder: (context, index) {
                           final item = items[index];
-                          return CustomGridCard(
-                            image: item['image'],
-                            title: item['title'],
-                            subtitle: item['subtitle'],
-                            imageWidth: mQwidth * 0.4,
-                            cardColor:
-                                ColorsManager.secondPrimary.withOpacity(1),
-                            titleColor: ColorsManager.primary.withOpacity(1),
-                            subtitleColor: ColorsManager.subTitle,
+                          return GestureDetector(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PlacesDetailsScreen(
+                                        image: items[index]['image'],
+                                        subtitle: items[index]['subtitle'],
+                                        title: items[index]['title'],
+                                        description: items[index]
+                                            ['description'],
+                                      )),
+                            ),
+                            child: CustomGridCard(
+                              image: item['image'],
+                              title: item['title'],
+                              subtitle: item['subtitle'],
+                              imageWidth: mQwidth * 0.4,
+                              cardColor:
+                                  ColorsManager.secondPrimary.withOpacity(1),
+                              titleColor: ColorsManager.primary.withOpacity(1),
+                              subtitleColor: ColorsManager.subTitle,
+                            ),
                           );
                         },
                       ),
@@ -222,15 +243,28 @@ class _HomeState extends State<Home> {
                         itemCount: items.length > 4 ? 4 : items.length,
                         itemBuilder: (context, index) {
                           final item = items[index];
-                          return CustomGridCard(
-                            image: item['image'],
-                            title: item['title'],
-                            subtitle: item['subtitle'],
-                            imageWidth: mQwidth * 0.4,
-                            cardColor:
-                                ColorsManager.secondPrimary.withOpacity(1),
-                            titleColor: ColorsManager.primary.withOpacity(1),
-                            subtitleColor: ColorsManager.subTitle,
+                          return GestureDetector(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ArticlesDetailsScreen(
+                                        description: items[index]
+                                            ['description'],
+                                        image: items[index]['image'],
+                                        subtitle: items[index]['subtitle'],
+                                        title: items[index]['title'],
+                                      )),
+                            ),
+                            child: CustomGridCard(
+                              image: item['image'],
+                              title: item['title'],
+                              subtitle: item['subtitle'],
+                              imageWidth: mQwidth * 0.4,
+                              cardColor:
+                                  ColorsManager.secondPrimary.withOpacity(1),
+                              titleColor: ColorsManager.primary.withOpacity(1),
+                              subtitleColor: ColorsManager.subTitle,
+                            ),
                           );
                         },
                       ),
@@ -240,7 +274,7 @@ class _HomeState extends State<Home> {
               ),
             ],
           ),
-          bottomNavigationBar: CustomBottomNavigationBar()),
+          bottomNavigationBar: const CustomBottomNavigationBar()),
     );
   }
 }

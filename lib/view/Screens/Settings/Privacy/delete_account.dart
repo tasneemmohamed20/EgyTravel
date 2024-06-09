@@ -74,7 +74,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
             padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Dropdown(items: reasons),
+              child: CustomDropdown(items: reasons),
             ),
           ),
           Padding(
