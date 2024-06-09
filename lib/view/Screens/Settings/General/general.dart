@@ -81,7 +81,8 @@ class GeneralSettingse extends StatelessWidget {
               ),
               CustomButton(
                   onPressed: () {},
-                  padding: const EdgeInsets.symmetric(horizontal: 128, vertical: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 128, vertical: 16),
                   backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
                   text: 'Save')
             ],

@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:dash_chat_2/dash_chat_2.dart';
+import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
@@ -19,16 +19,19 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
 
   List<ChatMessage> messages = [];
 
-  ChatUser currentUser = ChatUser(id: "0", firstName: "User");
+  ChatUser currentUser = ChatUser(
+    id: "0",
+    firstName: "User",
+  );
   ChatUser geminiUser = ChatUser(
     id: "1",
     firstName: "SNOUHI",
-    profileImage:
-        "https://seeklogo.com/images/G/google-gemini-logo-A5787B2669-seeklogo.com.png",
+    profileImage: "assets/images/chatbot.jpg",
   );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsManager.primary.withOpacity(1),
       appBar: CustomAppBar(
         title: "SNOUHI",
         enableBack: false,
@@ -40,14 +43,35 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
 
   Widget _buildUI() {
     return DashChat(
-      inputOptions: InputOptions(trailing: [
-        IconButton(
-          onPressed: _sendMediaMessage,
-          icon: const Icon(
-            Icons.image,
-          ),
-        )
-      ]),
+      messageOptions: MessageOptions(
+        currentUserContainerColor: ColorsManager.secondPrimary.withOpacity(1),
+        currentUserTextColor: Colors.white70,
+        containerColor: ColorsManager.secondPrimary.withOpacity(1),
+        textColor: Colors.white70,
+      ),
+      inputOptions: InputOptions(
+          inputToolbarPadding: const EdgeInsets.symmetric(horizontal: 16),
+          trailing: [
+            IconButton(
+              onPressed: _sendMediaMessage,
+              icon: Icon(
+                Icons.image_rounded,
+                color: ColorsManager.secondPrimary.withOpacity(1),
+              ),
+            )
+          ],
+          sendOnEnter: true,
+          sendButtonBuilder: (Function onSend) {
+            return IconButton(
+              onPressed: () {
+                onSend();
+              },
+              icon: Icon(
+                Icons.send_rounded,
+                color: ColorsManager.secondPrimary.withOpacity(1),
+              ),
+            );
+          }),
       currentUser: currentUser,
       onSend: _sendMessage,
       messages: messages,
@@ -112,7 +136,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
       ChatMessage chatMessage = ChatMessage(
         user: currentUser,
         createdAt: DateTime.now(),
-        text: "Describe this picture?",
+        text: 'Describe the image',
         medias: [
           ChatMedia(
             url: file.path,

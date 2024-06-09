@@ -89,35 +89,41 @@ class SharedDetials extends StatelessWidget {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: '$title\n',
+                          text: title,
                           style: const TextStyle(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        const WidgetSpan(child: SizedBox(height: 32)),
                         WidgetSpan(
-                            child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 4.0),
-                              child: Icon(
-                                Icons.location_on_outlined,
-                                size: 16,
+                            child: SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.01)),
+                        WidgetSpan(
+                            child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 4.0),
+                                child: Icon(
+                                  Icons.location_on_outlined,
+                                  size: 16,
+                                ),
                               ),
-                            ),
-                            Text(
-                              subtitle,
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontSize: 10,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            )
-                          ],
+                              Text(
+                                subtitle,
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              )
+                            ],
+                          ),
                         ))
                       ],
                     ),

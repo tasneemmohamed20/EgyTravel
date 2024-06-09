@@ -1,6 +1,7 @@
 import 'package:egy_travel/Data/dummy_data.dart';
 import 'package:egy_travel/view/Screens/articles_details.dart';
 import 'package:egy_travel/view/Screens/places_details_screen.dart';
+import 'package:egy_travel/view/Screens/search_screen.dart';
 import 'package:egy_travel/view/Screens/view_all.dart';
 import 'package:egy_travel/view/Widgets/bottom_navbar.dart';
 import 'package:egy_travel/view/Widgets/grid_card.dart';
@@ -23,7 +24,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final _searchController = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -51,11 +51,19 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CustomSearchBar(
-                      searchController: _searchController,
-                      onChanged: (query) {},
-                      width: mQwidth * 0.9,
-                      height: mQheight * 0.07,
+                    InkWell(
+                      child: CustomSearchBar(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SearchScreen()),
+                        ),
+                        readOnly: true,
+                        // searchController: _searchController,
+                        onChanged: (query) {},
+                        width: mQwidth * 0.9,
+                        height: mQheight * 0.07,
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 32),

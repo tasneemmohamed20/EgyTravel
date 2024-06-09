@@ -1,6 +1,7 @@
 import 'package:egy_travel/view/Screens/Settings/settings_screen.dart';
 import 'package:egy_travel/view/Screens/chatbot.dart';
 import 'package:egy_travel/view/Screens/mytrips_screen.dart';
+import 'package:egy_travel/view/Screens/profile.dart';
 import 'package:egy_travel/view/Screens/test_screen.dart';
 import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
 import 'package:egy_travel/res/colors_manager.dart';
@@ -20,7 +21,7 @@ class MainDrawer extends StatelessWidget {
           children: [
             SizedBox(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.25,
               child: DrawerHeader(
                 decoration: BoxDecoration(
                   color: ColorsManager.primary.withOpacity(1),
@@ -28,13 +29,20 @@ class MainDrawer extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
                   children: [
-                    const CircleAvatar(
-                        radius: 40,
-                        backgroundImage: NetworkImage(
-                            'https://i.etsystatic.com/19647689/r/il/d67fbb/1891879820/il_570xN.1891879820_eww4.jpg')),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                          radius: 40,
+                          backgroundImage: NetworkImage(
+                              'https://i.etsystatic.com/19647689/r/il/d67fbb/1891879820/il_570xN.1891879820_eww4.jpg')),
+                    ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 16, top: 16),
+                      padding: const EdgeInsets.only(
+                        left: 16,
+                        top: 16,
+                      ),
                       child: Text(
                         'Welcome, Tasneem',
                         style: TextStyle(
@@ -54,7 +62,7 @@ class MainDrawer extends StatelessWidget {
                 onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const TestPage(),
+                        builder: (context) => const ProfileScreen(),
                       ),
                     )),
             CustomListTile(

@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
 
 class CustomSearchBar extends StatelessWidget {
-  final TextEditingController searchController;
+  final TextEditingController? searchController;
   final ValueChanged<String> onChanged;
   final Color backgroundColor;
   final double borderRadius;
   final String hintText;
   final double width;
   final double height;
+  final bool readOnly;
+  final VoidCallback? onTap;
 
-  const CustomSearchBar({super.key, 
-    required this.searchController,
+  const CustomSearchBar({
+    this.onTap,
+    super.key,
+    this.searchController,
     required this.onChanged,
     required this.width,
     required this.height,
     this.backgroundColor = Colors.white70,
     this.borderRadius = 15.0,
     this.hintText = 'Search...',
+    required this.readOnly,
   });
 
   @override
@@ -35,7 +40,9 @@ class CustomSearchBar extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                child: TextField(
+                child: TextFormField(
+                  onTap: onTap,
+                  readOnly: readOnly,
                   controller: searchController,
                   decoration: InputDecoration(
                     hintText: hintText,

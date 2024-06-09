@@ -21,7 +21,9 @@ class SettingsScreen extends StatelessWidget {
       ),
       body: Column(children: [
         Padding(
-          padding: const EdgeInsets.all(32.0),
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.05,
+              vertical: MediaQuery.of(context).size.height * 0.03),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
