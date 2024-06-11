@@ -1,0 +1,170 @@
+{
+    "titleOnBoarding1" : "ابدأ بالاستكشاف",
+  
+    "bodyOnBoarding1" : "هل أنت مستعد لبدء الاستكشاف\nأماكن مذهلة في مصر دعونا\n  البدء",
+  
+    "titleOnBoarding2" : "استمتع بالعروض والرحلات",
+    "bodyOnBoarding2" : "شاهد أفضل العروض والفنادق والتعليقات عنها\nالأماكن وآراء الأصدقاء.",
+  
+    "titleOnBoarding3" : "شارك تجارب السفر مع الأصدقاء",
+  
+    "bodyOnBoarding3" : "شاهد آراء الأصدقاء وشارك تجارب السفر معهم\nأصدقائك والاستمتاع بالسفر.",
+  
+    "skip" : "تخطي",
+  
+    "Sign up" : "سجل",
+  
+    "Sign in" : "تسجيل الدخول",
+  
+    "Let’s Get Started!" : "لنبدأ!",
+  
+    "Sign up with Social" : "سجل الدخول بواسطة الشبكات الاجتماعية",
+  
+    "Email" : "البريد الإلكتروني",
+  
+    "Email must not be empty" : "البريد الإلكتروني لا يجب أن يكون فارغًا",
+  
+    "Password" : "كلمه السر",
+  
+    "Name" : "اسم",
+  
+    "Name must not be empty" : "اسم لا يجب أن يكون فارغًا",
+  
+    "Password must not be empty" : "كلمه السر لا يجب أن يكون فارغًا",
+  
+    "At least 8 characters" : "على الأقل 8 أحرف",
+  
+    "Terms of Service" : "بالتسجيل، فإنك توافق على \n شروط الخدمة وسياسة الخصوصية",
+  
+    "Welcome" : "أهلا بك",
+  
+    "Sign up with Social of fill the form to continue." : "سجل الدخول بواسطة الشبكات الاجتماعية أو قم بملء النموذج للمتابعة.",
+  
+    "Reset Password" : "إعادة تعيين كلمة المرور",
+  
+    "Remember me next time" : "تذكرني في المرة القادمة",
+  
+    "Forgot your password?" : "هل نسيت كلمة المرور؟",
+  
+    "forgotPassword" : "إذا كنت بحاجة إلى مساعدة في إعادة تعيين كلمة المرور الخاصة بك\nيمكننا المساعدة عن طريق إرسال رابط إليك لإعادة تعيينه.",
+  
+    "Your Phone Number" : "أدخل بريدك الإلكتروني للمتابعة",
+  
+    "Next" : "التالى",
+  
+  
+    "Phone Verification" : "التحقق من الهاتف",
+  
+    "Please enter the 4-digit code send to you at" : "الرجاء إدخال الرمز المكون من 4 أرقام المرسلة إليك في",
+  
+    "Resend Code" : "إعادة إرسال الرمز",
+  
+    "Verify" : "تحقق",
+  
+    "Language" : "لغة",
+  
+    "Choose your application preferred language" : "اختر لغة التطبيق المفضلة لديك",
+  
+    "Done" : "فعله",
+  
+    "English": "الإنجليزية",
+    "Arabic": "عربى",
+  
+    "Home" : "الصفحة الرئيسية",
+    "Trips" : "رحلات",
+    "Event" : "حدث",
+    "Profile" : "الملف الشخصي",
+  
+    "Current Password" : "كلمة المرور الحالية",
+    "New Password" : "كلمة السر الجديدة",
+    "Confirm New Password" : "تأكيد كلمة المرور الجديدة",
+  
+    "Recommend" : "الأماكن المقترحة",
+  
+    "You may like" : "أماكن قد تعجبك",
+  
+    "Near Events" : "فعاليات بالقرب منك",
+  
+    "Full Name" : "الاسم الكامل",
+  
+    "E-mail" : "البريد الإلكتروني",
+  
+    "Address" : "عنوان",
+  
+    "Change password" : "تغيير كلمة المرور",
+    "Save" : "حفظ",
+    "Sing out" : "خروج",
+    "Delete Account" : "حذف الحساب",
+    "Are you sure you want to delete your account?" : "هل أنت متأكد أنك تريد حذف حسابك؟",
+    "Delete" : "حذف",
+    "Cancel" : "إلغاء",
+  
+    "Places" : "أماكن",
+  
+    "Near Event" : "فعالية بالقرب منك",
+  
+    "Choose your application preferred language." : "اختر لغة التطبيق المفضلة لديك.",
+  
+    "View All" : "عرض الكل",
+  
+    "we are here to help you make\nyour tour much easier" : "نحن هنا لمساعدتك في جعل\nجولتك أسهل بكثير",
+  
+    "Phone Number" : "رقم الهاتف",
+  
+    "Settings"  : "الإعدادات",
+  
+    "Edit Profile" : "تعديل الملف الشخصي",
+  
+    "Content" : "المحتوى",
+  
+    "Favourites" : "المفضلة",
+  
+    "Article" : "مقالات",
+  
+    "Start" : "بداية",
+  
+    "My Trips" : "رحلاتي",
+  
+    "Add In My Tips" : "أضف في رحلاتي",
+  
+    "in place to your trips" : "تم اضافة في رحلاتك",
+  
+    "You  add this place to your tips" : "لقد أضفت هذا المكان إلى نصائحك",
+  
+  
+    "Change Password" : "تغيير كلمة المرور",
+  
+    "Password does not match" : "كلمة المرور غير متطابقة",
+  
+    "Phone" : "هاتف",
+  
+    "Phone must not be empty" : "الهاتف لا يجب أن يكون فارغًا",
+  
+    "Remove In My Tips" : "إزالة من رحلاتي",
+  
+    "You  remove this place to your tips" : "لقد قمت بإزالة هذا المكان من نصائحك",
+  
+    "Favorites" : "المفضلة",
+  
+    "Sign Out" : "خروج",
+  
+  
+    "Discard Change" : "تجاهل التغيير",
+  
+  
+    "Are you sure you want to change your profile picture?" :
+    "هل أنت متأكد أنك تريد تغيير صورة الملف الشخصي الخاصة بك؟",
+  
+    "Change" : "تغيير",
+  
+    "Theme mode" : "وضع السمة",
+  
+    "Search" : "بحث",
+  
+  
+    "Empty Search" : "البحث فارغ",
+  
+    "Not found Places please try again" : "لم يتم العثور على الأماكن، يرجى المحاولة مرة أخرى",
+  
+    "Welcome back!" : "مرحبًا بك مرة أخرى!"
+  }

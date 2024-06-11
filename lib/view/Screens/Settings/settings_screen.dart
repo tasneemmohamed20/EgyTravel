@@ -1,6 +1,7 @@
 import 'package:egy_travel/view/Screens/Settings/General/general.dart';
 import 'package:egy_travel/view/Screens/Settings/Privacy/privacy.dart';
 import 'package:egy_travel/view/Screens/test_screen.dart';
+import 'package:egy_travel/view/Widgets/bottom_modal_sheet.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
 import 'package:egy_travel/res/colors_manager.dart';
@@ -8,6 +9,16 @@ import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
+  void _showCustomModalSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
+      ),
+      isScrollControlled: true, // Allows for a larger modal sheet
+      builder: (context) => CustomModalSheet(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,11 +109,12 @@ class SettingsScreen extends StatelessWidget {
                   title: 'App Language',
                   hint: 'Select Your Language',
                   elementsColor: ColorsManager.secondPrimary.withOpacity(1),
-                  onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const TestPage()),
-                      ),
+                  onTap: () => _showCustomModalSheet(context),
+                  // Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //           builder: (context) => const TestPage()),
+                  //     ),
                   leadingIcon: Icons.language)
             ],
           ),

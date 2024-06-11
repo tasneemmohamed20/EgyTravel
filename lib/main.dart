@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/res/string_manager.dart';
 import 'package:egy_travel/view_model/FilterBarCubit/filter_bar_cubit.dart';
+import 'package:egy_travel/view_model/RadioButtons/radio_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:egy_travel/view/Screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,11 +10,16 @@ import 'package:flutter_gemini/flutter_gemini.dart';
 // import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
-  // final prefs = await SharedPreferences.getInstance();
-  // final onboarding = prefs.getBool("onBoarding") ?? false;
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
   Gemini.init(apiKey: AppStrings.geminiApiKey);
 
-  runApp(const MyApp());
+  runApp(EasyLocalization(
+      supportedLocales: [Locale('en', 'US'), Locale('ar', 'AE')],
+      path: 'assets/translations',
+      fallbackLocale: Locale('en', 'US'),
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -24,15 +31,12 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => FilterBarCubit()),
+        BlocProvider(create: (context) => RadioButtonCubit()),
       ],
       child: MaterialApp(
-        // localizationsDelegates: [
-        //   S.delegate,
-        //   GlobalMaterialLocalizations.delegate,
-        //   GlobalWidgetsLocalizations.delegate,
-        //   GlobalCupertinoLocalizations.delegate,
-        // ],
-        // supportedLocales: S.delegate.supportedLocales,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primaryColor: ColorsManager.primary,

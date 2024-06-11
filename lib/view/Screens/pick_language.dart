@@ -4,7 +4,7 @@ import 'package:egy_travel/view/Widgets/shared_button.dart';
 import 'package:egy_travel/res/app_assets.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:egy_travel/view/Widgets/const_functions.dart';
+import 'package:egy_travel/res/const_functions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PickLanguage extends StatefulWidget {

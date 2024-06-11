@@ -1,6 +1,6 @@
 import 'package:egy_travel/view/Screens/OnBoarding/onboarding_items.dart';
 import 'package:egy_travel/view/Screens/login_screen.dart';
-import 'package:egy_travel/view/Widgets/const_functions.dart';
+import 'package:egy_travel/res/const_functions.dart';
 import 'package:egy_travel/view/Widgets/shared_button.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
