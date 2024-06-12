@@ -22,7 +22,7 @@ class CustomPasswordField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 16.0),
+      padding: const EdgeInsetsDirectional.only(top: 16.0),
       child: TextFormField(
         obscureText: isObscure,
         controller: controller,
@@ -48,24 +48,9 @@ class CustomPasswordField extends StatelessWidget {
             ),
           ),
         ),
-        validator: (value) {
-          if (validator != null) {
-            return validator!(value!)
-                ? null
-                : 'Password must be at least 8 characters long and contain both letters and numbers.';
-          }
-          return null;
-        },
       ),
     );
   }
-}
-
-bool validatePassword(String value) {
-  if (value.length < 8) return false;
-  bool hasLetter = value.contains(RegExp(r'[a-zA-Z]'));
-  bool hasNumber = value.contains(RegExp(r'\d'));
-  return hasLetter && hasNumber;
 }
 
 //--------------------------------------------------------------------------
@@ -87,10 +72,10 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
+      padding: const EdgeInsetsDirectional.only(
         top: 16.0,
       ),
-      child: TextField(
+      child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
           labelText: labelText,
@@ -110,7 +95,13 @@ class CustomTextField extends StatelessWidget {
             ),
           ),
         ),
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: TextInputType.name,
+        validator: (value) {
+          if (value!.isEmpty) {
+            return 'Please enter your Email';
+          }
+          return null;
+        },
       ),
     );
   }

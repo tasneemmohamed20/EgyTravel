@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:egy_travel/view/Widgets/fast_filter_bar.dart';
 
 part 'filter_bar_state.dart';
 

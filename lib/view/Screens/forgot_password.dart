@@ -1,5 +1,6 @@
 // ignore_for_file: unused_local_variable
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/view/Screens/verfication_code_screen.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_button.dart';
@@ -21,7 +22,7 @@ class ForgotPassword extends StatelessWidget {
           backgroundColor: ColorsManager.primary.withOpacity(1),
           appBar: CustomAppBar(
             enableBack: false,
-            title: 'Forgot Password',
+            title: "ForgotTitle".tr(),
             leading: backButton(context),
           ),
           body: Builder(builder: (context) {
@@ -56,7 +57,7 @@ class ForgotPassword extends StatelessWidget {
                                   Align(
                                       alignment: Alignment.center,
                                       child: Text(
-                                        'Forgot your password?',
+                                        "ForgotTitle2".tr(),
                                         style: TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.w700,
@@ -66,7 +67,7 @@ class ForgotPassword extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
-                                      'Enter your registered Email below to receive \npassword reset code',
+                                      "ForgotBody".tr(),
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           fontSize: 16,
@@ -78,7 +79,7 @@ class ForgotPassword extends StatelessWidget {
                           CustomTextField(
                             borderColor: ColorsManager.secondPrimary,
                             controller: emailController,
-                            labelText: 'Email Address',
+                            labelText: 'Email'.tr(),
                           ),
                         ],
                       ),
@@ -99,7 +100,7 @@ class ForgotPassword extends StatelessWidget {
                               (MediaQuery.of(context).size.width * 0.4)),
                       backgroundColor:
                           ColorsManager.secondPrimary.withOpacity(1),
-                      text: 'Send',
+                      text: "Send".tr(),
                     ),
                   ],
                 ),

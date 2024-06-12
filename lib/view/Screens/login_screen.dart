@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/view/Screens/forgot_password.dart';
 import 'package:egy_travel/view/Screens/home_screen.dart';
 import 'package:egy_travel/view/Screens/sign_up_screen.dart';
@@ -19,8 +20,8 @@ class LogInScreen extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: ColorsManager.primary.withOpacity(1),
-        appBar: const CustomAppBar(
-          title: 'Login',
+        appBar: CustomAppBar(
+          title: "Login".tr(),
           enableBack: false,
         ),
         body: Builder(builder: (context) {
@@ -46,9 +47,9 @@ class LogInScreen extends StatelessWidget {
                         Padding(
                             padding: const EdgeInsets.fromLTRB(8, 0, 16, 32),
                             child: Align(
-                                alignment: Alignment.topLeft,
+                                alignment: AlignmentDirectional.topStart,
                                 child: Text(
-                                  'Start your journey with EgyTravel.',
+                                  "StartYourJourney".tr(),
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w700,
@@ -58,13 +59,12 @@ class LogInScreen extends StatelessWidget {
                         CustomTextField(
                           borderColor: ColorsManager.secondPrimary,
                           controller: emailController,
-                          labelText: 'Email Address',
+                          labelText: "Email".tr(),
                         ),
                         CustomPasswordField(
                           borderColor: ColorsManager.secondPrimary,
                           controller: passwordController,
-                          labelText: 'Password',
-                          validator: validatePassword,
+                          labelText: "Password".tr(),
                         ),
                       ],
                     ),
@@ -80,16 +80,16 @@ class LogInScreen extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => const Home()),
                       );
                     },
-                    padding: EdgeInsets.symmetric(
+                    padding: EdgeInsetsDirectional.symmetric(
                         vertical: 16,
-                        horizontal: (MediaQuery.of(context).size.width * 0.4)),
+                        horizontal: (MediaQuery.of(context).size.width * 0.35)),
                     backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
-                    text: 'Login',
+                    text: "Login".tr(),
                   ),
                   Center(
                     child: TextButton(
                         child: Text(
-                          'Forgot password?',
+                          "ForgotPassword".tr(),
                           style: TextStyle(
                               decoration: TextDecoration.underline,
                               color: ColorsManager.secondPrimary,
@@ -102,15 +102,15 @@ class LogInScreen extends StatelessWidget {
                             )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width * 0.07),
+                    padding: EdgeInsetsDirectional.only(
+                        start: MediaQuery.of(context).size.width * 0.07),
                     child: Row(
                       children: [
                         IconButton(
                             onPressed: () {},
                             icon: const Icon(Icons.check_box_rounded)),
                         Text(
-                          'Remember me',
+                          "RememberMe".tr(),
                           style: TextStyle(
                               color: ColorsManager.secondPrimary,
                               fontWeight: FontWeight.w500),
@@ -120,10 +120,12 @@ class LogInScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    const Text('You don’t have an account?'),
+                    Text(
+                      "DontHaveAccount".tr(),
+                    ),
                     TextButton(
                       child: Text(
-                        'Sign up',
+                        "SignUp".tr(),
                         style: TextStyle(
                             decoration: TextDecoration.underline,
                             color: ColorsManager.secondPrimary,

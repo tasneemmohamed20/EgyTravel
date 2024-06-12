@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_button.dart';
 import 'package:egy_travel/view/Widgets/shared_text_field.dart';
@@ -17,18 +18,19 @@ class ChangePasswordScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: ColorsManager.primary.withOpacity(1),
       appBar: CustomAppBar(
-        title: 'Reset Password',
+        title: 'ResetPassword'.tr(),
         enableBack: false,
         leading: backButton(context),
       ),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 32),
+            padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: 32.0, vertical: 32),
             child: Align(
-              alignment: Alignment.topLeft,
+              alignment: AlignmentDirectional.topStart,
               child: Text(
-                'Create your new password for EgyTravel so you can login to your account',
+                "ResetPasswordCaption".tr(),
                 softWrap: true,
                 style: TextStyle(
                     fontSize: 18,
@@ -38,33 +40,33 @@ class ChangePasswordScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
+            padding: const EdgeInsetsDirectional.symmetric(horizontal: 32),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
                 CustomPasswordField(
                     controller: currentPassword,
-                    labelText: 'Current Password',
+                    labelText: 'CurrentPassword'.tr(),
                     borderColor: ColorsManager.secondPrimary.withOpacity(1)),
                 CustomPasswordField(
-                    controller: newPassword,
-                    labelText: 'New Password',
-                    borderColor: ColorsManager.secondPrimary.withOpacity(1),
-                    validator: validatePassword),
+                  controller: newPassword,
+                  labelText: 'NewPassword'.tr(),
+                  borderColor: ColorsManager.secondPrimary.withOpacity(1),
+                ),
                 CustomPasswordField(
                     controller: confirmPassword,
-                    labelText: 'Confirm Password',
+                    labelText: "ConfirmNewPassword".tr(),
                     borderColor: ColorsManager.secondPrimary.withOpacity(1)),
                 Padding(
-                  padding: const EdgeInsets.only(top: 32),
+                  padding: const EdgeInsetsDirectional.only(top: 32),
                   child: CustomButton(
                       onPressed: () {},
-                      padding: const EdgeInsets.symmetric(
+                      padding: const EdgeInsetsDirectional.symmetric(
                           horizontal: 128, vertical: 16),
                       backgroundColor:
                           ColorsManager.secondPrimary.withOpacity(1),
-                      text: 'Save'),
+                      text: 'Save'.tr()),
                 )
               ],
             ),

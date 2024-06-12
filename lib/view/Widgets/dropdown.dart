@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -7,12 +8,13 @@ class CustomDropdown extends StatefulWidget {
   final String? hint;
   final List<String> items;
   final List<String> language = ['Arabic', 'English'];
-
+  VoidCallbackAction? ontap;
   CustomDropdown({
     super.key,
     this.selectedOption,
     required this.items,
     this.hint,
+    this.ontap,
   });
 
   @override
@@ -25,11 +27,23 @@ class CustomDropdownState extends State<CustomDropdown> {
     return DropdownButton<String>(
       iconSize: MediaQuery.of(context).size.width * 0.1,
       hint: Text(
-        widget.hint ?? 'Select an option',
+        widget.hint ?? "SelectOption".tr(),
         style: const TextStyle(color: Colors.white70),
       ),
       value: widget.selectedOption,
       onChanged: (String? newValue) {
+        if (newValue != null) {
+          switch (newValue) {
+            case 'English':
+              context.setLocale(const Locale('en', 'US'));
+              break;
+            case 'Arabic':
+              context.setLocale(const Locale('ar', 'AE'));
+              break;
+            default:
+              break;
+          }
+        }
         setState(() {
           widget.selectedOption = newValue;
         });

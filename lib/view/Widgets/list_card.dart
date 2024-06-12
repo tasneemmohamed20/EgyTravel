@@ -26,7 +26,8 @@ class CustomListCard extends StatelessWidget {
       elevation: 4.0,
       color: cardColor,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+        padding:
+            const EdgeInsetsDirectional.symmetric(vertical: 8, horizontal: 12),
         child: Row(
           children: [
             ClipRRect(
@@ -42,7 +43,7 @@ class CustomListCard extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(left: 16, top: 16),
+                padding: const EdgeInsetsDirectional.only(start: 16, top: 16),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +59,7 @@ class CustomListCard extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 16),
+                      padding: const EdgeInsetsDirectional.only(top: 16),
                       child: Text(
                         subtitle,
                         maxLines: 2,

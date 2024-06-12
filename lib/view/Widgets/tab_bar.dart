@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/fav_articles.dart';
 import 'package:egy_travel/view/Screens/fav_trips.dart';
@@ -34,7 +35,7 @@ class TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
         leading: backButton(context),
         backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
         title: Text(
-          'Favorites',
+          'Favorites'.tr(),
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,
@@ -47,9 +48,9 @@ class TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
           dividerColor: ColorsManager.primary.withOpacity(1),
           unselectedLabelColor: Colors.grey,
           indicatorColor: ColorsManager.primary.withOpacity(1),
-          tabs: const [
-            Tab(icon: Icon(Icons.map_rounded), text: 'Trips'),
-            Tab(icon: Icon(Icons.article_rounded), text: 'Articles'),
+          tabs: [
+            Tab(icon: const Icon(Icons.map_rounded), text: 'Trips'.tr()),
+            Tab(icon: const Icon(Icons.article_rounded), text: 'Articles'.tr()),
           ],
         ),
       ),

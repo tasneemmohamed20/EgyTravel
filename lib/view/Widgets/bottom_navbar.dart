@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/home_screen.dart';
 import 'package:egy_travel/view/Screens/plans_screen.dart';
@@ -33,18 +34,18 @@ class CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
       selectedItemColor: ColorsManager.primary.withOpacity(1),
       unselectedItemColor: Colors.grey,
-      items: const [
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+          icon: const Icon(Icons.home),
+          label: 'Home'.tr(),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.map_outlined),
-          label: 'Plans',
+          icon: const Icon(Icons.map_outlined),
+          label: 'Plans'.tr(),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.event_rounded),
-          label: 'Events',
+          icon: const Icon(Icons.event_rounded),
+          label: 'Events'.tr(),
         ),
       ],
     );

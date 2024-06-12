@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/view/Screens/Settings/settings_screen.dart';
 import 'package:egy_travel/view/Screens/chatbot.dart';
 import 'package:egy_travel/view/Screens/mytrips_screen.dart';
@@ -32,19 +33,19 @@ class MainDrawer extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     const Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsetsDirectional.all(8.0),
                       child: CircleAvatar(
                           radius: 40,
                           backgroundImage: NetworkImage(
                               'https://i.etsystatic.com/19647689/r/il/d67fbb/1891879820/il_570xN.1891879820_eww4.jpg')),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        left: 16,
+                      padding: const EdgeInsetsDirectional.only(
+                        start: 16,
                         top: 16,
                       ),
                       child: Text(
-                        'Welcome, Tasneem',
+                        '${"Welcome".tr()}Tasneem',
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -57,7 +58,7 @@ class MainDrawer extends StatelessWidget {
             ),
             CustomListTile(
                 leadingIcon: Icons.person_2_rounded,
-                title: 'Profile',
+                title: "Profile".tr(),
                 elementsColor: ColorsManager.primary.withOpacity(1),
                 onTap: () => Navigator.push(
                       context,
@@ -67,19 +68,19 @@ class MainDrawer extends StatelessWidget {
                     )),
             CustomListTile(
                 leadingIcon: Icons.map_rounded,
-                title: 'My Trips',
+                title: "MyTrips".tr(),
                 elementsColor: ColorsManager.primary.withOpacity(1),
                 onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const TripsScreen(
-                          screenTilte: 'My Trips',
+                        builder: (context) => TripsScreen(
+                          screenTilte: "MyTrips".tr(),
                         ),
                       ),
                     )),
             CustomListTile(
                 leadingIcon: Icons.favorite_rounded,
-                title: 'Favorites',
+                title: "Favorites".tr(),
                 elementsColor: ColorsManager.primary.withOpacity(1),
                 onTap: () => Navigator.push(
                       context,
@@ -89,7 +90,7 @@ class MainDrawer extends StatelessWidget {
                     )),
             CustomListTile(
                 leadingIcon: Icons.settings,
-                title: 'Settings',
+                title: "Settings".tr(),
                 elementsColor: ColorsManager.primary.withOpacity(1),
                 onTap: () => Navigator.push(
                       context,
@@ -99,7 +100,7 @@ class MainDrawer extends StatelessWidget {
                     )),
             CustomListTile(
                 leadingIcon: Icons.contact_support_rounded,
-                title: 'Contact Us',
+                title: "ContactUs".tr(),
                 elementsColor: ColorsManager.primary.withOpacity(1),
                 onTap: () => Navigator.push(
                       context,
@@ -110,7 +111,7 @@ class MainDrawer extends StatelessWidget {
             const Spacer(),
             CustomListTile(
                 leadingIcon: Icons.logout_rounded,
-                title: 'Logout',
+                title: "LogOut".tr(),
                 elementsColor: ColorsManager.primary.withOpacity(1),
                 onTap: () => Navigator.push(
                       context,

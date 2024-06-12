@@ -30,7 +30,8 @@ class CustomGridCard extends StatelessWidget {
       color: cardColor,
       elevation: 4.0,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+        padding:
+            const EdgeInsetsDirectional.symmetric(vertical: 8, horizontal: 12),
         child: Column(
           children: [
             SizedBox(
@@ -47,7 +48,7 @@ class CustomGridCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(4.0),
+              padding: const EdgeInsetsDirectional.all(4.0),
               child: Text(
                 title,
                 maxLines: 2,
@@ -61,7 +62,7 @@ class CustomGridCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 6.0),
+              padding: const EdgeInsetsDirectional.symmetric(horizontal: 6.0),
               child: Text(
                 subtitle,
                 maxLines: 1,

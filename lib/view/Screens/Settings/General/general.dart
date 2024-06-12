@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_button.dart';
 import 'package:egy_travel/view/Widgets/shared_text_field.dart';
@@ -16,19 +17,20 @@ class GeneralSettingse extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: ColorsManager.primary.withOpacity(1),
       appBar: CustomAppBar(
-        title: 'General Settings',
+        title: 'GeneralSettings'.tr(),
         enableBack: false,
         leading: backButton(context),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 32),
+          padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: 32.0, vertical: 32),
           child: Column(
             children: [
               Stack(
                 children: [
                   const Padding(
-                    padding: EdgeInsets.only(bottom: 32),
+                    padding: EdgeInsetsDirectional.only(bottom: 32),
                     child: Center(
                         child: CircleAvatar(
                       radius: 70,
@@ -62,29 +64,29 @@ class GeneralSettingse extends StatelessWidget {
               CustomTextField(
                 borderColor: ColorsManager.secondPrimary,
                 controller: nameController,
-                labelText: 'Name',
+                labelText: 'Name'.tr(),
               ),
               const SizedBox(height: 16.0),
               CustomTextField(
                 borderColor: ColorsManager.secondPrimary,
                 controller: emailController,
-                labelText: 'Email Address',
+                labelText: 'Email'.tr(),
               ),
               const SizedBox(height: 16.0),
               CustomTextField(
                 borderColor: ColorsManager.secondPrimary,
                 controller: emailController,
-                labelText: 'Address',
+                labelText: 'Address'.tr(),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
               CustomButton(
                   onPressed: () {},
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 128, vertical: 16),
+                  padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: 128, vertical: 16),
                   backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
-                  text: 'Save')
+                  text: 'Save'.tr())
             ],
           ),
         ),

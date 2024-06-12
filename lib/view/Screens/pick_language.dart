@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/view/Screens/OnBoarding/onboarding_view.dart';
 import 'package:egy_travel/view/Widgets/dropdown.dart';
 import 'package:egy_travel/view/Widgets/shared_button.dart';
@@ -30,9 +31,9 @@ class _PickLanguageState extends State<PickLanguage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * (1 / 40),
             ),
-            const Text(
-              'Welcome to EgyTravel',
-              style: TextStyle(
+            Text(
+              "WelcomeToEgyTravel".tr(),
+              style: const TextStyle(
                   color: Colors.white70,
                   fontSize: 28,
                   fontWeight: FontWeight.bold),
@@ -40,48 +41,10 @@ class _PickLanguageState extends State<PickLanguage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * (1 / 25),
             ),
-            const Text('Select Your Language:',
-                style: TextStyle(color: Colors.white70, fontSize: 22)),
+            Text("SelectYourLanguage".tr(),
+                style: const TextStyle(color: Colors.white70, fontSize: 22)),
             CustomDropdown(
-                items: const ['Arabic', 'English'], hint: 'Pick Your Language'),
-            // DropdownButton<String>(
-            //   iconSize: MediaQuery.of(context).size.width * 0.1,
-            //   hint: const Text(
-            //     'Pick Your Language',
-            //     style: TextStyle(color: Colors.white70),
-            //   ),
-            //   value: selectedOption,
-            //   onChanged: (String? newValue) {
-            //     setState(() {
-            //       selectedOption = newValue;
-            //     });
-            //   },
-            //   icon: selectedOption != null
-            //       ? Icon(
-            //           Icons.check,
-            //           size: 24,
-            //           color: ColorsManager.secondPrimary,
-            //         )
-            //       : null,
-            //   borderRadius: BorderRadius.circular(16),
-            //   underline: Container(
-            //     height: 2,
-            //     color: ColorsManager.secondPrimary,
-            //   ),
-            //   dropdownColor: ColorsManager.primary.withOpacity(1),
-            //   items: <String>['Arabic', 'English'].map((String value) {
-            //     return DropdownMenuItem<String>(
-            //       value: value,
-            //       child: Row(
-            //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //           children: [
-            //             Text(
-            //               value,
-            //             ),
-            //           ]),
-            //     );
-            //   }).toList(),
-            // ),
+                items: ["Arabic".tr(), "English".tr()], hint: "Languages".tr()),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.2,
             ),
@@ -91,18 +54,18 @@ class _PickLanguageState extends State<PickLanguage> {
                 await preferences.setBool(_onboarding, true);
                 navigateFish(context, const OnBoardingView());
               },
-              padding: const EdgeInsets.symmetric(
+              padding:  const EdgeInsetsDirectional.symmetric(
                 vertical: 8,
                 horizontal: 32,
               ),
               backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
-              text: 'Let\'s go',
+              text: "LetsGo".tr(),
               foregroundColor: Colors.grey.shade700,
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: Text('You can change language any time in drawer.',
-                  style: TextStyle(
+            Padding(
+              padding: const EdgeInsetsDirectional.only(top: 10),
+              child: Text("YouCanChangeLanguage".tr(),
+                  style: const TextStyle(
                       color: Colors.white70,
                       fontSize: 16,
                       fontWeight: FontWeight.w100)),

@@ -1,10 +1,11 @@
-import 'package:egy_travel/view/Screens/OnBoarding/onboarding_items.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:egy_travel/Data/onboarding_info.dart';
 import 'package:egy_travel/view/Screens/login_screen.dart';
 import 'package:egy_travel/res/const_functions.dart';
 import 'package:egy_travel/view/Widgets/shared_button.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -15,7 +16,7 @@ class OnBoardingView extends StatefulWidget {
 }
 
 class _OnBoardingViewState extends State<OnBoardingView> {
-  final Future<SharedPreferences> _pref = SharedPreferences.getInstance();
+  // final Future<SharedPreferences> _pref = SharedPreferences.getInstance();
   final String _onboarding = 'onBoarding';
   final controller = OnBoardingItems();
   final pageController = PageController();
@@ -53,27 +54,37 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              controller.items[index].title,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white70,
-                                  fontSize: (MediaQuery.of(context).size.width *
-                                          0.5) *
-                                      0.15),
+                            Align(
+                              alignment: AlignmentDirectional.topStart,
+                              child: Text(
+                                softWrap: true,
+                                controller.items[index].title,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white70,
+                                    fontSize:
+                                        (MediaQuery.of(context).size.width *
+                                                0.5) *
+                                            0.15),
+                              ),
                             ),
                             SizedBox(
                                 height:
                                     MediaQuery.of(context).size.height * 0.02),
-                            Text(
-                              controller.items[index].descripton,
-                              maxLines: 3,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: ColorsManager.white,
-                                  fontSize: (MediaQuery.of(context).size.width *
-                                          0.5) *
-                                      0.08),
+                            Align(
+                              alignment: AlignmentDirectional.topStart,
+                              child: Text(
+                                softWrap: true,
+                                controller.items[index].descripton,
+                                maxLines: 3,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: ColorsManager.white,
+                                    fontSize:
+                                        (MediaQuery.of(context).size.width *
+                                                0.5) *
+                                            0.08),
+                              ),
                             ),
                           ],
                         ),
@@ -103,24 +114,25 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 right: 0,
                 child: Center(
                   child: CustomButton(
-                      onPressed: () async {
-                        SharedPreferences preferences = await _pref;
-                        await preferences.setBool(_onboarding, true);
-                        navigateFish(context, LogInScreen());
-                        // if (!mounted) return;
-                      },
-                      // onPressed: () => Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //           builder: (context) => const TestPage()),
-                      //     ),
-                      padding: EdgeInsets.symmetric(
-                        vertical: 8,
-                        horizontal:
-                            (MediaQuery.of(context).size.width / 344) * 100,
-                      ),
-                      backgroundColor: ColorsManager.secondPrimary,
-                      text: 'Get started'),
+                    onPressed: () async {
+                      // SharedPreferences preferences = await _pref;
+                      // await preferences.setBool(_onboarding, true);
+                      navigateFish(context, LogInScreen());
+                      // if (!mounted) return;
+                    },
+                    // onPressed: () => Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => const TestPage()),
+                    //     ),
+                    padding: EdgeInsetsDirectional.symmetric(
+                      vertical: 8,
+                      horizontal:
+                          (MediaQuery.of(context).size.width / 344) * 100,
+                    ),
+                    backgroundColor: ColorsManager.secondPrimary,
+                    text: "GetStarted".tr(),
+                  ),
                 ))
           ],
         ),

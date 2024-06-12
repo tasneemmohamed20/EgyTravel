@@ -1,48 +1,170 @@
 {
+    "WelcomeToEgyTravel" : "W elcome to EgyTravel",
+
+    "Languages" : "Languages",
+
+    "SelectYourLanguage" : "Select Your Language:",
+
+    "English": "English",
+
+    "Arabic": "Arabic",
+
+    "LetsGo" : "Let’s Go",
+
+    "YoucanChangeYourLanguage" : "You can change your language any time in the app settings",
+
+  "__________________________________":"________________________________",
+
     "titleOnBoarding1" : "Start exploring",
   
     "bodyOnBoarding1" : "Are you ready to start exploring \namazing places in Egypt let’s\n get started",
   
     "titleOnBoarding2" : "Enjoy with offers and trips ",
+   
     "bodyOnBoarding2" : "see the best offers,hotels,reviews of these\nplaces and the opinions of friends.",
   
     "titleOnBoarding3" : "Share your Trip Details",
   
     "bodyOnBoarding3" : "watch friends opinions, share travel experiences with\nyour friends and enjoy travels.",
-  
-    "skip" : "Skip",
-  
-    "Sign up" : "Sign up",
-  
-    "Sign in" : "Sign in",
-  
-    "Let’s Get Started!" : "Let’s Get Started!",
-  
-    "Sign up with Social" : "Sign up with Social of fill the form to continue.",
-  
-    "Email" : "Email",
-  
-    "Email must not be empty" : "Email must not be empty",
-  
+    
+    "GetStarted" : "Get Started",
+
+  "_______________________________":"________________________________",
+
+    "Login" : "Login",
+
+    "StartYourJourney" : "Start your journey with EgyTravel.",
+
+    "Email" : "Email Address",
+
     "Password" : "Password",
+
+    "ForgotPassword" : "Forgot Password?",
+
+    "RememberMe" : "Remember me",
   
+    "SignUp" : "Sign up",
+  
+    "DontHaveAccount" : "You don't have an account?",
+  
+  "_________________________________":"________________________________",
+
+    "ForgotTitle" : "Forgot Password",
+
+    "ForgotTitle2" : "Forgot your password?",
+
+    "ForgotBody" : "Enter your registered Email below to receive password reset code.",
+    
+    "Send" : "Send",
+    
+  "________________________________":"________________________________",
+    
+    "SignUpTitle" : "Regestration",
+
+    "Address" : "Your Address",
+
     "Name" : "Name",
+
+    "CreateAccount" : "Create New Account",
+
+    "ValidName" : "Please enter your name.",
+
+    "ValidEmail" : "Please enter a valid email.",
+
+    "validPassword" : "Password must be at least 8 characters long and contain at least one letter.",
+
+    "validAddress" : "Please enter your address.",
+    
+  "______________________________":"________________________________",
+
+    "Home" : "Home",
+
+    "YouMayLike" : "YOU MAY LIKE",
+
+    "Places" : "WANDERLUST",
+
+    "Articles" : "ARTICLES",
+
+    "ViewAll" : "VIEW ALL",
+
+    "Welcome" : "Welcome, ",
+
+    "Search" : "SEARCH",
   
-    "Name must not be empty" : "Name must not be empty",
+    "Profile" : "Profile",
+
+    "MyTrips" : "My Trips",
+
+    "Trips" : "Trips",
+
+    "Favorites" : "Favorites",
+
+    "Settings" : "Settings",
+
+    "ContactUs" : "Contact Us",
+
+    "LogOut" : "Logout",
+
+    "Plans" : "Plans",
+
+    "Events" : "Events",
+
+  "___________________________________":"________________________________",
+
+    "General" : "General",
+
+    "GeneralSettings" : "General Settings",
+    
+    "GeneralHint" : "Personal information settings",
   
-    "Password must not be empty" : "Password must not be empty",
+    "Privacy" : "Privacy",
+
+    "PrivacyHint" : "Account and password settings",
+
+    "AppLanguage" : "App Language",
+
+    "AppLanguageHint" : "Select Your Language",
+
+    "Save" :"Save",
+
+    "ResetPassword" : "Reset Password",
+
+    "DeleteAccount" : "Delete Account",
+
+    "PrivacyCaption" : "Control Your Privacy Settings..",
+
+    "ResetPasswordCaption" : "Create your new password for EgyTravel so you can login to your account",
+
+    "CurrentPassword" : "Current Password",
+
+    "NewPassword" : "New Password",
+
+    "ConfirmNewPassword" : "Confirm New Password",
+
+    "Hi" : "Hi, ",
+
+    "DeleteAccountCaption" : "\nWe are sorry to hear you'd like to delete your account.",
+
+    "DeleteAccountCaption2" : "To continue, please enter your password",
+
+    "YourPassword" : "Your Password",
+
+    "WhyDeleteAccount" : "why are you deleting your account?",
+
+    "Reson1" : "Want to remove something",
+    
+    "Reson2" : "Privacy concern",
+
+    "Reson3" : "Created a seconed account",
+
+    "Reson4" : "Trouble getting started",
+
+    "Reson5" : "Something else",
+
+    "SelectOption" : "Select an option",
+  "Sign up with Social of fill the form to continue." : "Sign up with Social of fill the form to continue.",
   
-    "At least 8 characters" : "At least 8 characters",
   
-    "Terms of Service" : "By Signing up,you agree to \n the Terms of Service and Privacy Policy",
-  
-    "Welcome" : "Welcome",
-  
-    "Sign up with Social of fill the form to continue." : "Sign up with Social of fill the form to continue.",
-  
-    "Reset Password" : "Reset Password",
-  
-    "Remember me next time" : "Remember me next time",
   
     "Forgot your password?" : "Forgot your password?",
   
@@ -66,21 +188,16 @@
   
     "Done" : "Done",
   
-    "English": "English",
-    "Arabic": "Arabic",
   
-    "Home" : "Home",
-    "Trips" : "Trips",
     "Event" : "Event",
-    "Profile" : "Profile",
-  
+    
+
     "Current Password" : "Current Password",
     "New Password" : "New Password",
     "Confirm New Password" : "Confirm New Password",
   
     "Recommend" : "Recommend",
   
-    "You may like" : "You may like",
   
   
     "Near Events" : "Near Events",
@@ -89,17 +206,14 @@
   
     "E-mail" : "E-mail",
   
-    "Address" : "Address",
   
     "Change password" : "Change password",
-    "Save" : "Save",
     "Sing out" : "Sign out",
     "Delete Account" : "Delete Account",
     "Are you sure you want to delete your account?" : "Are you sure you want to delete your account?",
     "Delete" : "Delete",
     "Cancel" : "Cancel",
   
-    "Places" : "Places",
   
     "Near Event" : "Near Event",
   
@@ -111,7 +225,6 @@
   
     "Phone Number" : "Phone Number",
   
-    "Settings"  : "Settings",
   
     "Edit Profile" : "Edit Profile",
   
@@ -143,7 +256,6 @@
   
     "You  remove this place to your tips" : "You remove this place to your tips",
   
-    "Favorites" : "Favorites",
   
     "Sign Out" : "Sign Out",
   
@@ -156,7 +268,6 @@
   
     "Theme mode" : "Theme mode",
   
-    "Search" : "Search",
   
     "Empty Search" : "Empty Search",
   

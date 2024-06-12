@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/view/Widgets/dropdown.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_button.dart';
@@ -14,11 +15,11 @@ class DeleteAccount extends StatefulWidget {
 
 class _DeleteAccountState extends State<DeleteAccount> {
   final List<String> reasons = [
-    'Want to remove something',
-    'Privacy concern',
-    'Created a seconed account',
-    'Trouble getting started',
-    'Something else'
+    "Reson1".tr(),
+    "Reson2".tr(),
+    "Reson3".tr(),
+    "Reson4".tr(),
+    "Reson5".tr()
   ];
   final TextEditingController password = TextEditingController();
 
@@ -29,7 +30,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
       resizeToAvoidBottomInset: true,
       backgroundColor: ColorsManager.primary.withOpacity(1),
       appBar: CustomAppBar(
-        title: 'Delete Account',
+        title: 'DeleteAccount'.tr(),
         enableBack: false,
         leading: backButton(context),
       ),
@@ -38,11 +39,12 @@ class _DeleteAccountState extends State<DeleteAccount> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 32.0, right: 32.0, top: 32),
+            padding: const EdgeInsetsDirectional.only(
+                start: 32.0, end: 32.0, top: 32),
             child: Align(
-              alignment: Alignment.topLeft,
+              alignment: AlignmentDirectional.topStart,
               child: Text(
-                'Hi, Tasneem\nWe are Sorry to hear you\'d like to delete your account.',
+                "${"Hi".tr()}Tasneem${"DeleteAccountCaption1".tr()}",
                 softWrap: true,
                 style: TextStyle(
                     fontSize: 18,
@@ -51,17 +53,18 @@ class _DeleteAccountState extends State<DeleteAccount> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            padding: const EdgeInsetsDirectional.symmetric(horizontal: 25.0),
             child: Divider(
               color: ColorsManager.secondPrimary.withOpacity(1),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 32.0, right: 32.0, top: 16),
+            padding: const EdgeInsetsDirectional.only(
+                start: 32.0, end: 32.0, top: 16),
             child: Align(
-              alignment: Alignment.topLeft,
+              alignment: AlignmentDirectional.topStart,
               child: Text(
-                'why are you deleting your account?',
+                "WhyDeleteAccount".tr(),
                 softWrap: true,
                 style: TextStyle(
                     fontSize: 18,
@@ -73,16 +76,17 @@ class _DeleteAccountState extends State<DeleteAccount> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16),
             child: Align(
-              alignment: Alignment.centerLeft,
+              alignment: AlignmentDirectional.centerStart,
               child: CustomDropdown(items: reasons),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 32.0, right: 32.0, top: 16),
+            padding: const EdgeInsetsDirectional.only(
+                start: 32.0, end: 32.0, top: 16),
             child: Align(
-              alignment: Alignment.topLeft,
+              alignment: AlignmentDirectional.topStart,
               child: Text(
-                'To continue, please enter your password',
+                "DeleteAccountCaption2".tr(),
                 softWrap: true,
                 style: TextStyle(
                     fontSize: 18,
@@ -92,21 +96,21 @@ class _DeleteAccountState extends State<DeleteAccount> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
+            padding: const EdgeInsetsDirectional.symmetric(horizontal: 32),
             child: CustomPasswordField(
-                controller: password,
-                labelText: 'Your Password',
-                borderColor: ColorsManager.secondPrimary.withOpacity(1),
-                validator: validatePassword),
+              controller: password,
+              labelText: 'YourPassword'.tr(),
+              borderColor: ColorsManager.secondPrimary.withOpacity(1),
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 32),
+            padding: const EdgeInsetsDirectional.only(top: 32),
             child: CustomButton(
                 onPressed: () {},
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 100, vertical: 16),
+                padding: const EdgeInsetsDirectional.symmetric(
+                    horizontal: 100, vertical: 16),
                 backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
-                text: 'Delete Account'),
+                text: 'DeleteAccount'.tr()),
           )
         ],
       ),

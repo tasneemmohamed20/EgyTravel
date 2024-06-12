@@ -1,19 +1,18 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
-import 'package:egy_travel/res/const_functions.dart';
 import 'package:egy_travel/view_model/RadioButtons/radio_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomModalSheet extends StatelessWidget {
   CustomModalSheet({super.key});
-  final List<String> radioList = ['English', 'Arabic'];
+  final List<String> radioList = ['English'.tr(), 'Arabic'.tr()];
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: ColorsManager.primary.withOpacity(1),
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(25),
           topRight: Radius.circular(25),
         ),
@@ -36,7 +35,7 @@ class CustomModalSheet extends StatelessWidget {
           ),
           Center(
             child: Text(
-              'App Language',
+              'AppLanguage'.tr(),
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -52,14 +51,20 @@ class CustomModalSheet extends StatelessWidget {
                   itemCount: 2,
                   itemBuilder: (context, index) {
                     return InkWell(
-                      onTap: () => LocalizationChecker.changeLanguage(context),
+                      // onTap: () => LocalizationChecker.changeLanguage(context),
                       child: RadioListTile(
                         fillColor: MaterialStateColor.resolveWith((states) =>
                             ColorsManager.secondPrimary.withOpacity(1)),
                         value: index,
-                        groupValue: context.read<RadioButtonCubit>().selected,
-                        onChanged: (index) {
-                          context.read<RadioButtonCubit>().selectedRadio(index);
+                        groupValue: (state is RadioButtonChanged)
+                            ? state.selectedIndex
+                            : -1,
+                        onChanged: (value) {
+                          if (value != null) {
+                            context
+                                .read<RadioButtonCubit>()
+                                .selectRadio(value, context);
+                          }
                         },
                         title: Text(radioList[index],
                             style: TextStyle(

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Widgets/profile_details.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
@@ -12,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
       child: Scaffold(
           backgroundColor: ColorsManager.primary.withOpacity(1),
           appBar: CustomAppBar(
-            title: 'Profile',
+            title: 'Profile'.tr(),
             enableBack: false,
             leading: backButton(context),
           ),
@@ -21,7 +22,7 @@ class ProfileScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Padding(
-                padding: EdgeInsets.symmetric(vertical: 32.0),
+                padding: EdgeInsetsDirectional.symmetric(vertical: 32.0),
                 child: Center(
                     child: CircleAvatar(
                   radius: 70,
@@ -30,7 +31,7 @@ class ProfileScreen extends StatelessWidget {
                 )),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 16),
+                padding: const EdgeInsetsDirectional.only(bottom: 16),
                 child: Center(
                   child: Text('Tasneem',
                       style: TextStyle(
@@ -39,17 +40,17 @@ class ProfileScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold)),
                 ),
               ),
-              const ProfileDetail(
-                  label: 'E-mail', value: 'Tasneemmoahmed20@gmail.com'),
+              ProfileDetail(
+                  label: 'Email'.tr(), value: 'Tasneemmoahmed20@gmail.com'),
               Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  padding: const EdgeInsetsDirectional.symmetric(vertical: 8.0),
                   child: Divider(
                     color: ColorsManager.secondPrimary.withOpacity(1),
                     thickness: 0.5,
                     indent: MediaQuery.of(context).size.width * 0.1,
                     endIndent: MediaQuery.of(context).size.width * 0.1,
                   )),
-              const ProfileDetail(label: 'Address', value: 'Ismailia, Egypt'),
+              ProfileDetail(label: 'Address'.tr(), value: 'Ismailia, Egypt'),
             ],
           )),
     );

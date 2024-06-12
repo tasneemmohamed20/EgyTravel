@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/view/Screens/Settings/Privacy/change_password.dart';
 import 'package:egy_travel/view/Screens/Settings/Privacy/delete_account.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
@@ -14,26 +15,29 @@ class Privacy extends StatelessWidget {
         child: Scaffold(
       backgroundColor: ColorsManager.primary.withOpacity(1),
       appBar: CustomAppBar(
-        title: 'Privacy',
+        title: 'Privacy'.tr(),
         enableBack: false,
         leading: backButton(context),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 32),
+        padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: 16.0, vertical: 32),
         child: Column(
           children: [
-            const Align(
-              alignment: Alignment.topLeft,
+            Align(
+              alignment: AlignmentDirectional.topStart,
               child: Padding(
-                padding: EdgeInsets.only(left: 16, bottom: 16),
+                padding:
+                    const EdgeInsetsDirectional.only(start: 16, bottom: 16),
                 child: Text(
-                  'Control Your Privacy Settings..',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  "PrivacyCaption".tr(),
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
             CustomListTile(
-                title: 'Reset Password',
+                title: 'ResetPassword'.tr(),
                 elementsColor: ColorsManager.secondPrimary.withOpacity(1),
                 onTap: () => Navigator.push(
                       context,
@@ -42,13 +46,13 @@ class Privacy extends StatelessWidget {
                     ),
                 leadingIcon: Icons.password_rounded),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              padding: const EdgeInsetsDirectional.symmetric(horizontal: 25.0),
               child: Divider(
                 color: ColorsManager.secondPrimary.withOpacity(1),
               ),
             ),
             CustomListTile(
-                title: 'Delete Account',
+                title: 'DeleteAccount'.tr(),
                 elementsColor: ColorsManager.secondPrimary.withOpacity(1),
                 onTap: () => Navigator.push(
                       context,

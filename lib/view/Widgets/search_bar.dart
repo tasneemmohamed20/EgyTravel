@@ -1,11 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class CustomSearchBar extends StatelessWidget {
   final TextEditingController? searchController;
-  final ValueChanged<String> onChanged;
+  final ValueChanged<String>? onChanged;
   final Color backgroundColor;
   final double borderRadius;
-  final String hintText;
   final double width;
   final double height;
   final bool readOnly;
@@ -15,12 +15,11 @@ class CustomSearchBar extends StatelessWidget {
     this.onTap,
     super.key,
     this.searchController,
-    required this.onChanged,
+    this.onChanged,
     required this.width,
     required this.height,
     this.backgroundColor = Colors.white70,
     this.borderRadius = 15.0,
-    this.hintText = 'Search...',
     required this.readOnly,
   });
 
@@ -45,7 +44,7 @@ class CustomSearchBar extends StatelessWidget {
                   readOnly: readOnly,
                   controller: searchController,
                   decoration: InputDecoration(
-                    hintText: hintText,
+                    hintText: "Search".tr(),
                     border: InputBorder.none,
                     prefixIcon: const Icon(Icons.search),
                   ),

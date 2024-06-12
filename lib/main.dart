@@ -3,6 +3,7 @@ import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/res/string_manager.dart';
 import 'package:egy_travel/view_model/FilterBarCubit/filter_bar_cubit.dart';
 import 'package:egy_travel/view_model/RadioButtons/radio_cubit.dart';
+import 'package:egy_travel/view_model/SignUpCubit/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:egy_travel/view/Screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,9 +17,9 @@ void main() async {
   Gemini.init(apiKey: AppStrings.geminiApiKey);
 
   runApp(EasyLocalization(
-      supportedLocales: [Locale('en', 'US'), Locale('ar', 'AE')],
+      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AE')],
       path: 'assets/translations',
-      fallbackLocale: Locale('en', 'US'),
+      fallbackLocale: const Locale('en', 'US'),
       child: const MyApp()));
 }
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => FilterBarCubit()),
         BlocProvider(create: (context) => RadioButtonCubit()),
+        BlocProvider(create: (context) => SignUpCubit())
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,

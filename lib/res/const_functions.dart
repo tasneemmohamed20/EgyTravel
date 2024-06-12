@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:egy_travel/view/Widgets/bottom_modal_sheet.dart';
 import 'package:flutter/material.dart';
 
 void navigateFish(BuildContext context, Widget widget) {
@@ -37,3 +36,8 @@ class LocalizationChecker {
     EasyLocalization.of(context)!.setLocale(currentLocale);
   }
 }
+// class LocalizationChecker {
+//   static changeLanguage(BuildContext context, Locale newLocale) {
+//     EasyLocalization.of(context)!.setLocale(newLocale);
+//   }
+// }

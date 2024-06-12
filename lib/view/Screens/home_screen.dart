@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/Data/dummy_data.dart';
 import 'package:egy_travel/view/Screens/articles_details.dart';
 import 'package:egy_travel/view/Screens/places_details_screen.dart';
@@ -40,7 +41,7 @@ class _HomeState extends State<Home> {
           body: CustomScrollView(
             slivers: [
               CustomSliverAppBar(
-                title: 'Home',
+                title: "Home".tr(),
                 leadingIcon: Icons.menu,
                 expandedHeight: 64.0,
                 onLeadingPressed: () {
@@ -59,18 +60,16 @@ class _HomeState extends State<Home> {
                               builder: (context) => SearchScreen()),
                         ),
                         readOnly: true,
-                        // searchController: _searchController,
-                        onChanged: (query) {},
                         width: mQwidth * 0.9,
                         height: mQheight * 0.07,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 32),
+                      padding: const EdgeInsetsDirectional.only(start: 32),
                       child: Align(
-                        alignment: Alignment.topLeft,
+                        alignment: AlignmentDirectional.topStart,
                         child: Text(
-                          'YOU MAY LIKE',
+                          "YouMayLike".tr(),
                           style: TextStyle(
                             color: ColorsManager.secondPrimary.withOpacity(1),
                             fontWeight: FontWeight.bold,
@@ -80,7 +79,8 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 6, right: 6),
+                      padding:
+                          const EdgeInsetsDirectional.only(start: 6, end: 6),
                       child: SizedBox(
                         height: mQheight * 0.2,
                         child: ListView.builder(
@@ -120,14 +120,14 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(left: 32, top: 16, right: 32),
+                      padding: const EdgeInsetsDirectional.only(
+                          start: 32, top: 16, end: 32),
                       child: Align(
                         alignment: Alignment.topLeft,
                         child: Row(
                           children: [
                             Text(
-                              'PLACES',
+                              "Places".tr(),
                               style: TextStyle(
                                 color:
                                     ColorsManager.secondPrimary.withOpacity(1),
@@ -140,12 +140,12 @@ class _HomeState extends State<Home> {
                               onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const ViewAll(
-                                          screenTilte: 'PLACES',
+                                    builder: (context) => ViewAll(
+                                          screenTilte: "Places".tr(),
                                         )),
                               ),
                               child: Text(
-                                'VIEW ALL',
+                                "ViewAll".tr(),
                                 style: TextStyle(
                                   color: ColorsManager.secondPrimary
                                       .withOpacity(1),
@@ -158,7 +158,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(6),
+                      padding: const EdgeInsetsDirectional.all(6),
                       child: GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
@@ -199,14 +199,14 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(left: 32, top: 16, right: 32),
+                      padding: const EdgeInsetsDirectional.only(
+                          start: 32, top: 16, end: 32),
                       child: Align(
                         alignment: Alignment.topLeft,
                         child: Row(
                           children: [
                             Text(
-                              'ARTICLES',
+                              "Articles".tr(),
                               style: TextStyle(
                                 color:
                                     ColorsManager.secondPrimary.withOpacity(1),
@@ -219,12 +219,12 @@ class _HomeState extends State<Home> {
                               onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const ViewAll(
-                                          screenTilte: 'ARTICLES',
+                                    builder: (context) => ViewAll(
+                                          screenTilte: "Articles".tr(),
                                         )),
                               ),
                               child: Text(
-                                'VIEW ALL',
+                                "ViewAll".tr(),
                                 style: TextStyle(
                                   color: ColorsManager.secondPrimary
                                       .withOpacity(1),
@@ -237,7 +237,7 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(6),
+                      padding: const EdgeInsetsDirectional.all(6),
                       child: GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
