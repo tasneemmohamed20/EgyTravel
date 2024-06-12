@@ -29,23 +29,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => FilterBarCubit()),
-        BlocProvider(create: (context) => RadioButtonCubit()),
-        BlocProvider(create: (context) => SignUpCubit())
-      ],
-      child: MaterialApp(
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primaryColor: ColorsManager.primary,
-          useMaterial3: true,
-        ),
-        home: const SplashScreen(),
+    return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: ColorsManager.primary,
+        useMaterial3: true,
       ),
+      home: const SplashScreen(),
     );
   }
 }

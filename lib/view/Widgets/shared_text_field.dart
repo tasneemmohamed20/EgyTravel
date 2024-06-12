@@ -1,5 +1,7 @@
 import 'package:egy_travel/res/colors_manager.dart';
+import 'package:egy_travel/view_model/ShowHidePassword/cubit/show_hide_password_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomPasswordField extends StatelessWidget {
   final TextEditingController controller;
@@ -21,32 +23,42 @@ class CustomPasswordField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(top: 16.0),
-      child: TextFormField(
-        obscureText: isObscure,
-        controller: controller,
-        decoration: InputDecoration(
-          labelText: labelText,
-          labelStyle:
-              TextStyle(color: ColorsManager.secondPrimary.withOpacity(1)),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: borderColor.withOpacity(1),
-              width: 2.0,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: borderColor.withOpacity(1),
-            ),
-          ),
-          suffixIcon: IconButton(
-            onPressed: toggleObscure,
-            icon: Icon(
-              isObscure ? Icons.visibility : Icons.visibility_off,
-            ),
-          ),
+    return BlocProvider(
+      create: (context) => ShowHideCubit(),
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(top: 16.0),
+        child: BlocBuilder<ShowHideCubit, ShowHideState>(
+          builder: (context, state) {
+            return TextFormField(
+              obscureText: context.read<ShowHideCubit>().secure,
+              controller: controller,
+              decoration: InputDecoration(
+                labelText: labelText,
+                labelStyle: TextStyle(
+                    color: ColorsManager.secondPrimary.withOpacity(1)),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: borderColor.withOpacity(1),
+                    width: 2.0,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: borderColor.withOpacity(1),
+                  ),
+                ),
+                suffixIcon: IconButton(
+                  onPressed: () =>
+                      context.read<ShowHideCubit>().showHideSwitch(),
+                  icon: Icon(
+                    context.read<ShowHideCubit>().secure
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                  ),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

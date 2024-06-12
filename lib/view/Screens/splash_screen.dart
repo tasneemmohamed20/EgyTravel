@@ -97,7 +97,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigateToHome() async {
     Future.delayed(const Duration(seconds: 2), () {
-      navigateFish(context, const PickLanguage());
+      navigateFish(context, PickLanguage());
     });
   }
 }

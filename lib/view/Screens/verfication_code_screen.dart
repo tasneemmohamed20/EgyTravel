@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/view/Screens/test_screen.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_button.dart';
@@ -7,13 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinput/pinput.dart';
 
-class VerficationCodeScreen extends StatefulWidget {
+class VerficationCodeScreen extends StatelessWidget {
   const VerficationCodeScreen({super.key});
-  @override
-  State<VerficationCodeScreen> createState() => _VerficationCodeScreenState();
-}
-
-class _VerficationCodeScreenState extends State<VerficationCodeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,7 +17,7 @@ class _VerficationCodeScreenState extends State<VerficationCodeScreen> {
           backgroundColor: ColorsManager.primary.withOpacity(1),
           resizeToAvoidBottomInset: false,
           appBar: CustomAppBar(
-            title: "Verfication",
+            title: "Verfication".tr(),
             enableBack: false,
             leading: backButton(context),
           ),
@@ -57,7 +53,8 @@ class _VerficationCodeScreenState extends State<VerficationCodeScreen> {
                       Align(
                         alignment: Alignment.center,
                         child: Text(
-                          'Kindly input the code that was supplied to \nthe email address you registered.',
+                          "VerficationCaption".tr(),
+                          softWrap: true,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 18,
@@ -132,7 +129,7 @@ class _VerficationCodeScreenState extends State<VerficationCodeScreen> {
                                   (MediaQuery.of(context).size.width * 0.4)),
                           backgroundColor:
                               ColorsManager.secondPrimary.withOpacity(1),
-                          text: 'Verify',
+                          text: 'Verify'.tr(),
                         ),
                       ),
                     ],

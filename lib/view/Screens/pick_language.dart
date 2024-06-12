@@ -8,17 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:egy_travel/res/const_functions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class PickLanguage extends StatefulWidget {
-  const PickLanguage({super.key});
+class PickLanguage extends StatelessWidget {
+   PickLanguage({super.key, this.selectedOption});
 
-  @override
-  State<PickLanguage> createState() => _PickLanguageState();
-}
-
-class _PickLanguageState extends State<PickLanguage> {
   final Future<SharedPreferences> _pref = SharedPreferences.getInstance();
+
   final String _onboarding = 'onBoarding';
-  String? selectedOption;
+
+  final String? selectedOption;
 
   @override
   Widget build(BuildContext context) {

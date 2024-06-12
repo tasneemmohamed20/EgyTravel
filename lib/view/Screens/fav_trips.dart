@@ -3,14 +3,9 @@ import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Widgets/view_all_widget.dart';
 import 'package:flutter/material.dart';
 
-class FavTrips extends StatefulWidget {
+class FavTrips extends StatelessWidget {
   const FavTrips({super.key});
 
-  @override
-  State<FavTrips> createState() => _FavTrips();
-}
-
-class _FavTrips extends State<FavTrips> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

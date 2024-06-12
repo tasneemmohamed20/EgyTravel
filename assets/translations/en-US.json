@@ -162,117 +162,12 @@
     "Reson5" : "Something else",
 
     "SelectOption" : "Select an option",
-  "Sign up with Social of fill the form to continue." : "Sign up with Social of fill the form to continue.",
-  
-  
-  
-    "Forgot your password?" : "Forgot your password?",
-  
-    "forgotPassword" : "If you need help resetting your password\nwe can help by sending you a link to reset it.",
-  
-    "Your Phone Number" : "Enter your Email to continue",
-  
-    "Next" : "Next",
-  
-    "Phone Verification" : "Phone Verification",
-  
-    "Please enter the 4-digit code send to you at" : "Please enter the 4-digit code send to you at",
-  
-    "Resend Code" : "Resend Code",
-  
-    "Verify" : "Verify",
-  
-    "Language" : "Language",
-  
-    "Choose your application preferred language" : "Choose your application preferred language",
-  
-    "Done" : "Done",
-  
-  
-    "Event" : "Event",
-    
 
-    "Current Password" : "Current Password",
-    "New Password" : "New Password",
-    "Confirm New Password" : "Confirm New Password",
-  
-    "Recommend" : "Recommend",
-  
-  
-  
-    "Near Events" : "Near Events",
-  
-    "Full Name" : "Full Name",
-  
-    "E-mail" : "E-mail",
-  
-  
-    "Change password" : "Change password",
-    "Sing out" : "Sign out",
-    "Delete Account" : "Delete Account",
-    "Are you sure you want to delete your account?" : "Are you sure you want to delete your account?",
-    "Delete" : "Delete",
-    "Cancel" : "Cancel",
-  
-  
-    "Near Event" : "Near Event",
-  
-    "Choose your application preferred language." : "Choose your application preferred language.",
-  
-    "View All" : "View All",
-  
-    "we are here to help you make\nyour tour much easier" : "we are here to help you make\nyour tour much easier",
-  
-    "Phone Number" : "Phone Number",
-  
-  
-    "Edit Profile" : "Edit Profile",
-  
-    "Content" : "Content",
-  
-    "Favourites" : "Favourites",
-  
-    "Article" : "Article",
-  
-    "Start" : "Start",
-  
-    "My Trips" : "My Trips",
-  
-    "Add In My Tips" : "Add In My Tips",
-  
-    "in place to your trips" : "in place to your trips",
-  
-    "You  add this place to your tips" : "You  add this place to your tips",
-  
-    "Change Password" : "Change Password",
-  
-    "Password does not match" : "Password does not match",
-  
-    "Phone" : "Phone",
-  
-    "Phone must not be empty" : "Phone must not be empty",
-  
-    "Remove In My Tips" : "Remove In My Tips",
-  
-    "You  remove this place to your tips" : "You remove this place to your tips",
-  
-  
-    "Sign Out" : "Sign Out",
-  
-    "Discard Change" : "Discard Change",
-  
-    "Are you sure you want to change your profile picture?" :
-    "Are you sure you want to change your profile picture?",
-  
-    "Change" : "Change",
-  
-    "Theme mode" : "Theme mode",
-  
-  
-    "Empty Search" : "Empty Search",
-  
-    "Not found Places please try again" : "Not found Places please try again",
-  
-    "Welcome back!" : "Welcome back!"
-  
+  "____________________________________":"________________________________",
+
+    "Verfication" : "Verfication",
+
+    "VerficationCaption" : "Kindly input the code that was supplied to the email address you registered.",
+
+    "Verify" : "Verify"
   }
