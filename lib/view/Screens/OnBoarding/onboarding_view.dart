@@ -17,7 +17,7 @@ class OnBoardingView extends StatefulWidget {
 
 class _OnBoardingViewState extends State<OnBoardingView> {
   // final Future<SharedPreferences> _pref = SharedPreferences.getInstance();
-  final String _onboarding = 'onBoarding';
+  // final String _onboarding = 'onBoarding';
   final controller = OnBoardingItems();
   final pageController = PageController();
 
@@ -117,7 +117,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     onPressed: () async {
                       // SharedPreferences preferences = await _pref;
                       // await preferences.setBool(_onboarding, true);
-                      navigateFish(context, LogInScreen());
+                      navigateFish(context, const LogInScreen());
                       // if (!mounted) return;
                     },
                     // onPressed: () => Navigator.push(

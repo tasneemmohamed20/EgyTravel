@@ -77,7 +77,7 @@ class ForgotPassword extends StatelessWidget {
                                 ],
                               )),
                           CustomTextField(
-                            borderColor: ColorsManager.secondPrimary,
+                            // borderColor: ColorsManager.secondPrimary,
                             controller: emailController,
                             labelText: 'Email'.tr(),
                           ),

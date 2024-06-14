@@ -71,7 +71,7 @@
 
     "ValidEmail" : "Please enter a valid email.",
 
-    "validPassword" : "Password must be at least 8 characters long and contain at least one letter.",
+    "validPassword" : "Password must be at least 8 characters long",
 
     "validAddress" : "Please enter your address.",
     

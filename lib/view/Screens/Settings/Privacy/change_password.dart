@@ -46,18 +46,20 @@ class ChangePasswordScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 CustomPasswordField(
-                    controller: currentPassword,
-                    labelText: 'CurrentPassword'.tr(),
-                    borderColor: ColorsManager.secondPrimary.withOpacity(1)),
-                CustomPasswordField(
-                  controller: newPassword,
-                  labelText: 'NewPassword'.tr(),
-                  borderColor: ColorsManager.secondPrimary.withOpacity(1),
+                  // controller: currentPassword,
+                  labelText: 'CurrentPassword'.tr(),
+                  // borderColor: ColorsManager.secondPrimary.withOpacity(1)
                 ),
                 CustomPasswordField(
-                    controller: confirmPassword,
-                    labelText: "ConfirmNewPassword".tr(),
-                    borderColor: ColorsManager.secondPrimary.withOpacity(1)),
+                  // controller: newPassword,
+                  labelText: 'NewPassword'.tr(),
+                  // borderColor: ColorsManager.secondPrimary.withOpacity(1),
+                ),
+                CustomPasswordField(
+                  // controller: confirmPassword,
+                  labelText: "ConfirmNewPassword".tr(),
+                  // borderColor: ColorsManager.secondPrimary.withOpacity(1)
+                ),
                 Padding(
                   padding: const EdgeInsetsDirectional.only(top: 32),
                   child: CustomButton(

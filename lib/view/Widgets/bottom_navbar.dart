@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
-import 'package:egy_travel/view/Screens/home_screen.dart';
-import 'package:egy_travel/view/Screens/plans_screen.dart';
-import 'package:egy_travel/view/Screens/test_screen.dart';
+// import 'package:egy_travel/view/Screens/home_screen.dart';
+// import 'package:egy_travel/view/Screens/plans_screen.dart';
+// import 'package:egy_travel/view/Screens/test_screen.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
@@ -16,11 +16,11 @@ class CustomBottomNavigationBar extends StatefulWidget {
 class CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [
-    const Home(),
-    const PlansScreen(),
-    const TestPage(),
-  ];
+  // final List<Widget> _screens = [
+  //   const Home(),
+  //   const PlansScreen(),
+  //   const TestPage(),
+  // ];
 
   @override
   Widget build(BuildContext context) {

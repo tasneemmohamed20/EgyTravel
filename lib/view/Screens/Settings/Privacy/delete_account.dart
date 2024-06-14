@@ -98,9 +98,9 @@ class _DeleteAccountState extends State<DeleteAccount> {
           Padding(
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 32),
             child: CustomPasswordField(
-              controller: password,
+              // controller: password,
               labelText: 'YourPassword'.tr(),
-              borderColor: ColorsManager.secondPrimary.withOpacity(1),
+              // borderColor: ColorsManager.secondPrimary.withOpacity(1),
             ),
           ),
           Padding(

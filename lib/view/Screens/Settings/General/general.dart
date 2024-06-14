@@ -62,19 +62,19 @@ class GeneralSettingse extends StatelessWidget {
                 ],
               ),
               CustomTextField(
-                borderColor: ColorsManager.secondPrimary,
+                // borderColor: ColorsManager.secondPrimary,
                 controller: nameController,
                 labelText: 'Name'.tr(),
               ),
               const SizedBox(height: 16.0),
               CustomTextField(
-                borderColor: ColorsManager.secondPrimary,
-                controller: emailController,
+                // borderColor: ColorsManager.secondPrimary,
+                // controller: emailController,
                 labelText: 'Email'.tr(),
               ),
               const SizedBox(height: 16.0),
               CustomTextField(
-                borderColor: ColorsManager.secondPrimary,
+                // borderColor: ColorsManager.secondPrimary,
                 controller: emailController,
                 labelText: 'Address'.tr(),
               ),
