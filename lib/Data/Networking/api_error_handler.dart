@@ -1,9 +1,10 @@
+// ignore_for_file: constant_identifier_names, non_constant_identifier_names
+
 import 'package:dio/dio.dart';
 
 import 'api_constants.dart';
 import 'api_error_model.dart';
 
-// TODO: wallahy I will refactor this .. Omar Ahmed
 enum DataSource {
   NO_CONTENT,
   BAD_REQUEST,
@@ -163,6 +164,7 @@ ApiErrorModel _handleError(DioException error) {
       return DataSource.DEFAULT.getFailure();
     case DioExceptionType.badCertificate:
       return DataSource.DEFAULT.getFailure();
+    // ignore: unreachable_switch_case
     case DioExceptionType.badResponse:
       return DataSource.DEFAULT.getFailure();
   }

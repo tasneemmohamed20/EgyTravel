@@ -74,6 +74,9 @@
     "validPassword" : "Password must be at least 8 characters long",
 
     "validAddress" : "Please enter your address.",
+
+    "ConfirmPassword" : "Confirm Password",
+
     
   "______________________________":"________________________________",
 

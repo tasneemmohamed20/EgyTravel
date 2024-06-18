@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/Di/dependency_injection.dart';
-import 'package:egy_travel/model/login_request_body.dart';
+import 'package:egy_travel/model/Login/login_request_body.dart';
+import 'package:egy_travel/res/app_regex.dart';
 import 'package:egy_travel/view/Screens/forgot_password.dart';
-// import 'package:egy_travel/view/Screens/home_screen.dart';
 import 'package:egy_travel/view/Screens/sign_up_screen.dart';
 import 'package:egy_travel/view/Widgets/login_bloc_listener.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
@@ -11,13 +11,18 @@ import 'package:egy_travel/view/Widgets/shared_text_field.dart';
 import 'package:egy_travel/res/app_assets.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view_model/LoginCubit/cubit/login_cubit.dart';
+import 'package:egy_travel/view_model/SignUpCubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// ignore: must_be_immutable
-class LogInScreen extends StatelessWidget {
+class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
 
+  @override
+  State<LogInScreen> createState() => _LogInScreenState();
+}
+
+class _LogInScreenState extends State<LogInScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -63,22 +68,24 @@ class LogInScreen extends StatelessWidget {
                                             .withOpacity(1)),
                                   ))),
                           CustomTextField(
-                            // validator: (value){
-                            //   if (value == null || value.isEmpty) {
-                            //     return "ValidEmail".tr();
-                            //   }
-                            // },
-                            // borderColor: ColorsManager.secondPrimary,
-                            // controller: context.read<LoginCubit>().emailController,
+                            controller:
+                                context.read<LoginCubit>().emailController,
                             labelText: "Email".tr(),
+                            validator: (value) {
+                              if (value.isEmpty ||
+                                  !AppRegex.isEmailValid(value)) {
+                                return 'Please enter a valid email';
+                              }
+                            },
                           ),
                           CustomPasswordField(
-                            // validator: (value){
-                            //   if (value == null || value.isEmpty) {
-                            //     return "validPassword".tr();
-                            //   }
-                            // },
-                            // controller: context.read<LoginCubit>().passwordController,
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Please enter a valid password';
+                              }
+                            },
+                            passwordController:
+                                context.read<LoginCubit>().passwordController,
                             labelText: "Password".tr(),
                           ),
                         ],
@@ -153,7 +160,10 @@ class LogInScreen extends StatelessWidget {
                         onPressed: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignUPScreen()),
+                              builder: (context) => BlocProvider(
+                                    create: (context) => getIt<SignUpCubit>(),
+                                    child: const SignUPScreen(),
+                                  )),
                         ),
                       ),
                     ]),

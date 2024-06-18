@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:egy_travel/model/login_request_body.dart';
+import 'package:egy_travel/model/Login/login_request_body.dart';
 import 'package:egy_travel/repositories/login_repo.dart';
 import 'package:egy_travel/view_model/LoginCubit/cubit/login_state.dart';
 import 'package:flutter/material.dart';

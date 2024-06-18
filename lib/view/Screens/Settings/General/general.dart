@@ -62,18 +62,32 @@ class GeneralSettingse extends StatelessWidget {
                 ],
               ),
               CustomTextField(
-                // borderColor: ColorsManager.secondPrimary,
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Please enter a valid name';
+                  }
+                },
                 controller: nameController,
                 labelText: 'Name'.tr(),
               ),
               const SizedBox(height: 16.0),
               CustomTextField(
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Please enter a valid Email';
+                  }
+                },
                 // borderColor: ColorsManager.secondPrimary,
-                // controller: emailController,
+                controller: emailController,
                 labelText: 'Email'.tr(),
               ),
               const SizedBox(height: 16.0),
               CustomTextField(
+                validator: (value) {
+                  if (value.isEmpty) {
+                    return 'Please enter a valid address';
+                  }
+                },
                 // borderColor: ColorsManager.secondPrimary,
                 controller: emailController,
                 labelText: 'Address'.tr(),

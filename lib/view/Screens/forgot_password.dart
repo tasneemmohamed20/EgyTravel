@@ -77,7 +77,11 @@ class ForgotPassword extends StatelessWidget {
                                 ],
                               )),
                           CustomTextField(
-                            // borderColor: ColorsManager.secondPrimary,
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Please enter a valid password';
+                              }
+                            },
                             controller: emailController,
                             labelText: 'Email'.tr(),
                           ),
