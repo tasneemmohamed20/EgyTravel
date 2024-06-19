@@ -1,9 +1,7 @@
-
 import 'package:egy_travel/Data/Networking/api_error_handler.dart';
 import 'package:egy_travel/Data/Networking/api_result.dart';
 import 'package:egy_travel/Data/Networking/api_service.dart';
 import 'package:egy_travel/model/Home/places_response.dart';
-
 
 class PlacesRepo {
   final ApiService _apiService;

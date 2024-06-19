@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:egy_travel/Di/dependency_injection.dart';
+import 'package:egy_travel/core/Di/dependency_injection.dart';
 import 'package:egy_travel/model/Login/login_request_body.dart';
 import 'package:egy_travel/res/app_regex.dart';
 import 'package:egy_travel/view/Screens/forgot_password.dart';

@@ -8,14 +8,13 @@ part of 'places_response.dart';
 
 PlacesResponseModel _$PlacesResponseModelFromJson(Map<String, dynamic> json) =>
     PlacesResponseModel(
-      (json['data'] as List<dynamic>?)
-          ?.map((e) =>
-              e == null ? null : PlacesData.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      json['data'] == null
+          ? null
+          : Data.fromJson(json['data'] as Map<String, dynamic>),
       json['status'] as String?,
-      json['result'] as String?,
-      json['page'] as String?,
-      json['totalPages'] as String?,
+      (json['result'] as num?)?.toInt(),
+      (json['page'] as num?)?.toInt(),
+      (json['totalPages'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$PlacesResponseModelToJson(
@@ -25,11 +24,21 @@ Map<String, dynamic> _$PlacesResponseModelToJson(
       'status': instance.status,
       'page': instance.page,
       'totalPages': instance.totalPages,
-      'data': instance.placesData,
+      'data': instance.data,
+    };
+
+Data _$DataFromJson(Map<String, dynamic> json) => Data(
+      (json['places'] as List<dynamic>?)
+          ?.map((e) => PlacesData.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+      'places': instance.placesData,
     };
 
 PlacesData _$PlacesDataFromJson(Map<String, dynamic> json) => PlacesData(
-      json['id'] as String?,
+      (json['id'] as num?)?.toInt(),
       json['name'] as String?,
       json['description'] as String?,
       json['language'] as String?,

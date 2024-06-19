@@ -2,12 +2,12 @@ import 'package:egy_travel/Data/dummy_data.dart';
 import 'package:egy_travel/model/Home/places_response.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/places_details_screen.dart';
-import 'package:egy_travel/view/Widgets/list_card.dart';
+import 'package:egy_travel/view/Widgets/HomeWidgets/list_card.dart';
 import 'package:flutter/material.dart';
 
 class MayLikeList extends StatelessWidget {
-  const MayLikeList({super.key, this.placesData});
-  final List<PlacesData?>? placesData;
+  const MayLikeList({super.key, required this.placesData});
+  final List<PlacesData?> placesData;
   @override
   Widget build(BuildContext context) {
     final mQwidth = MediaQuery.of(context).size.width;
@@ -19,7 +19,7 @@ class MayLikeList extends StatelessWidget {
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount:
-              placesData!.length > 10 ? 10 : items.length, // Change this line
+              placesData.length > 10 ? 10 : items.length, // Change this line
           itemBuilder: (context, index) {
             return SizedBox(
               width: mQwidth * 0.9,
@@ -28,16 +28,16 @@ class MayLikeList extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => PlacesDetailsScreen(
-                            image: placesData![index]?.image ?? '',
-                            subtitle: placesData![index]?.location ?? '',
-                            title: placesData![index]?.name ?? '',
-                            description: placesData![index]?.description ?? '',
+                            image: placesData[index]?.image ?? '',
+                            subtitle: placesData[index]?.location ?? '',
+                            title: placesData[index]?.name ?? '',
+                            description: placesData[index]?.description ?? '',
                           )),
                 ),
                 child: CustomListCard(
-                  image: placesData![index]?.image ?? '',
-                  title: placesData![index]?.name ?? '',
-                  subtitle: placesData![index]?.location ?? '',
+                  image: placesData[index]?.image ?? '',
+                  title: placesData[index]?.name ?? '',
+                  subtitle: placesData[index]?.location ?? '',
                   imageWidth: mQwidth * 0.4,
                   cardColor: ColorsManager.secondPrimary.withOpacity(1),
                   titleColor: ColorsManager.primary.withOpacity(1),

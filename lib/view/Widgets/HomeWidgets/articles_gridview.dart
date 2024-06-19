@@ -1,7 +1,7 @@
 import 'package:egy_travel/Data/dummy_data.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/articles_details.dart';
-import 'package:egy_travel/view/Widgets/grid_card.dart';
+import 'package:egy_travel/view/Widgets/HomeWidgets/grid_card.dart';
 import 'package:flutter/material.dart';
 
 class ArticlesGridView extends StatelessWidget {

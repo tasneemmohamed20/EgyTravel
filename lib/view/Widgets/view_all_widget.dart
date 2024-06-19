@@ -1,6 +1,6 @@
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/places_details_screen.dart';
-import 'package:egy_travel/view/Widgets/list_card.dart';
+import 'package:egy_travel/view/Widgets/HomeWidgets/list_card.dart';
 import 'package:flutter/material.dart';
 
 class ViewAllW extends StatelessWidget {

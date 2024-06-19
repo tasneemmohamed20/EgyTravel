@@ -1,9 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:egy_travel/Di/dependency_injection.dart';
+import 'package:egy_travel/core/Di/dependency_injection.dart';
+import 'package:egy_travel/core/helpers/bloc_observer.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/res/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:egy_travel/view/Screens/splash_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 
 void main() async {
@@ -12,6 +14,7 @@ void main() async {
 
   Gemini.init(apiKey: AppStrings.geminiApiKey);
   setupGetIt();
+  Bloc.observer = MyBlocObserver();
 
   runApp(EasyLocalization(
       supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AE')],

@@ -3,15 +3,14 @@ part 'places_response.g.dart';
 
 @JsonSerializable()
 class PlacesResponseModel {
-  final String? result;
+  final int? result;
   final String? status;
-  final String? page;
-  final String? totalPages;
-  @JsonKey(name: 'data')
-  List<PlacesData?>? placesData;
+  final int? page;
+  final int? totalPages;
+  Data? data;
 
   PlacesResponseModel(
-    this.placesData,
+    this.data,
     this.status,
     this.result,
     this.page,
@@ -23,8 +22,18 @@ class PlacesResponseModel {
 }
 
 @JsonSerializable()
+class Data {
+  @JsonKey(name: 'places')
+  final List<PlacesData>? placesData;
+
+  Data(this.placesData);
+
+  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
+}
+
+@JsonSerializable()
 class PlacesData {
-  final String? id;
+  final int? id;
   final String? name;
   final String? description;
   final String? language;
