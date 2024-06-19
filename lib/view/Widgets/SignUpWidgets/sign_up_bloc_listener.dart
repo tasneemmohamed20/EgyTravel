@@ -45,6 +45,7 @@ class SignupBlocListener extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
+          backgroundColor: ColorsManager.secondPrimary,
           title: const Text('Signup Successful'),
           content: SingleChildScrollView(
             child: ListBody(
@@ -64,9 +65,9 @@ class SignupBlocListener extends StatelessWidget {
           actions: <Widget>[
             TextButton(
               style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.blue,
-                disabledForegroundColor: Colors.grey.withOpacity(0.38),
+                foregroundColor: ColorsManager.primary,
+                backgroundColor: ColorsManager.primary,
+                disabledForegroundColor: ColorsManager.primary,
               ),
               onPressed: () {
                 Navigator.push(

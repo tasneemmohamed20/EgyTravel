@@ -1,11 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:egy_travel/Di/dependency_injection.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_button.dart';
 import 'package:egy_travel/res/app_assets.dart';
 import 'package:egy_travel/res/colors_manager.dart';
-import 'package:egy_travel/view/Widgets/sign_up_bloc_listener.dart';
-import 'package:egy_travel/view/Widgets/sign_up_form.dart';
+import 'package:egy_travel/view/Widgets/SignUpWidgets/sign_up_bloc_listener.dart';
+import 'package:egy_travel/view/Widgets/SignUpWidgets/sign_up_form.dart';
 import 'package:egy_travel/view_model/SignUpCubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

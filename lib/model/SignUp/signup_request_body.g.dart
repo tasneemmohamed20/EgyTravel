@@ -12,7 +12,7 @@ SignUpRequestBody _$SignUpRequestBodyFromJson(Map<String, dynamic> json) =>
       password: json['password'] as String,
       name: json['name'] as String,
       address: json['address'] as String,
-      passwordConfirmation: json['passwordConfirmation'] as String,
+      passwordConfirm: json['passwordConfirm'] as String,
     );
 
 Map<String, dynamic> _$SignUpRequestBodyToJson(SignUpRequestBody instance) =>
@@ -21,5 +21,5 @@ Map<String, dynamic> _$SignUpRequestBodyToJson(SignUpRequestBody instance) =>
       'password': instance.password,
       'name': instance.name,
       'address': instance.address,
-      'passwordConfirmation': instance.passwordConfirmation,
+      'passwordConfirm': instance.passwordConfirm,
     };

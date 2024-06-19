@@ -1,5 +1,7 @@
+import 'package:egy_travel/Di/dependency_injection.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/home_screen.dart';
+import 'package:egy_travel/view_model/PlacesCubit/places_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,7 +32,11 @@ class LoginBlocListener extends StatelessWidget {
             Navigator.pop(context);
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const Home()),
+              MaterialPageRoute(
+                  builder: (context) => BlocProvider(
+                        create: (context) => getIt<PlacesCubit>(),
+                        child: const Home(),
+                      )),
             );
           },
           error: (error) {

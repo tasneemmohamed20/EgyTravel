@@ -2,8 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:egy_travel/Data/Networking/api_service.dart';
 import 'package:egy_travel/Data/Networking/dio_factory.dart';
 import 'package:egy_travel/repositories/login_repo.dart';
+import 'package:egy_travel/repositories/places_repo.dart';
 import 'package:egy_travel/repositories/signup_repo.dart';
 import 'package:egy_travel/view_model/LoginCubit/cubit/login_cubit.dart';
+import 'package:egy_travel/view_model/PlacesCubit/places_cubit.dart';
 import 'package:egy_travel/view_model/SignUpCubit/sign_up_cubit.dart';
 import 'package:get_it/get_it.dart';
 
@@ -21,4 +23,8 @@ Future<void> setupGetIt() async {
 // signup
   getIt.registerLazySingleton<SignUpRepo>(() => SignUpRepo(getIt()));
   getIt.registerFactory<SignUpCubit>(() => SignUpCubit(getIt()));
+
+// Places
+  getIt.registerLazySingleton<PlacesRepo>(() => PlacesRepo(getIt()));
+  getIt.registerFactory<PlacesCubit>(() => PlacesCubit(getIt()));
 }

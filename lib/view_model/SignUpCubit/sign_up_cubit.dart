@@ -24,7 +24,7 @@ class SignUpCubit extends Cubit<SignUpState> {
         name: nameController.text,
         email: emailController.text,
         password: passwordController.text,
-        passwordConfirmation: passwordConfirmationController.text,
+        passwordConfirm: passwordConfirmationController.text,
         address: addressController.text,
       ),
     );

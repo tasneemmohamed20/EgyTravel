@@ -1,17 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:egy_travel/Data/dummy_data.dart';
-import 'package:egy_travel/view/Screens/articles_details.dart';
-import 'package:egy_travel/view/Screens/places_details_screen.dart';
 import 'package:egy_travel/view/Screens/search_screen.dart';
 import 'package:egy_travel/view/Screens/view_all.dart';
+import 'package:egy_travel/view/Widgets/HomeWidgets/articles_gridview.dart';
+import 'package:egy_travel/view/Widgets/HomeWidgets/may_like_list.dart';
+import 'package:egy_travel/view/Widgets/HomeWidgets/places_gridview.dart';
 import 'package:egy_travel/view/Widgets/bottom_navbar.dart';
-import 'package:egy_travel/view/Widgets/grid_card.dart';
 import 'package:egy_travel/view/Widgets/home_drawer.dart';
-import 'package:egy_travel/view/Widgets/list_card.dart';
 import 'package:egy_travel/view/Widgets/search_bar.dart';
 import 'package:egy_travel/view/Widgets/sliver_appbar.dart';
 import 'package:egy_travel/res/colors_manager.dart';
+import 'package:egy_travel/view_model/PlacesCubit/places_cubit.dart';
+import 'package:egy_travel/view_model/PlacesCubit/places_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // enum _SelectedTab { home, plans, events }
 
@@ -78,125 +79,71 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.only(start: 6, end: 6),
-                      child: SizedBox(
-                        height: mQheight * 0.2,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: items.length > 4 ? 4 : items.length,
-                          itemBuilder: (context, index) {
-                            final item = items[index];
-                            return SizedBox(
-                              width: mQwidth * 0.9,
-                              child: InkWell(
-                                onTap: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => PlacesDetailsScreen(
-                                            image: items[index]['image'],
-                                            subtitle: items[index]['subtitle'],
-                                            title: items[index]['title'],
-                                            description: items[index]
-                                                ['description'],
-                                          )),
+                    BlocBuilder<PlacesCubit, PlacesState>(
+                      buildWhen: (previous, current) =>
+                          current is GetPlacesloading ||
+                          current is GetPlacesSuccess ||
+                          current is GetPlacesError,
+                      builder: (context, state) {
+                        return state.maybeWhen(getPlacesloading: () {
+                          return const SizedBox(
+                              height: 100,
+                              child:
+                                  Center(child: CircularProgressIndicator()));
+                        }, getPlacesSuccess: (placesResponseModel) {
+                          return Expanded(
+                            child: Column(
+                              children: [
+                                const MayLikeList(),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.only(
+                                      start: 32, top: 16, end: 32),
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          "Places".tr(),
+                                          style: TextStyle(
+                                            color: ColorsManager.secondPrimary
+                                                .withOpacity(1),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 25,
+                                          ),
+                                        ),
+                                        const Spacer(),
+                                        TextButton(
+                                          onPressed: () => Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => ViewAll(
+                                                      screenTilte:
+                                                          "Places".tr(),
+                                                    )),
+                                          ),
+                                          child: Text(
+                                            "ViewAll".tr(),
+                                            style: TextStyle(
+                                              color: ColorsManager.secondPrimary
+                                                  .withOpacity(1),
+                                              fontSize: 15,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ),
-                                child: CustomListCard(
-                                  image: item['image'],
-                                  title: item['title'],
-                                  subtitle: item['subtitle'],
-                                  imageWidth: mQwidth * 0.4,
-                                  cardColor: ColorsManager.secondPrimary
-                                      .withOpacity(1),
-                                  titleColor:
-                                      ColorsManager.primary.withOpacity(1),
-                                  subtitleColor: ColorsManager.subTitle,
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsetsDirectional.only(
-                          start: 32, top: 16, end: 32),
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Row(
-                          children: [
-                            Text(
-                              "Places".tr(),
-                              style: TextStyle(
-                                color:
-                                    ColorsManager.secondPrimary.withOpacity(1),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
-                              ),
-                            ),
-                            const Spacer(),
-                            TextButton(
-                              onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ViewAll(
-                                          screenTilte: "Places".tr(),
-                                        )),
-                              ),
-                              child: Text(
-                                "ViewAll".tr(),
-                                style: TextStyle(
-                                  color: ColorsManager.secondPrimary
-                                      .withOpacity(1),
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsetsDirectional.all(6),
-                      child: GridView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 6.0,
-                          mainAxisSpacing: 8.0,
-                          childAspectRatio: 0.75,
-                        ),
-                        itemCount: items.length > 4 ? 4 : items.length,
-                        itemBuilder: (context, index) {
-                          final item = items[index];
-                          return GestureDetector(
-                            onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PlacesDetailsScreen(
-                                        image: items[index]['image'],
-                                        subtitle: items[index]['subtitle'],
-                                        title: items[index]['title'],
-                                        description: items[index]
-                                            ['description'],
-                                      )),
-                            ),
-                            child: CustomGridCard(
-                              image: item['image'],
-                              title: item['title'],
-                              subtitle: item['subtitle'],
-                              imageWidth: mQwidth * 0.4,
-                              cardColor:
-                                  ColorsManager.secondPrimary.withOpacity(1),
-                              titleColor: ColorsManager.primary.withOpacity(1),
-                              subtitleColor: ColorsManager.subTitle,
+                                const PlacesGridView(),
+                              ],
                             ),
                           );
-                        },
-                      ),
+                        }, getPlacesError: (errorHandler) {
+                          return const SizedBox.shrink();
+                        }, orElse: () {
+                          return const SizedBox.shrink();
+                        });
+                      },
                     ),
                     Padding(
                       padding: const EdgeInsetsDirectional.only(
@@ -236,47 +183,7 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsetsDirectional.all(6),
-                      child: GridView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 6.0,
-                          mainAxisSpacing: 8.0,
-                          childAspectRatio: 0.75,
-                        ),
-                        itemCount: items.length > 4 ? 4 : items.length,
-                        itemBuilder: (context, index) {
-                          final item = items[index];
-                          return GestureDetector(
-                            onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ArticlesDetailsScreen(
-                                        description: items[index]
-                                            ['description'],
-                                        image: items[index]['image'],
-                                        subtitle: items[index]['subtitle'],
-                                        title: items[index]['title'],
-                                      )),
-                            ),
-                            child: CustomGridCard(
-                              image: item['image'],
-                              title: item['title'],
-                              subtitle: item['subtitle'],
-                              imageWidth: mQwidth * 0.4,
-                              cardColor:
-                                  ColorsManager.secondPrimary.withOpacity(1),
-                              titleColor: ColorsManager.primary.withOpacity(1),
-                              subtitleColor: ColorsManager.subTitle,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
+                    const ArticlesGridView(),
                   ],
                 ),
               ),

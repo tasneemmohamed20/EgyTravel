@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:egy_travel/model/Home/places_response.dart';
 import 'package:egy_travel/model/Login/login_request_body.dart';
 import 'package:egy_travel/model/Login/login_response.dart';
 import 'package:egy_travel/model/SignUp/signup_request_body.dart';
@@ -17,4 +18,8 @@ abstract class ApiService {
   @POST(AppStrings.signup)
   Future<SignUpResponseModel> signup(
       @Body() SignUpRequestBody signupRequestBody);
+
+  @GET(AppStrings.endPointGetAllPlaces)
+  Future<PlacesResponseModel> getAllPlaces();
+
 }
