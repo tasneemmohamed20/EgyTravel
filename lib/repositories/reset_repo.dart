@@ -1,18 +1,18 @@
 import 'package:egy_travel/Data/Networking/api_error_handler.dart';
 import 'package:egy_travel/Data/Networking/api_result.dart';
 import 'package:egy_travel/Data/Networking/api_service.dart';
-import 'package:egy_travel/model/ForgotPassword/forgot_request_body.dart';
-import 'package:egy_travel/model/ForgotPassword/forgot_response.dart';
+import 'package:egy_travel/model/ResetPassword/reset_request_body.dart';
+import 'package:egy_travel/model/ResetPassword/reset_response.dart';
 
-class ForgotRepo {
+class ResetRepo {
   final ApiService _apiService;
 
-  ForgotRepo(this._apiService);
+  ResetRepo(this._apiService);
 
-  Future<ApiResult<ForgotResponseModel>> forgot(
-      ForgotRequestBody forgotRequestBody) async {
+  Future<ApiResult<ResetResponseModel>> resetPassword(
+      ResetRequestBody resetRequestBody) async {
     try {
-      final response = await _apiService.forgotPassword(forgotRequestBody);
+      final response = await _apiService.resetPassword(resetRequestBody);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ErrorHandler.handle(e));

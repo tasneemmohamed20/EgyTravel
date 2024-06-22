@@ -5,6 +5,8 @@ import 'package:egy_travel/model/Login/login_request_body.dart';
 import 'package:egy_travel/model/Login/login_response.dart';
 import 'package:egy_travel/model/ForgotPassword/forgot_request_body.dart';
 import 'package:egy_travel/model/ForgotPassword/forgot_response.dart';
+import 'package:egy_travel/model/ResetPassword/reset_request_body.dart';
+import 'package:egy_travel/model/ResetPassword/reset_response.dart';
 import 'package:egy_travel/model/SignUp/signup_request_body.dart';
 import 'package:egy_travel/model/SignUp/signup_response.dart';
 import 'package:egy_travel/res/string_manager.dart';
@@ -36,5 +38,9 @@ abstract class ApiService {
 
   @POST(AppStrings.forgotPassword)
   Future<ForgotResponseModel> forgotPassword(
-      @Body() ForgotRequestBody resetRequestBody);
+      @Body() ForgotRequestBody forgotRequestBody);
+
+  @PUT(AppStrings.resetPassword)
+  Future<ResetResponseModel> resetPassword(
+      @Body() ResetRequestBody resetRequestBody);
 }

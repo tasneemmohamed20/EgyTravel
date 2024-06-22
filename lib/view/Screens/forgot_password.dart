@@ -104,12 +104,6 @@ class ForgotPassword extends StatelessWidget {
                                     .emailController
                                     .text,
                               ));
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //       builder: (context) =>
-                          //           const VerficationCodeScreen()),
-                          // );
                         },
                         padding: EdgeInsets.symmetric(
                             vertical: 16,
