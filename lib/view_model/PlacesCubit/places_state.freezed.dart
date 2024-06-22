@@ -20,7 +20,7 @@ mixin _$PlacesState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getPlacesloading,
-    required TResult Function(PlacesResponseModel placesResponseModel)
+    required TResult Function(List<PlacesData> places, bool isLastPage)
         getPlacesSuccess,
     required TResult Function(ErrorHandler errorHandler) getPlacesError,
   }) =>
@@ -29,7 +29,7 @@ mixin _$PlacesState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getPlacesloading,
-    TResult? Function(PlacesResponseModel placesResponseModel)?
+    TResult? Function(List<PlacesData> places, bool isLastPage)?
         getPlacesSuccess,
     TResult? Function(ErrorHandler errorHandler)? getPlacesError,
   }) =>
@@ -38,7 +38,8 @@ mixin _$PlacesState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getPlacesloading,
-    TResult Function(PlacesResponseModel placesResponseModel)? getPlacesSuccess,
+    TResult Function(List<PlacesData> places, bool isLastPage)?
+        getPlacesSuccess,
     TResult Function(ErrorHandler errorHandler)? getPlacesError,
     required TResult orElse(),
   }) =>
@@ -128,7 +129,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getPlacesloading,
-    required TResult Function(PlacesResponseModel placesResponseModel)
+    required TResult Function(List<PlacesData> places, bool isLastPage)
         getPlacesSuccess,
     required TResult Function(ErrorHandler errorHandler) getPlacesError,
   }) {
@@ -140,7 +141,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getPlacesloading,
-    TResult? Function(PlacesResponseModel placesResponseModel)?
+    TResult? Function(List<PlacesData> places, bool isLastPage)?
         getPlacesSuccess,
     TResult? Function(ErrorHandler errorHandler)? getPlacesError,
   }) {
@@ -152,7 +153,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getPlacesloading,
-    TResult Function(PlacesResponseModel placesResponseModel)? getPlacesSuccess,
+    TResult Function(List<PlacesData> places, bool isLastPage)?
+        getPlacesSuccess,
     TResult Function(ErrorHandler errorHandler)? getPlacesError,
     required TResult orElse(),
   }) {
@@ -244,7 +246,7 @@ class _$GetPlacesloadingImpl implements GetPlacesloading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getPlacesloading,
-    required TResult Function(PlacesResponseModel placesResponseModel)
+    required TResult Function(List<PlacesData> places, bool isLastPage)
         getPlacesSuccess,
     required TResult Function(ErrorHandler errorHandler) getPlacesError,
   }) {
@@ -256,7 +258,7 @@ class _$GetPlacesloadingImpl implements GetPlacesloading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getPlacesloading,
-    TResult? Function(PlacesResponseModel placesResponseModel)?
+    TResult? Function(List<PlacesData> places, bool isLastPage)?
         getPlacesSuccess,
     TResult? Function(ErrorHandler errorHandler)? getPlacesError,
   }) {
@@ -268,7 +270,8 @@ class _$GetPlacesloadingImpl implements GetPlacesloading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getPlacesloading,
-    TResult Function(PlacesResponseModel placesResponseModel)? getPlacesSuccess,
+    TResult Function(List<PlacesData> places, bool isLastPage)?
+        getPlacesSuccess,
     TResult Function(ErrorHandler errorHandler)? getPlacesError,
     required TResult orElse(),
   }) {
@@ -326,7 +329,7 @@ abstract class _$$GetPlacesSuccessImplCopyWith<$Res> {
           $Res Function(_$GetPlacesSuccessImpl) then) =
       __$$GetPlacesSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({PlacesResponseModel placesResponseModel});
+  $Res call({List<PlacesData> places, bool isLastPage});
 }
 
 /// @nodoc
@@ -340,13 +343,18 @@ class __$$GetPlacesSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? placesResponseModel = null,
+    Object? places = null,
+    Object? isLastPage = null,
   }) {
     return _then(_$GetPlacesSuccessImpl(
-      null == placesResponseModel
-          ? _value.placesResponseModel
-          : placesResponseModel // ignore: cast_nullable_to_non_nullable
-              as PlacesResponseModel,
+      null == places
+          ? _value._places
+          : places // ignore: cast_nullable_to_non_nullable
+              as List<PlacesData>,
+      null == isLastPage
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -354,14 +362,23 @@ class __$$GetPlacesSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$GetPlacesSuccessImpl implements GetPlacesSuccess {
-  const _$GetPlacesSuccessImpl(this.placesResponseModel);
+  const _$GetPlacesSuccessImpl(final List<PlacesData> places, this.isLastPage)
+      : _places = places;
+
+  final List<PlacesData> _places;
+  @override
+  List<PlacesData> get places {
+    if (_places is EqualUnmodifiableListView) return _places;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_places);
+  }
 
   @override
-  final PlacesResponseModel placesResponseModel;
+  final bool isLastPage;
 
   @override
   String toString() {
-    return 'PlacesState.getPlacesSuccess(placesResponseModel: $placesResponseModel)';
+    return 'PlacesState.getPlacesSuccess(places: $places, isLastPage: $isLastPage)';
   }
 
   @override
@@ -369,12 +386,14 @@ class _$GetPlacesSuccessImpl implements GetPlacesSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetPlacesSuccessImpl &&
-            (identical(other.placesResponseModel, placesResponseModel) ||
-                other.placesResponseModel == placesResponseModel));
+            const DeepCollectionEquality().equals(other._places, _places) &&
+            (identical(other.isLastPage, isLastPage) ||
+                other.isLastPage == isLastPage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, placesResponseModel);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_places), isLastPage);
 
   @JsonKey(ignore: true)
   @override
@@ -388,11 +407,11 @@ class _$GetPlacesSuccessImpl implements GetPlacesSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getPlacesloading,
-    required TResult Function(PlacesResponseModel placesResponseModel)
+    required TResult Function(List<PlacesData> places, bool isLastPage)
         getPlacesSuccess,
     required TResult Function(ErrorHandler errorHandler) getPlacesError,
   }) {
-    return getPlacesSuccess(placesResponseModel);
+    return getPlacesSuccess(places, isLastPage);
   }
 
   @override
@@ -400,11 +419,11 @@ class _$GetPlacesSuccessImpl implements GetPlacesSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getPlacesloading,
-    TResult? Function(PlacesResponseModel placesResponseModel)?
+    TResult? Function(List<PlacesData> places, bool isLastPage)?
         getPlacesSuccess,
     TResult? Function(ErrorHandler errorHandler)? getPlacesError,
   }) {
-    return getPlacesSuccess?.call(placesResponseModel);
+    return getPlacesSuccess?.call(places, isLastPage);
   }
 
   @override
@@ -412,12 +431,13 @@ class _$GetPlacesSuccessImpl implements GetPlacesSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getPlacesloading,
-    TResult Function(PlacesResponseModel placesResponseModel)? getPlacesSuccess,
+    TResult Function(List<PlacesData> places, bool isLastPage)?
+        getPlacesSuccess,
     TResult Function(ErrorHandler errorHandler)? getPlacesError,
     required TResult orElse(),
   }) {
     if (getPlacesSuccess != null) {
-      return getPlacesSuccess(placesResponseModel);
+      return getPlacesSuccess(places, isLastPage);
     }
     return orElse();
   }
@@ -462,9 +482,11 @@ class _$GetPlacesSuccessImpl implements GetPlacesSuccess {
 
 abstract class GetPlacesSuccess implements PlacesState {
   const factory GetPlacesSuccess(
-      final PlacesResponseModel placesResponseModel) = _$GetPlacesSuccessImpl;
+          final List<PlacesData> places, final bool isLastPage) =
+      _$GetPlacesSuccessImpl;
 
-  PlacesResponseModel get placesResponseModel;
+  List<PlacesData> get places;
+  bool get isLastPage;
   @JsonKey(ignore: true)
   _$$GetPlacesSuccessImplCopyWith<_$GetPlacesSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -538,7 +560,7 @@ class _$GetPlacesErrorImpl implements GetPlacesError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() getPlacesloading,
-    required TResult Function(PlacesResponseModel placesResponseModel)
+    required TResult Function(List<PlacesData> places, bool isLastPage)
         getPlacesSuccess,
     required TResult Function(ErrorHandler errorHandler) getPlacesError,
   }) {
@@ -550,7 +572,7 @@ class _$GetPlacesErrorImpl implements GetPlacesError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? getPlacesloading,
-    TResult? Function(PlacesResponseModel placesResponseModel)?
+    TResult? Function(List<PlacesData> places, bool isLastPage)?
         getPlacesSuccess,
     TResult? Function(ErrorHandler errorHandler)? getPlacesError,
   }) {
@@ -562,7 +584,8 @@ class _$GetPlacesErrorImpl implements GetPlacesError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? getPlacesloading,
-    TResult Function(PlacesResponseModel placesResponseModel)? getPlacesSuccess,
+    TResult Function(List<PlacesData> places, bool isLastPage)?
+        getPlacesSuccess,
     TResult Function(ErrorHandler errorHandler)? getPlacesError,
     required TResult orElse(),
   }) {

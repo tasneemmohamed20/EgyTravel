@@ -9,12 +9,12 @@ class ArticlesDetailsScreen extends StatelessWidget {
       {super.key,
       required this.image,
       required this.title,
-      required this.subtitle,
+      this.subtitle,
       required this.description});
   final String image;
   final String title;
-  final String subtitle;
-  final String description;
+  final String? subtitle;
+  final List<String> description;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,7 +23,7 @@ class ArticlesDetailsScreen extends StatelessWidget {
           items: items,
           description: description,
           image: image,
-          subtitle: subtitle,
+          subtitle: subtitle ?? '',
           title: title,
         ),
         floatingActionButtonLocation: ExpandableFab.location,

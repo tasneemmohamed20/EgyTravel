@@ -10,6 +10,8 @@ import 'package:egy_travel/view/Widgets/home_drawer.dart';
 import 'package:egy_travel/view/Widgets/search_bar.dart';
 import 'package:egy_travel/view/Widgets/sliver_appbar.dart';
 import 'package:egy_travel/res/colors_manager.dart';
+import 'package:egy_travel/view_model/ArticlesCubit/cubit/articles_cubit.dart';
+import 'package:egy_travel/view_model/ArticlesCubit/cubit/articles_state.dart';
 import 'package:egy_travel/view_model/PlacesCubit/places_cubit.dart';
 import 'package:egy_travel/view_model/PlacesCubit/places_state.dart';
 import 'package:flutter/material.dart';
@@ -34,8 +36,15 @@ class _HomeState extends State<Home> {
     final mQheight = MediaQuery.of(context).size.height;
 
     return SafeArea(
-      child: BlocProvider(
-        create: (context) => getIt<PlacesCubit>()..getAllPlaces(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<PlacesCubit>()..getAllPlaces(),
+          ),
+          BlocProvider(
+            create: (context) => getIt<ArticlesCubit>()..getAllArticles(),
+          ),
+        ],
         child: Scaffold(
             key: _scaffoldKey,
             extendBody: true,
@@ -93,56 +102,61 @@ class _HomeState extends State<Home> {
                                 height: 100,
                                 child:
                                     Center(child: CircularProgressIndicator()));
-                          }, getPlacesSuccess: (placesResponseModel) {
-                            var placesList =
-                                placesResponseModel.data!.placesData;
+                          }, getPlacesSuccess: (placesList, isLastPage) {
+                            // var placesList =
+                            //     placesResponseModel.data!.placesData;
                             return Column(
                               children: [
                                 MayLikeList(
-                                  placesData: placesList ?? [],
+                                  placesData: placesList,
                                 ),
-                                // Padding(
-                                //   padding: const EdgeInsetsDirectional.only(
-                                //       start: 32, top: 16, end: 32),
-                                //   child: Align(
-                                //     alignment: Alignment.topLeft,
-                                //     child: Row(
-                                //       children: [
-                                //         Text(
-                                //           "Places".tr(),
-                                //           style: TextStyle(
-                                //             color: ColorsManager.secondPrimary
-                                //                 .withOpacity(1),
-                                //             fontWeight: FontWeight.bold,
-                                //             fontSize: 25,
-                                //           ),
-                                //         ),
-                                //         const Spacer(),
-                                //         TextButton(
-                                //           onPressed: () => Navigator.push(
-                                //             context,
-                                //             MaterialPageRoute(
-                                //                 builder: (context) => ViewAll(
-                                //                       screenTilte:
-                                //                           "Places".tr(),
-                                //                     )),
-                                //           ),
-                                //           child: Text(
-                                //             "ViewAll".tr(),
-                                //             style: TextStyle(
-                                //               color: ColorsManager
-                                //                   .secondPrimary
-                                //                   .withOpacity(1),
-                                //               fontSize: 15,
-                                //             ),
-                                //           ),
-                                //         ),
-                                //       ],
-                                //     ),
-                                //   ),
-                                // ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.only(
+                                      start: 32, top: 16, end: 32),
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          "Places".tr(),
+                                          style: TextStyle(
+                                            color: ColorsManager.secondPrimary
+                                                .withOpacity(1),
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 25,
+                                          ),
+                                        ),
+                                        const Spacer(),
+                                        TextButton(
+                                          onPressed: () => Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    BlocProvider(
+                                                      create: (context) =>
+                                                          getIt<PlacesCubit>(),
+                                                      child: ViewAll(
+                                                        screenTilte:
+                                                            "Places".tr(),
+                                                        // data: placesList ,
+                                                      ),
+                                                    )),
+                                          ),
+                                          child: Text(
+                                            "ViewAll".tr(),
+                                            style: TextStyle(
+                                              color: ColorsManager.secondPrimary
+                                                  .withOpacity(1),
+                                              fontSize: 15,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                                 PlacesGridView(
-                                  placesData: placesList ?? [],
+                                  placesData: placesList,
                                 ),
                               ],
                             );
@@ -191,7 +205,31 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
-                      const ArticlesGridView(),
+                      BlocBuilder<ArticlesCubit, ArticleState>(
+                        buildWhen: (previous, current) =>
+                            current is GetArticlesloading ||
+                            current is GetArticlesSuccess ||
+                            current is GetArticlesError,
+                        builder: (context, state) {
+                          return state.maybeWhen(getArticlesloading: () {
+                            return const SizedBox(
+                                height: 100,
+                                child:
+                                    Center(child: CircularProgressIndicator()));
+                          }, getArticlesSuccess: (articlesResponseModel) {
+                            var articlesList =
+                                articlesResponseModel.data!.articlesData;
+                            return ArticlesGridView(
+                              articlesData: articlesList ?? [],
+                            );
+                          }, getArticlesError: (errorHandler) {
+                            return Text(errorHandler.apiErrorModel.message!);
+                          }, orElse: () {
+                            return const SizedBox.shrink();
+                          });
+                          // const ArticlesGridView();
+                        },
+                      ),
                     ],
                   ),
                 ),

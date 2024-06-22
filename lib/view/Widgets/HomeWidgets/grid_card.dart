@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomGridCard extends StatelessWidget {
   final String image;
   final String title;
-  final String subtitle;
+  final String? subtitle;
   final double imageWidth;
   final BorderRadiusGeometry borderRadius;
   final Color elevationColor;
@@ -15,7 +15,7 @@ class CustomGridCard extends StatelessWidget {
     super.key,
     required this.image,
     required this.title,
-    required this.subtitle,
+    this.subtitle,
     required this.imageWidth,
     this.borderRadius = const BorderRadius.all(Radius.circular(4)),
     this.elevationColor = Colors.white,
@@ -39,7 +39,7 @@ class CustomGridCard extends StatelessWidget {
               height: imageWidth,
               child: ClipRRect(
                 borderRadius: borderRadius,
-                child: Image.asset(
+                child: Image.network(
                   image,
                   fit: BoxFit.cover,
                   height: imageWidth,
@@ -64,7 +64,7 @@ class CustomGridCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsetsDirectional.symmetric(horizontal: 6.0),
               child: Text(
-                subtitle,
+                subtitle ?? '',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(

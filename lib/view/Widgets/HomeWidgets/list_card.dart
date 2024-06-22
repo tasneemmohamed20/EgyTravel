@@ -35,7 +35,7 @@ class CustomListCard extends StatelessWidget {
               child: SizedBox(
                 width: imageWidth,
                 height: imageWidth,
-                child: Image.asset(
+                child: Image.network(
                   image,
                   fit: BoxFit.cover,
                 ),

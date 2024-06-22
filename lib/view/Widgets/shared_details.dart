@@ -1,5 +1,6 @@
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class SharedDetials extends StatelessWidget {
   const SharedDetials({
@@ -7,14 +8,14 @@ class SharedDetials extends StatelessWidget {
     required this.items,
     required this.image,
     required this.title,
-    required this.subtitle,
+    this.subtitle,
     required this.description,
   });
   final List<Map<String, dynamic>> items;
   final String image;
   final String title;
-  final String subtitle;
-  final String description;
+  final String? subtitle;
+  final List<String> description;
 
   @override
   Widget build(BuildContext context) {
@@ -25,46 +26,46 @@ class SharedDetials extends StatelessWidget {
         SizedBox(
           height: mQheight * 2 / 5,
           width: mQwidth,
-          child: Image.asset(
+          child: Image.network(
             image,
             fit: BoxFit.cover,
           ),
         ),
         Positioned(
-          bottom: 0,
+          top: mQheight * 2 / 5 - 50,
           child: Container(
             padding:
-                const EdgeInsets.only(left: 30, right: 30, top: 50, bottom: 8),
-            height: mQheight * 5.2 / 8,
+                const EdgeInsets.only(left: 30, right: 30, top: 60, bottom: 8),
+            height: mQheight * 3 / 5,
             width: mQwidth,
             decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: ColorsManager.primary
+                        .withOpacity(0.2), // Adjust the color and opacity
+                    blurRadius: 10, // Blur radius
+                    offset: const Offset(0, 4), // changes position of shadow
+                  )
+                ],
                 color: ColorsManager.secondPrimary.withOpacity(1),
-                borderRadius:
-                    const BorderRadius.vertical(top: Radius.circular(32))),
+                borderRadius: const BorderRadius.all(Radius.circular(32))),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    description,
-                    softWrap: true,
-                    style: TextStyle(
-                      color: ColorsManager.primary.withOpacity(1),
-                      fontSize: 22,
+                  for (int i = 0; i < description.length; i++)
+                    Text(
+                      description[i],
+                      softWrap: true,
+                      style: TextStyle(
+                        color: ColorsManager.primary.withOpacity(1),
+                        fontSize: 22,
+                      ),
+                      textAlign: TextAlign.justify,
                     ),
-                    textAlign: TextAlign.justify,
-                  ),
                 ],
               ),
             ),
-          ),
-        ),
-        Center(
-          child: SizedBox(
-            height: 200,
-            child: Container(
-                // color: Colors.amber,
-                ),
           ),
         ),
         Positioned(
@@ -114,12 +115,17 @@ class SharedDetials extends StatelessWidget {
                                   size: 16,
                                 ),
                               ),
-                              Text(
-                                subtitle,
-                                style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w800,
+                              Flexible(
+                                child: Text(
+                                  subtitle ?? '',
+                                  softWrap: true,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2,
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w800,
+                                  ),
                                 ),
                               )
                             ],

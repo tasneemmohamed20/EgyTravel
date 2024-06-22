@@ -11,16 +11,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
-  void _showCustomModalSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
-      ),
-      isScrollControlled: true, // Allows for a larger modal sheet
-      builder: (context) => CustomModalSheet(),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,19 +97,30 @@ class SettingsScreen extends StatelessWidget {
                             builder: (context) => const Privacy()),
                       ),
                   leadingIcon: Icons.shield_rounded),
-              BlocProvider(
-                create: (context) => RadioButtonCubit(),
-                child: CustomListTile(
-                    title: "AppLanguage".tr(),
-                    hint: "AppLanguageHint".tr(),
-                    elementsColor: ColorsManager.secondPrimary.withOpacity(1),
-                    onTap: () => _showCustomModalSheet(context),
-                    leadingIcon: Icons.language),
-              )
+              CustomListTile(
+                  title: "AppLanguage".tr(),
+                  hint: "AppLanguageHint".tr(),
+                  elementsColor: ColorsManager.secondPrimary.withOpacity(1),
+                  onTap: () => _showCustomModalSheet(context),
+                  leadingIcon: Icons.language)
             ],
           ),
         ),
       ]),
     ));
+  }
+
+  void _showCustomModalSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
+      ),
+      isScrollControlled: true, // Allows for a larger modal sheet
+      builder: (context) => BlocProvider(
+        create: (context) => RadioButtonCubit(),
+        child: CustomModalSheet(),
+      ),
+    );
   }
 }

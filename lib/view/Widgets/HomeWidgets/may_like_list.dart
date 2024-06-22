@@ -31,7 +31,7 @@ class MayLikeList extends StatelessWidget {
                             image: placesData[index]?.image ?? '',
                             subtitle: placesData[index]?.location ?? '',
                             title: placesData[index]?.name ?? '',
-                            description: placesData[index]?.description ?? '',
+                            description: [placesData[index]?.description ?? ''],
                           )),
                 ),
                 child: CustomListCard(

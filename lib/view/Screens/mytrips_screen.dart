@@ -2,7 +2,6 @@ import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/view_all_widget.dart';
 import 'package:flutter/material.dart';
-import "package:egy_travel/Data/dummy_data.dart";
 
 class TripsScreen extends StatelessWidget {
   const TripsScreen({super.key, required this.screenTilte});
@@ -17,7 +16,7 @@ class TripsScreen extends StatelessWidget {
         enableBack: false,
         leading: backButton(context),
       ),
-      body: ViewAllW(screenTitle: screenTilte, items: items),
+      body: ViewAllW(screenTitle: screenTilte,),
     ));
   }
 }

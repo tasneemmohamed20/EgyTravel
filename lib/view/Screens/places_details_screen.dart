@@ -16,16 +16,17 @@ class PlacesDetailsScreen extends StatelessWidget {
   final String image;
   final String title;
   final String subtitle;
-  final String description;
+  final List <String> description;
   @override
   Widget build(BuildContext context) {
     final mQwidth = MediaQuery.of(context).size.width;
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
+        backgroundColor: ColorsManager.primary.withOpacity(1),
         body: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
                   height: MediaQuery.of(context).size.height,
@@ -37,7 +38,7 @@ class PlacesDetailsScreen extends StatelessWidget {
                     description: description,
                   )),
               Padding(
-                padding: const EdgeInsets.only(left: 32, top: 16, right: 32),
+                padding: const EdgeInsets.only(left: 32, top: 0, right: 32),
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: Row(
@@ -45,7 +46,7 @@ class PlacesDetailsScreen extends StatelessWidget {
                       Text(
                         'Recommendations',
                         style: TextStyle(
-                          color: ColorsManager.primary.withOpacity(1),
+                          color: ColorsManager.secondPrimary.withOpacity(1),
                           fontWeight: FontWeight.bold,
                           fontSize: 25,
                         ),
@@ -84,9 +85,9 @@ class PlacesDetailsScreen extends StatelessWidget {
                         title: item['title'],
                         subtitle: item['subtitle'],
                         imageWidth: mQwidth * 0.4,
-                        cardColor: ColorsManager.primary.withOpacity(1),
-                        titleColor: ColorsManager.secondPrimary.withOpacity(1),
-                        subtitleColor: ColorsManager.secondPrimary,
+                        cardColor: ColorsManager.secondPrimary.withOpacity(1),
+                        titleColor: ColorsManager.primary.withOpacity(1),
+                        subtitleColor: ColorsManager.primary,
                       ),
                     );
                   },

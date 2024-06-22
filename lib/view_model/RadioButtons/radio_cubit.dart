@@ -65,6 +65,7 @@ class RadioButtonCubit extends Cubit<RadioButtonState> {
       context.setLocale(const Locale('en', 'US'));
     } else if (index == 1) {
       context.setLocale(const Locale('ar', 'AE'));
+      
     }
   }
 }

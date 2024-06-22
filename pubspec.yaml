@@ -61,6 +61,7 @@ dependencies:
   retrofit_generator: ^8.1.0
   retrofit: ^4.1.0
   get_it: ^7.7.0
+  flutter_spinkit: ^5.2.1
 
 dev_dependencies:
   flutter_test:
