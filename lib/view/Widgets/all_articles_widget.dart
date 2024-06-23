@@ -1,26 +1,24 @@
-import 'package:egy_travel/model/Home/places_response.dart';
+import 'package:egy_travel/model/Home/articles_response.dart';
 import 'package:egy_travel/res/colors_manager.dart';
-import 'package:egy_travel/view/Screens/places_details_screen.dart';
+import 'package:egy_travel/view/Screens/articles_details.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/list_card.dart';
 import 'package:flutter/material.dart';
 
-class ViewAllW extends StatefulWidget {
-  const ViewAllW({
+class AllArticlesW extends StatefulWidget {
+  const AllArticlesW({
     super.key,
-    this.screenTitle,
     this.data,
     this.scrollController,
   });
 
-  final String? screenTitle;
-  final List<PlacesData?>? data;
+  final List<ArticlesData?>? data;
   final ScrollController? scrollController; // Store the scroll controller
 
   @override
-  State<ViewAllW> createState() => _ViewAllWState();
+  State<AllArticlesW> createState() => _AllArticlesWState();
 }
 
-class _ViewAllWState extends State<ViewAllW> {
+class _AllArticlesWState extends State<AllArticlesW> {
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -49,19 +47,16 @@ class _ViewAllWState extends State<ViewAllW> {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => PlacesDetailsScreen(
-                    description:
-                        widget.data![index]?.description as List<String>? ?? [],
-                    image: widget.data![index]?.image ?? '',
-                    subtitle: widget.data![index]?.location ?? '',
-                    title: widget.data![index]?.name ?? '',
-                  ),
+                  builder: (context) => ArticlesDetailsScreen(
+                      description: widget.data![index]?.description ?? [],
+                      image: widget.data![index]?.image ?? '',
+                      title: widget.data![index]?.title ?? ''),
                 ),
               ),
               child: CustomListCard(
                 image: widget.data![index]?.image ?? '',
-                subtitle: widget.data![index]?.location ?? '',
-                title: widget.data![index]?.name ?? '',
+                title: widget.data![index]?.title ?? '',
+                subtitle: '',
                 imageWidth: mQwidth * 0.4,
                 cardColor: ColorsManager.secondPrimary.withOpacity(1),
                 titleColor: ColorsManager.primary.withOpacity(1),

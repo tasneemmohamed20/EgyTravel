@@ -1,8 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/core/Di/dependency_injection.dart';
 import 'package:egy_travel/core/helpers/bloc_observer.dart';
+import 'package:egy_travel/core/helpers/constants.dart';
+import 'package:egy_travel/core/helpers/extensions.dart';
+import 'package:egy_travel/core/helpers/shared_pref_helper.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/res/string_manager.dart';
+import 'package:egy_travel/view/Screens/home_screen.dart';
+import 'package:egy_travel/view/Screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:egy_travel/view/Screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +20,7 @@ void main() async {
   Gemini.init(apiKey: AppStrings.geminiApiKey);
   setupGetIt();
   Bloc.observer = MyBlocObserver();
-
+  await checkIFLoggedIn();
   runApp(EasyLocalization(
       supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AE')],
       path: 'assets/translations',
@@ -23,6 +28,16 @@ void main() async {
       saveLocale: true,
       startLocale: const Locale('en', 'US'),
       child: const MyApp()));
+}
+
+checkIFLoggedIn() async {
+  String? userToken =
+      await SharedPrefHelper.getString(SharedPrefKeys.userToken);
+  if (!userToken.isNullOrEmpty()) {
+    isLoggedInUser = true;
+  } else {
+    isLoggedInUser = false;
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -39,6 +54,11 @@ class MyApp extends StatelessWidget {
         primaryColor: ColorsManager.primary,
         useMaterial3: true,
       ),
+      // initialRoute: isLoggedInUser ? '/home' : '/login',
+      routes: {
+        '/login': (context) => const LogInScreen(),
+        '/home': (context) => const Home(),
+      },
       home: const SplashScreen(),
     );
   }

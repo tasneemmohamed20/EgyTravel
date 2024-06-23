@@ -1,4 +1,4 @@
-import 'package:egy_travel/view/Screens/login_screen.dart';
+import 'package:egy_travel/core/helpers/constants.dart';
 import 'package:egy_travel/view/Screens/pick_language.dart';
 import 'package:egy_travel/res/const_functions.dart';
 import 'package:flutter/material.dart';
@@ -7,10 +7,8 @@ import 'package:egy_travel/res/app_assets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
-  // final Widget startWidget ;
   const SplashScreen({
     super.key,
-    // required this.startWidget
   });
 
   @override
@@ -35,6 +33,18 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
+  _navigateToNextScreen() async {
+    // Simulate some initialization or loading process
+    await Future.delayed(const Duration(seconds: 3));
+    // Here, replace isLoggedInUser with your actual logic to check if the user is logged in
+    // bool isLoggedInUser = true; // Example condition
+    if (isLoggedInUser == true) {
+      Navigator.of(context).pushReplacementNamed('/home');
+    } else {
+      Navigator.of(context).pushReplacementNamed('/login');
+    }
+  }
+
   _checkIfUserSeenOnBoarding() async {
     SharedPreferences sharedPreferences = await _pref;
     bool? hasSeenOnBoarding = sharedPreferences.getBool(_onboarding);
@@ -42,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen> {
       navigateToHome();
     } else {
       Future.delayed(const Duration(seconds: 2), () {
-        navigateFish(context, LogInScreen());
+        _navigateToNextScreen();
       });
       // navigateFish(context, const TestPage());
       // navigateToHome();

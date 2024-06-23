@@ -1,6 +1,5 @@
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class SharedDetials extends StatelessWidget {
   const SharedDetials({

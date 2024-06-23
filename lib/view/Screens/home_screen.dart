@@ -1,12 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/core/Di/dependency_injection.dart';
 import 'package:egy_travel/view/Screens/search_screen.dart';
-import 'package:egy_travel/view/Screens/view_all.dart';
+import 'package:egy_travel/view/Screens/view_all_articles.dart';
+import 'package:egy_travel/view/Screens/view_all_places.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/articles_gridview.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/may_like_list.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/places_gridview.dart';
 import 'package:egy_travel/view/Widgets/bottom_navbar.dart';
-import 'package:egy_travel/view/Widgets/home_drawer.dart';
+import 'package:egy_travel/view/Widgets/HomeWidgets/home_drawer.dart';
 import 'package:egy_travel/view/Widgets/search_bar.dart';
 import 'package:egy_travel/view/Widgets/sliver_appbar.dart';
 import 'package:egy_travel/res/colors_manager.dart';
@@ -103,8 +104,6 @@ class _HomeState extends State<Home> {
                                 child:
                                     Center(child: CircularProgressIndicator()));
                           }, getPlacesSuccess: (placesList, isLastPage) {
-                            // var placesList =
-                            //     placesResponseModel.data!.placesData;
                             return Column(
                               children: [
                                 MayLikeList(
@@ -135,11 +134,7 @@ class _HomeState extends State<Home> {
                                                     BlocProvider(
                                                       create: (context) =>
                                                           getIt<PlacesCubit>(),
-                                                      child: ViewAll(
-                                                        screenTilte:
-                                                            "Places".tr(),
-                                                        // data: placesList ,
-                                                      ),
+                                                      child: const ViewAllPlaces(),
                                                     )),
                                           ),
                                           child: Text(
@@ -188,8 +183,10 @@ class _HomeState extends State<Home> {
                                 onPressed: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ViewAll(
-                                            screenTilte: "Articles".tr(),
+                                      builder: (context) => BlocProvider(
+                                            create: (context) =>
+                                                getIt<ArticlesCubit>(),
+                                            child: const ViewAllArticles(),
                                           )),
                                 ),
                                 child: Text(

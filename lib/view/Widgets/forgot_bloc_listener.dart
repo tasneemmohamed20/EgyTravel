@@ -34,10 +34,7 @@ class ForgotBlocListener extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) => BlocProvider(
                         create: (context) => getIt<ResetPasswordCubit>(),
-                        child: VerficationCodeScreen(
-                          // emailcontroller:
-                          //     context.read<ForgotCubit>().emailController.text,
-                        ),
+                        child: const VerficationCodeScreen(),
                       )),
             );
           },

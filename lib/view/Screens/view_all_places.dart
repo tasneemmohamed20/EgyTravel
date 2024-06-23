@@ -1,45 +1,20 @@
-// import "package:egy_travel/model/Home/places_response.dart";
-// import "package:egy_travel/view/Widgets/shared_appbar.dart";
-// import "package:egy_travel/res/colors_manager.dart";
-// import "package:egy_travel/view/Widgets/view_all_widget.dart";
-// import "package:flutter/material.dart";
-
-// class ViewAll extends StatelessWidget {
-//   const ViewAll({super.key, required this.screenTilte, this.data});
-//   final String screenTilte;
-//   final List<PlacesData?>? data;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SafeArea(
-//         child: Scaffold(
-//             backgroundColor: ColorsManager.primary.withOpacity(1),
-//             appBar: CustomAppBar(
-//               title: screenTilte,
-//               enableBack: false,
-//               leading: backButton(context),
-//             ),
-//             body: ViewAllW(screenTitle: screenTilte, data: data!)));
-//   }
-// }
-
+import "package:easy_localization/easy_localization.dart";
 import "package:egy_travel/view/Widgets/shared_appbar.dart";
 import "package:egy_travel/res/colors_manager.dart";
-import "package:egy_travel/view/Widgets/view_all_widget.dart";
+import "package:egy_travel/view/Widgets/all_places_widget.dart";
 import "package:egy_travel/view_model/PlacesCubit/places_cubit.dart";
 import "package:egy_travel/view_model/PlacesCubit/places_state.dart";
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 
-class ViewAll extends StatefulWidget {
-  const ViewAll({super.key, required this.screenTilte});
-  final String screenTilte;
+class ViewAllPlaces extends StatefulWidget {
+  const ViewAllPlaces({super.key});
 
   @override
-  ViewAllState createState() => ViewAllState();
+  ViewAllPlacesState createState() => ViewAllPlacesState();
 }
 
-class ViewAllState extends State<ViewAll> {
+class ViewAllPlacesState extends State<ViewAllPlaces> {
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -78,15 +53,14 @@ class ViewAllState extends State<ViewAll> {
       child: Scaffold(
         backgroundColor: ColorsManager.primary.withOpacity(1),
         appBar: CustomAppBar(
-          title: widget.screenTilte,
+          title: "Places".tr(),
           enableBack: false,
           leading: backButton(context),
         ),
         body: BlocBuilder<PlacesCubit, PlacesState>(
           builder: (context, state) {
             return state.maybeWhen(
-              getPlacesSuccess: (places, isLastPage) => ViewAllW(
-                screenTitle: widget.screenTilte,
+              getPlacesSuccess: (places, isLastPage) => AllPlacesW(
                 data: places,
                 scrollController: _scrollController,
               ),
