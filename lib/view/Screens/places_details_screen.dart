@@ -16,7 +16,7 @@ class PlacesDetailsScreen extends StatelessWidget {
   final String image;
   final String title;
   final String subtitle;
-  final List <String> description;
+  final List<String> description;
   @override
   Widget build(BuildContext context) {
     final mQwidth = MediaQuery.of(context).size.width;
@@ -31,7 +31,6 @@ class PlacesDetailsScreen extends StatelessWidget {
               SizedBox(
                   height: MediaQuery.of(context).size.height,
                   child: SharedDetials(
-                    items: items,
                     image: image,
                     subtitle: subtitle,
                     title: title,

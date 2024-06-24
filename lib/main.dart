@@ -6,8 +6,9 @@ import 'package:egy_travel/core/helpers/extensions.dart';
 import 'package:egy_travel/core/helpers/shared_pref_helper.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/res/string_manager.dart';
-import 'package:egy_travel/view/Screens/home_screen.dart';
 import 'package:egy_travel/view/Screens/login_screen.dart';
+import 'package:egy_travel/view/Screens/primary_screen.dart';
+import 'package:egy_travel/view_model/RadioButtons/radio_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:egy_travel/view/Screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,21 +46,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: ColorsManager.primary,
-        useMaterial3: true,
+    return BlocProvider(
+      create: (context) => RadioButtonCubit(),
+      child: BlocBuilder<RadioButtonCubit, RadioButtonState>(
+        builder: (context, state) {
+          return MaterialApp(
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              primaryColor: ColorsManager.primary,
+              useMaterial3: true,
+            ),
+            // initialRoute: isLoggedInUser ? '/home' : '/login',
+            routes: {
+              '/login': (context) => const LogInScreen(),
+              '/primary': (context) => const PrimaryScreen(),
+            },
+            home: const SplashScreen(),
+          );
+        },
       ),
-      // initialRoute: isLoggedInUser ? '/home' : '/login',
-      routes: {
-        '/login': (context) => const LogInScreen(),
-        '/home': (context) => const Home(),
-      },
-      home: const SplashScreen(),
     );
   }
 }

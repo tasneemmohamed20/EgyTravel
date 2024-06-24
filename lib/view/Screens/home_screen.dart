@@ -6,7 +6,6 @@ import 'package:egy_travel/view/Screens/view_all_places.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/articles_gridview.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/may_like_list.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/places_gridview.dart';
-import 'package:egy_travel/view/Widgets/bottom_navbar.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/home_drawer.dart';
 import 'package:egy_travel/view/Widgets/search_bar.dart';
 import 'package:egy_travel/view/Widgets/sliver_appbar.dart';
@@ -38,15 +37,15 @@ class _HomeState extends State<Home> {
 
     return SafeArea(
       child: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => getIt<PlacesCubit>()..getAllPlaces(),
-          ),
-          BlocProvider(
-            create: (context) => getIt<ArticlesCubit>()..getAllArticles(),
-          ),
-        ],
-        child: Scaffold(
+          providers: [
+            BlocProvider(
+              create: (context) => getIt<PlacesCubit>()..getAllPlaces(),
+            ),
+            BlocProvider(
+              create: (context) => getIt<ArticlesCubit>()..getAllArticles(),
+            ),
+          ],
+          child: Scaffold(
             key: _scaffoldKey,
             extendBody: true,
             resizeToAvoidBottomInset: false,
@@ -134,7 +133,8 @@ class _HomeState extends State<Home> {
                                                     BlocProvider(
                                                       create: (context) =>
                                                           getIt<PlacesCubit>(),
-                                                      child: const ViewAllPlaces(),
+                                                      child:
+                                                          const ViewAllPlaces(),
                                                     )),
                                           ),
                                           child: Text(
@@ -224,7 +224,6 @@ class _HomeState extends State<Home> {
                           }, orElse: () {
                             return const SizedBox.shrink();
                           });
-                          // const ArticlesGridView();
                         },
                       ),
                     ],
@@ -232,8 +231,7 @@ class _HomeState extends State<Home> {
                 ),
               ],
             ),
-            bottomNavigationBar: const CustomBottomNavigationBar()),
-      ),
+          )),
     );
   }
 }

@@ -27,6 +27,7 @@ class ArtData {
 class ArticlesData {
   final String? title;
   final String? image;
+  @JsonKey(name: 'decription')
   final List<String>? description;
 
   ArticlesData(this.title, this.description, this.image);

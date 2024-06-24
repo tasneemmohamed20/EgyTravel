@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // Here, replace isLoggedInUser with your actual logic to check if the user is logged in
     // bool isLoggedInUser = true; // Example condition
     if (isLoggedInUser == true) {
-      Navigator.of(context).pushReplacementNamed('/home');
+      Navigator.of(context).pushReplacementNamed('/primary');
     } else {
       Navigator.of(context).pushReplacementNamed('/login');
     }

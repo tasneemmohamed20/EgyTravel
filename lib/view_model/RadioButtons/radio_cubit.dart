@@ -53,6 +53,7 @@ class RadioButtonCubit extends Cubit<RadioButtonState> {
   RadioButtonCubit() : super(RadioButtonInitial());
 
   int selected = -1;
+  Locale locale = const Locale('en', 'US');
 
   void selectRadio(int index, BuildContext context) {
     selected = index;
@@ -62,9 +63,12 @@ class RadioButtonCubit extends Cubit<RadioButtonState> {
 
   void _changeLocale(int index, BuildContext context) {
     if (index == 0) {
-      context.setLocale(const Locale('en', 'US'));
+     context.setLocale(const Locale('en', 'US'));
+     locale = context.locale;
+
     } else if (index == 1) {
       context.setLocale(const Locale('ar', 'AE'));
+      locale = context.locale;
       
     }
   }

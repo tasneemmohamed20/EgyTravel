@@ -9,44 +9,44 @@ class CustomModalSheet extends StatelessWidget {
   final List<String> radioList = ['English'.tr(), 'Arabic'.tr()];
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: ColorsManager.primary.withOpacity(1),
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(25),
-          topRight: Radius.circular(25),
-        ),
-      ),
-      padding: const EdgeInsets.all(16.0),
-      height: MediaQuery.of(context).size.height * 0.5,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Center(
-            child: Container(
-              height: 5,
-              width: 50,
-              margin: const EdgeInsets.only(bottom: 10),
-              decoration: BoxDecoration(
-                color: ColorsManager.secondPrimary.withOpacity(0.5),
-                borderRadius: BorderRadius.circular(10),
-              ),
+    return BlocBuilder<RadioButtonCubit, RadioButtonState>(
+      builder: (context, state) {
+        return Container(
+          decoration: BoxDecoration(
+            color: ColorsManager.primary.withOpacity(1),
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(25),
+              topRight: Radius.circular(25),
             ),
           ),
-          Center(
-            child: Text(
-              'AppLanguage'.tr(),
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: ColorsManager.secondPrimary.withOpacity(1),
+          padding: const EdgeInsets.all(16.0),
+          height: MediaQuery.of(context).size.height * 0.5,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Center(
+                child: Container(
+                  height: 5,
+                  width: 50,
+                  margin: const EdgeInsets.only(bottom: 10),
+                  decoration: BoxDecoration(
+                    color: ColorsManager.secondPrimary.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
               ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          BlocBuilder<RadioButtonCubit, RadioButtonState>(
-            builder: (context, state) {
-              return Expanded(
+              Center(
+                child: Text(
+                  'AppLanguage'.tr(),
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: ColorsManager.secondPrimary.withOpacity(1),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Expanded(
                 child: ListView.builder(
                   itemCount: 2,
                   itemBuilder: (context, index) {
@@ -75,11 +75,11 @@ class CustomModalSheet extends StatelessWidget {
                     );
                   },
                 ),
-              );
-            },
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

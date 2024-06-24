@@ -61,20 +61,26 @@ class ViewAllArticlesState extends State<ViewAllArticles> {
           leading: backButton(context),
         ),
         body: BlocBuilder<ArticlesCubit, ArticleState>(
+          buildWhen: (previous, current) =>
+              current is GetArticlesloading ||
+              current is GetArticlesSuccess ||
+              current is GetArticlesError,
           builder: (context, state) {
             return state.maybeWhen(
               getArticlesloading: () =>
                   const Center(child: CircularProgressIndicator()),
               getArticlesSuccess: (articlesResponseModel) {
                 return AllArticlesW(
-                  data: articles,
+                  data: articlesResponseModel.data!.articlesData,
                 );
               },
 
               getArticlesError: (errorHandler) {
                 return Text(errorHandler.apiErrorModel.message!);
               }, // Display error message
-              orElse: () => const SizedBox(), // Handle other states (initial)
+              orElse: () => const SizedBox(
+                child: Text('No Data'),
+              ), // Handle other states (initial)
             );
           },
         ),

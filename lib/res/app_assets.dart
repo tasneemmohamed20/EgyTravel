@@ -64,5 +64,5 @@ class Assets {
 
   /// Assets for chatbot
   /// assets/images/chatbot.jpg
-  static const String chatbot = "assets/images/chatbot.jpg";
+  static const String chatbot = "assets/images/chatbot.png";
 }

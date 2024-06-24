@@ -4,13 +4,11 @@ import 'package:flutter/material.dart';
 class SharedDetials extends StatelessWidget {
   const SharedDetials({
     super.key,
-    required this.items,
     required this.image,
     required this.title,
     this.subtitle,
     required this.description,
   });
-  final List<Map<String, dynamic>> items;
   final String image;
   final String title;
   final String? subtitle;

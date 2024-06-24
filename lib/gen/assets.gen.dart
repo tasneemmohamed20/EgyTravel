@@ -27,8 +27,8 @@ class $AssetsImagesGen {
   /// File path: assets/images/back_icon.svg
   String get backIcon => 'assets/images/back_icon.svg';
 
-  /// File path: assets/images/chatbot.jpg
-  AssetGenImage get chatbot => const AssetGenImage('assets/images/chatbot.jpg');
+  /// File path: assets/images/chatbot.png
+  AssetGenImage get chatbot => const AssetGenImage('assets/images/chatbot.png');
 
   /// File path: assets/images/checkCircle.svg
   String get checkCircle => 'assets/images/checkCircle.svg';

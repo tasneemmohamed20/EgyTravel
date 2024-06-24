@@ -5,9 +5,7 @@ import 'package:egy_travel/view/Widgets/bottom_modal_sheet.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
 import 'package:egy_travel/res/colors_manager.dart';
-import 'package:egy_travel/view_model/RadioButtons/radio_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -117,10 +115,7 @@ class SettingsScreen extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
       ),
       isScrollControlled: true, // Allows for a larger modal sheet
-      builder: (context) => BlocProvider(
-        create: (context) => RadioButtonCubit(),
-        child: CustomModalSheet(),
-      ),
+      builder: (context) => CustomModalSheet(),
     );
   }
 }

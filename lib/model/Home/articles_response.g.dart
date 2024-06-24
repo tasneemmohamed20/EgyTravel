@@ -35,7 +35,7 @@ Map<String, dynamic> _$ArtDataToJson(ArtData instance) => <String, dynamic>{
 
 ArticlesData _$ArticlesDataFromJson(Map<String, dynamic> json) => ArticlesData(
       json['title'] as String?,
-      (json['description'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      (json['decription'] as List<dynamic>?)?.map((e) => e as String).toList(),
       json['image'] as String?,
     );
 
@@ -43,5 +43,5 @@ Map<String, dynamic> _$ArticlesDataToJson(ArticlesData instance) =>
     <String, dynamic>{
       'title': instance.title,
       'image': instance.image,
-      'description': instance.description,
+      'decription': instance.description,
     };

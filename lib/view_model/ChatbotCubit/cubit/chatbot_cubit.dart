@@ -22,7 +22,7 @@ class ChatbotCubit extends Cubit<ChatbotState> {
   ChatUser geminiUser = ChatUser(
     id: "1",
     firstName: "SNOUHI",
-    profileImage: "assets/images/chatbot.jpg",
+    profileImage: "assets/images/chatbot.png",
   );
 
   ChatbotCubit() : super(ChatbotState([]));
