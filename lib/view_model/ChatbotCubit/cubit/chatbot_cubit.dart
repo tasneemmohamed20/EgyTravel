@@ -6,12 +6,6 @@ import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:image_picker/image_picker.dart';
 part 'chatbot_state.dart';
 
-// class ChatbotState {
-//   final List<ChatMessage> messages;
-
-//   ChatbotState(this.messages);
-// }
-
 class ChatbotCubit extends Cubit<ChatbotState> {
   final Gemini gemini = Gemini.instance;
 

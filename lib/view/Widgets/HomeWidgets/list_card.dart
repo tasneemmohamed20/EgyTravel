@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomListCard extends StatelessWidget {
-  final String image;
+  final List <String> image;
   final String title;
   final String subtitle;
   final double imageWidth;
@@ -36,7 +36,7 @@ class CustomListCard extends StatelessWidget {
                 width: imageWidth,
                 height: imageWidth,
                 child: Image.network(
-                  image,
+                  image[0],
                   fit: BoxFit.cover,
                 ),
               ),

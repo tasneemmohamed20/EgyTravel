@@ -15,10 +15,9 @@ class ChatbotScreen extends StatelessWidget {
       create: (context) => ChatbotCubit(),
       child: Scaffold(
         backgroundColor: ColorsManager.primary.withOpacity(1),
-        appBar: CustomAppBar(
+        appBar: const CustomAppBar(
           title: "SNOUHI",
           enableBack: false,
-          leading: backButton(context),
         ),
         body: _buildUI(),
       ),

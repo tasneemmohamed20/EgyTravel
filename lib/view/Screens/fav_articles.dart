@@ -10,7 +10,7 @@ class FavArticles extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       backgroundColor: ColorsManager.primary.withOpacity(1),
-      body: AllPlacesW(),
+      body: const AllPlacesW(),
     ));
   }
 }

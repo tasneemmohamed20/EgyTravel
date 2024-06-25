@@ -54,12 +54,21 @@ class _HomeState extends State<Home> {
             body: CustomScrollView(
               slivers: [
                 CustomSliverAppBar(
+                  spcae: 56,
+                  leading: IconButton(
+                    icon: Icon(
+                      Icons.menu,
+                      size: 30,
+                      color: ColorsManager.primary.withOpacity(1),
+                    ),
+                    onPressed: () {
+                      _scaffoldKey.currentState?.openDrawer();
+                    },),
                   title: "Home".tr(),
-                  leadingIcon: Icons.menu,
                   expandedHeight: 64.0,
-                  onLeadingPressed: () {
-                    _scaffoldKey.currentState?.openDrawer();
-                  },
+                  // onLeadingPressed: () {
+                  //   _scaffoldKey.currentState?.openDrawer();
+                  // },
                 ),
                 SliverToBoxAdapter(
                   child: Column(

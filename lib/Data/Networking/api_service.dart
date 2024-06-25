@@ -1,10 +1,14 @@
 import 'package:dio/dio.dart';
+import 'package:egy_travel/model/Home/events_response.dart';
 import 'package:egy_travel/model/Home/articles_response.dart';
 import 'package:egy_travel/model/Home/places_response.dart';
 import 'package:egy_travel/model/Login/login_request_body.dart';
 import 'package:egy_travel/model/Login/login_response.dart';
 import 'package:egy_travel/model/ForgotPassword/forgot_request_body.dart';
 import 'package:egy_travel/model/ForgotPassword/forgot_response.dart';
+import 'package:egy_travel/model/Profile/EditProfile/edit_request_body.dart';
+import 'package:egy_travel/model/Profile/EditProfile/edit_response.dart';
+import 'package:egy_travel/model/Profile/get_profile_response.dart';
 import 'package:egy_travel/model/ResetPassword/reset_request_body.dart';
 import 'package:egy_travel/model/ResetPassword/reset_response.dart';
 import 'package:egy_travel/model/SignUp/signup_request_body.dart';
@@ -43,4 +47,17 @@ abstract class ApiService {
   @PUT(AppStrings.resetPassword)
   Future<ResetResponseModel> resetPassword(
       @Body() ResetRequestBody resetRequestBody);
+
+  @GET(AppStrings.endPointGetAllEvent)
+  Future<EventsResponseModel> getAllEvents(
+  );
+
+  @GET(AppStrings.endPointUserData)
+  Future<GetProfileResponseModel> getProfile(
+  );
+
+  @PUT(AppStrings.endPointEditProfile)
+  Future<EditResponseModel> editProfile(
+      @Body() EditRequestBody editRequestBody);
+  
 }

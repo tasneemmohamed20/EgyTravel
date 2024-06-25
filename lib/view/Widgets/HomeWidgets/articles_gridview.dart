@@ -36,7 +36,7 @@ class ArticlesGridView extends StatelessWidget {
                       )),
             ),
             child: CustomGridCard(
-              image: articlesData[index].image ?? '',
+              image: [articlesData[index].image ?? ''],
               title: articlesData[index].title ?? '',
               // subtitle: item['subtitle'],
               imageWidth: mQwidth * 0.4,

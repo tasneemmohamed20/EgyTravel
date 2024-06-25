@@ -2,8 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/app_assets.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/chatbot.dart';
+import 'package:egy_travel/view/Screens/events_screen.dart';
 import 'package:egy_travel/view/Screens/home_screen.dart';
-import 'package:egy_travel/view/Screens/test_screen.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/home_drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +27,7 @@ class PrimaryScreenState extends State<PrimaryScreen> {
   Widget build(BuildContext context) {
     Widget actriveScreen = const Home();
     if (_selectedPageIndex == 1) {
-      actriveScreen = const TestPage();
+      actriveScreen = const EventsScreen();
     } else if (_selectedPageIndex == 2) {
       actriveScreen = const ChatbotScreen();
     }
@@ -60,7 +60,7 @@ class PrimaryScreenState extends State<PrimaryScreen> {
             ),
             BottomNavigationBarItem(
               icon: const Icon(Icons.map_outlined),
-              label: 'Plans'.tr(),
+              label: 'Events'.tr(),
             ),
             BottomNavigationBarItem(
               icon: const CircleAvatar(

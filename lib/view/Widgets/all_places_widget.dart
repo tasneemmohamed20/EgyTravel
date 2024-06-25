@@ -57,7 +57,7 @@ class _AllPlacesWState extends State<AllPlacesW> {
                 ),
               ),
               child: CustomListCard(
-                image: widget.data![index]?.image ?? '',
+                image: [widget.data![index]?.image ?? ''],
                 subtitle: widget.data![index]?.location ?? '',
                 title: widget.data![index]?.name ?? '',
                 imageWidth: mQwidth * 0.4,

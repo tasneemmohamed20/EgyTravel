@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomGridCard extends StatelessWidget {
-  final String image;
+  final List <String> image;
   final String title;
   final String? subtitle;
   final double imageWidth;
@@ -40,7 +40,7 @@ class CustomGridCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: borderRadius,
                 child: Image.network(
-                  image,
+                  image[0],
                   fit: BoxFit.cover,
                   height: imageWidth,
                   width: double.infinity,

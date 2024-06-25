@@ -59,7 +59,6 @@ class MyApp extends StatelessWidget {
               primaryColor: ColorsManager.primary,
               useMaterial3: true,
             ),
-            // initialRoute: isLoggedInUser ? '/home' : '/login',
             routes: {
               '/login': (context) => const LogInScreen(),
               '/primary': (context) => const PrimaryScreen(),

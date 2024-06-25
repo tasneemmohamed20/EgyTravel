@@ -54,7 +54,7 @@ class _AllArticlesWState extends State<AllArticlesW> {
                 ),
               ),
               child: CustomListCard(
-                image: widget.data![index]?.image ?? '',
+                image: [widget.data![index]?.image ?? ''],
                 title: widget.data![index]?.title ?? '',
                 subtitle: '',
                 imageWidth: mQwidth * 0.4,
