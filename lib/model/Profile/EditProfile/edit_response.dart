@@ -4,13 +4,22 @@ part 'edit_response.g.dart';
 @JsonSerializable()
 class EditResponseModel {
   final String? status;
-  @JsonKey(name: 'data')
-  final UserData? userData;
+  final Data? data;
 
-  EditResponseModel(this.status, this.userData);
+  EditResponseModel(this.status, this.data);
 
   factory EditResponseModel.fromJson(Map<String, dynamic> json) =>
       _$EditResponseModelFromJson(json);
+}
+
+@JsonSerializable()
+class Data {
+  @JsonKey(name: 'user')
+  final UserData? userData;
+
+  Data(this.userData);
+
+  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 }
 
 @JsonSerializable()

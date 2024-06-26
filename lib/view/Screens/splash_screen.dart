@@ -1,9 +1,11 @@
 import 'package:egy_travel/core/helpers/constants.dart';
 import 'package:egy_travel/view/Screens/pick_language.dart';
 import 'package:egy_travel/res/const_functions.dart';
+import 'package:egy_travel/view_model/UserDataCubit/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/res/app_assets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -29,20 +31,9 @@ class _SplashScreenState extends State<SplashScreen> {
     // initSlidingAnimation();
     // initSlidingAnimation1();
     WidgetsBinding.instance.addPostFrameCallback((timestamp) async {
+      context.read<ProfileCubit>().getProfile;
       await _checkIfUserSeenOnBoarding();
     });
-  }
-
-  _navigateToNextScreen() async {
-    // Simulate some initialization or loading process
-    await Future.delayed(const Duration(seconds: 3));
-    // Here, replace isLoggedInUser with your actual logic to check if the user is logged in
-    // bool isLoggedInUser = true; // Example condition
-    if (isLoggedInUser == true) {
-      Navigator.of(context).pushReplacementNamed('/primary');
-    } else {
-      Navigator.of(context).pushReplacementNamed('/login');
-    }
   }
 
   _checkIfUserSeenOnBoarding() async {
@@ -57,6 +48,36 @@ class _SplashScreenState extends State<SplashScreen> {
       // navigateFish(context, const TestPage());
       // navigateToHome();
     }
+  }
+
+  _navigateToNextScreen() async {
+    // Simulate some initialization or loading process
+    // await Future.delayed(const Duration(seconds: 3));
+    // Here, replace isLoggedInUser with your actual logic to check if the user is logged in
+    // bool isLoggedInUser = true; // Example condition
+    if (isLoggedInUser == true) {
+      context.read<ProfileCubit>().getProfile().then((value) {
+        if (value == 'success') {
+          Navigator.of(context).pushReplacementNamed('/primary');
+        } else {
+          Navigator.of(context).pushReplacementNamed('/login');
+        }
+      });
+    } else {
+      Navigator.of(context).pushReplacementNamed('/login');
+    }
+    // if (ProfileState is ProfileSuccess) {
+    //   Navigator.of(context).pushReplacementNamed('/primary');
+    // } else {
+    //   Navigator.of(context).pushReplacementNamed('/login');
+    // }
+
+//     if (isLoggedInUser == true && ProfileState is ProfileSuccess) {
+// Navigator.of(context).pushReplacementNamed('/primary');    }
+// else {
+//       navigateFish(context, PickLanguage());
+
+//     }
   }
 
   // @override

@@ -1,19 +1,34 @@
+import 'package:dio/dio.dart';
 import 'package:egy_travel/Data/Networking/api_error_handler.dart';
 import 'package:egy_travel/Data/Networking/api_result.dart';
-import 'package:egy_travel/Data/Networking/api_service.dart';
-import 'package:egy_travel/model/Profile/EditProfile/edit_request_body.dart';
 import 'package:egy_travel/model/Profile/EditProfile/edit_response.dart';
+import 'package:egy_travel/res/string_manager.dart';
 
 class EditRepo {
-  final ApiService _apiService;
+  final Dio _dio;
 
-  EditRepo(this._apiService);
+  EditRepo(this._dio);
 
-  Future<ApiResult<EditResponseModel>> editProfile(
-      EditRequestBody editRequestBody) async {
+  Future<ApiResult<EditResponseModel>> editProfile({
+    String? name,
+    String? email,
+    String? phone,
+    MultipartFile? avatar,
+  }) async {
     try {
-      final response = await _apiService.editProfile(editRequestBody);
-      return ApiResult.success(response);
+      var formData = FormData.fromMap({
+        'name': name ?? '',
+        'email': email ?? '',
+        'phone': phone ?? '',
+        if (avatar != null) 'avatar': avatar,
+      });
+
+      var response = await _dio.put(
+        AppStrings.baseUrl + AppStrings.endPointEditProfile,
+        data: formData,
+      );
+
+      return ApiResult.success(EditResponseModel.fromJson(response.data));
     } catch (e) {
       return ApiResult.failure(ErrorHandler.handle(e));
     }

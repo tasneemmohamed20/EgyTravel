@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/core/Di/dependency_injection.dart';
+import 'package:egy_travel/model/Profile/get_profile_response.dart';
 import 'package:egy_travel/view/Screens/Settings/settings_screen.dart';
 import 'package:egy_travel/view/Screens/chatbot.dart';
 import 'package:egy_travel/view/Screens/mytrips_screen.dart';
@@ -15,10 +16,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainDrawer extends StatelessWidget {
-  const MainDrawer({
+  MainDrawer({
     super.key,
   });
-
+ GetProfileResponseModel? profileModel;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -42,6 +43,7 @@ class MainDrawer extends StatelessWidget {
                       );
                     }, profileSuccess: (getProfileResponseModel) {
                       var profile = getProfileResponseModel.data!.userData;
+                      profileModel = getProfileResponseModel;
 
                       return DrawerHeader(
                         decoration: BoxDecoration(
@@ -94,7 +96,7 @@ class MainDrawer extends StatelessWidget {
                   onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const ProfileScreen(),
+                          builder: (context) =>  ProfileScreen(profileModel:profileModel!,),
                         ),
                       )),
               CustomListTile(
@@ -126,7 +128,7 @@ class MainDrawer extends StatelessWidget {
                   onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SettingsScreen(),
+                          builder: (context) => SettingsScreen(profileModel:profileModel!,),
                         ),
                       )),
               CustomListTile(

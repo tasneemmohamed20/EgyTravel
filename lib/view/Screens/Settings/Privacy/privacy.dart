@@ -1,10 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:egy_travel/core/Di/dependency_injection.dart';
 import 'package:egy_travel/view/Screens/Settings/Privacy/change_password.dart';
 import 'package:egy_travel/view/Screens/Settings/Privacy/delete_account.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
 import 'package:egy_travel/res/colors_manager.dart';
+import 'package:egy_travel/view_model/ChangePassword/cubit/change_password_cubit.dart';
+import 'package:egy_travel/view_model/DeleteCubit/cubit/delete_account_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Privacy extends StatelessWidget {
   const Privacy({super.key});
@@ -42,7 +46,11 @@ class Privacy extends StatelessWidget {
                 onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ChangePasswordScreen()),
+                          builder: (context) => BlocProvider(
+                                create: (context) =>
+                                    getIt<ChangePasswordCubit>(),
+                                child: ChangePasswordScreen(),
+                              )),
                     ),
                 leadingIcon: Icons.password_rounded),
             Padding(
@@ -57,7 +65,11 @@ class Privacy extends StatelessWidget {
                 onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const DeleteAccount()),
+                          builder: (context) => BlocProvider(
+                                create: (context) =>
+                                    getIt<DeleteAccountCubit>(),
+                                child: const DeleteAccount(),
+                              )),
                     ),
                 leadingIcon: Icons.delete_outline),
           ],

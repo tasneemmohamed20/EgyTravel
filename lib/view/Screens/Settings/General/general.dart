@@ -1,15 +1,22 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:egy_travel/model/Profile/EditProfile/edit_request_body.dart';
+import 'package:egy_travel/model/Profile/get_profile_response.dart';
+import 'package:egy_travel/view/Widgets/edit_bloc_listener.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_button.dart';
 import 'package:egy_travel/view/Widgets/shared_text_field.dart';
 import 'package:egy_travel/res/colors_manager.dart';
+import 'package:egy_travel/view_model/EditProfile/cubit/edit_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class GeneralSettingse extends StatelessWidget {
-  GeneralSettingse({super.key});
+class GeneralSettings extends StatelessWidget {
+  final GetProfileResponseModel profileModel;
+
+  GeneralSettings({super.key, required this.profileModel});
   final TextEditingController emailController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,13 +36,14 @@ class GeneralSettingse extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  const Padding(
-                    padding: EdgeInsetsDirectional.only(bottom: 32),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(bottom: 32),
                     child: Center(
                         child: CircleAvatar(
                       radius: 70,
-                      backgroundImage: NetworkImage(
-                          'https://i.etsystatic.com/19647689/r/il/d67fbb/1891879820/il_570xN.1891879820_eww4.jpg'),
+                      backgroundImage: CachedNetworkImageProvider(profileModel
+                              .data!.userData!.avatar ??
+                          'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png'),
                     )),
                   ),
                   Positioned(
@@ -52,8 +60,10 @@ class GeneralSettingse extends StatelessWidget {
                           color: ColorsManager
                               .secondPrimary, // Customize as needed
                         ),
-                        child: Icon(
-                          Icons.edit,
+                        child: IconButton(
+                          onPressed: () =>
+                              context.read<EditCubit>().pickImageFromGallery(),
+                          icon: const Icon(Icons.edit_rounded),
                           color: ColorsManager.primary,
                         ),
                       ),
@@ -67,7 +77,7 @@ class GeneralSettingse extends StatelessWidget {
                     return 'Please enter a valid name';
                   }
                 },
-                controller: nameController,
+                controller: context.read<EditCubit>().nameController,
                 labelText: 'Name'.tr(),
               ),
               const SizedBox(height: 16.0),
@@ -77,8 +87,7 @@ class GeneralSettingse extends StatelessWidget {
                     return 'Please enter a valid Email';
                   }
                 },
-                // borderColor: ColorsManager.secondPrimary,
-                controller: emailController,
+                controller: context.read<EditCubit>().emailController,
                 labelText: 'Email'.tr(),
               ),
               const SizedBox(height: 16.0),
@@ -88,19 +97,19 @@ class GeneralSettingse extends StatelessWidget {
                     return 'Please enter a valid address';
                   }
                 },
-                // borderColor: ColorsManager.secondPrimary,
-                controller: emailController,
+                controller: context.read<EditCubit>().addressController,
                 labelText: 'Address'.tr(),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
               CustomButton(
-                  onPressed: () {},
+                  onPressed: () => context.read<EditCubit>().updateProfile(),
                   padding: const EdgeInsetsDirectional.symmetric(
                       horizontal: 128, vertical: 16),
                   backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
-                  text: 'Save'.tr())
+                  text: 'Save'.tr()),
+              const EditBlocListener()
             ],
           ),
         ),

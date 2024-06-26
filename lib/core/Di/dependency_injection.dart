@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:egy_travel/Data/Networking/api_service.dart';
 import 'package:egy_travel/Data/Networking/dio_factory.dart';
 import 'package:egy_travel/repositories/articles_repo.dart';
+import 'package:egy_travel/repositories/change_password_repo.dart';
+import 'package:egy_travel/repositories/delete_repo.dart';
 import 'package:egy_travel/repositories/edit_repo.dart';
 import 'package:egy_travel/repositories/events_repo.dart';
 import 'package:egy_travel/repositories/get_profile_repo.dart';
@@ -11,6 +13,8 @@ import 'package:egy_travel/repositories/forgot_repo.dart';
 import 'package:egy_travel/repositories/reset_repo.dart';
 import 'package:egy_travel/repositories/signup_repo.dart';
 import 'package:egy_travel/view_model/ArticlesCubit/cubit/articles_cubit.dart';
+import 'package:egy_travel/view_model/ChangePassword/cubit/change_password_cubit.dart';
+import 'package:egy_travel/view_model/DeleteCubit/cubit/delete_account_cubit.dart';
 import 'package:egy_travel/view_model/EditProfile/cubit/edit_cubit.dart';
 import 'package:egy_travel/view_model/EventsCubit/cubit/events_cubit.dart';
 import 'package:egy_travel/view_model/LoginCubit/cubit/login_cubit.dart';
@@ -26,6 +30,7 @@ final getIt = GetIt.instance;
 Future<void> setupGetIt() async {
 // Dio & ApiService
   Dio dio = DioFactory.getDio();
+  getIt.registerLazySingleton<Dio>(() => dio);
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 
 // Login
@@ -63,4 +68,13 @@ Future<void> setupGetIt() async {
 // Edit
   getIt.registerLazySingleton<EditRepo>(() => EditRepo(getIt()));
   getIt.registerFactory<EditCubit>(() => EditCubit(getIt()));
+
+// changePasswerd
+  getIt.registerLazySingleton<ChangeRepo>(() => ChangeRepo(getIt()));
+  getIt
+      .registerFactory<ChangePasswordCubit>(() => ChangePasswordCubit(getIt()));
+
+// deleteAccount
+  getIt.registerLazySingleton<DeleteRepo>(() => DeleteRepo(getIt()));
+  getIt.registerFactory<DeleteAccountCubit>(() => DeleteAccountCubit(getIt()));
 }

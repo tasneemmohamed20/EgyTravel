@@ -11,13 +11,23 @@ EditResponseModel _$EditResponseModelFromJson(Map<String, dynamic> json) =>
       json['status'] as String?,
       json['data'] == null
           ? null
-          : UserData.fromJson(json['data'] as Map<String, dynamic>),
+          : Data.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$EditResponseModelToJson(EditResponseModel instance) =>
     <String, dynamic>{
       'status': instance.status,
-      'data': instance.userData,
+      'data': instance.data,
+    };
+
+Data _$DataFromJson(Map<String, dynamic> json) => Data(
+      json['user'] == null
+          ? null
+          : UserData.fromJson(json['user'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
+      'user': instance.userData,
     };
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(

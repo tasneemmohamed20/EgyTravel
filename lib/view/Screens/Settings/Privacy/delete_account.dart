@@ -1,10 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:egy_travel/core/helpers/shared_pref_helper.dart';
+import 'package:egy_travel/model/Profile/DeleteAccount/delete_request_body.dart';
+import 'package:egy_travel/view/Widgets/delete_bloc_listener.dart';
 import 'package:egy_travel/view/Widgets/dropdown.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_button.dart';
 import 'package:egy_travel/view/Widgets/shared_text_field.dart';
 import 'package:egy_travel/res/colors_manager.dart';
+import 'package:egy_travel/view_model/DeleteCubit/cubit/delete_account_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DeleteAccount extends StatefulWidget {
   const DeleteAccount({super.key});
@@ -98,25 +103,34 @@ class _DeleteAccountState extends State<DeleteAccount> {
           Padding(
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 32),
             child: CustomPasswordField(
-              passwordController: password,
+              passwordController:
+                  context.read<DeleteAccountCubit>().passwordController,
               labelText: 'YourPassword'.tr(),
               validator: (value) {
                 if (value.isEmpty) {
                   return 'Please enter a valid password';
                 }
               },
-              // borderColor: ColorsManager.secondPrimary.withOpacity(1),
             ),
           ),
           Padding(
             padding: const EdgeInsetsDirectional.only(top: 32),
             child: CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.read<DeleteAccountCubit>().emitDeleteState(
+                      DeleteRequestBody(
+                          password: context
+                              .read<DeleteAccountCubit>()
+                              .passwordController
+                              .text));
+                  SharedPrefHelper.clearAllData();
+                },
                 padding: const EdgeInsetsDirectional.symmetric(
                     horizontal: 100, vertical: 16),
                 backgroundColor: ColorsManager.secondPrimary.withOpacity(1),
                 text: 'DeleteAccount'.tr()),
-          )
+          ),
+          const DeleteBlocListener()
         ],
       ),
     ));

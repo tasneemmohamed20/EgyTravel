@@ -6,7 +6,10 @@ import 'package:egy_travel/model/Login/login_request_body.dart';
 import 'package:egy_travel/model/Login/login_response.dart';
 import 'package:egy_travel/model/ForgotPassword/forgot_request_body.dart';
 import 'package:egy_travel/model/ForgotPassword/forgot_response.dart';
-import 'package:egy_travel/model/Profile/EditProfile/edit_request_body.dart';
+import 'package:egy_travel/model/Profile/ChangePassword/change_request_body.dart';
+import 'package:egy_travel/model/Profile/ChangePassword/change_response.dart';
+import 'package:egy_travel/model/Profile/DeleteAccount/delete_request_body.dart';
+import 'package:egy_travel/model/Profile/DeleteAccount/delete_response.dart';
 import 'package:egy_travel/model/Profile/EditProfile/edit_response.dart';
 import 'package:egy_travel/model/Profile/get_profile_response.dart';
 import 'package:egy_travel/model/ResetPassword/reset_request_body.dart';
@@ -49,15 +52,18 @@ abstract class ApiService {
       @Body() ResetRequestBody resetRequestBody);
 
   @GET(AppStrings.endPointGetAllEvent)
-  Future<EventsResponseModel> getAllEvents(
-  );
+  Future<EventsResponseModel> getAllEvents();
 
   @GET(AppStrings.endPointUserData)
-  Future<GetProfileResponseModel> getProfile(
-  );
+  Future<GetProfileResponseModel> getProfile();
 
-  @PUT(AppStrings.endPointEditProfile)
-  Future<EditResponseModel> editProfile(
-      @Body() EditRequestBody editRequestBody);
-  
+
+
+  @PUT(AppStrings.endPointUpdatePassword)
+  Future<ChangeResponseModel> changePassword(
+      @Body() ChangeRequestBody changeRequestBody);
+
+  @DELETE(AppStrings.endPointDeleteAccount)
+  Future<DeleteResponseModel> deleteAccount(
+      @Body() DeleteRequestBody deleteRequestBody);
 }

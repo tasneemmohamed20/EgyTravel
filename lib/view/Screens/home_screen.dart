@@ -17,7 +17,6 @@ import 'package:egy_travel/view_model/PlacesCubit/places_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// enum _SelectedTab { home, plans, events }
 
 class Home extends StatefulWidget {
   const Home({
@@ -50,7 +49,7 @@ class _HomeState extends State<Home> {
             extendBody: true,
             resizeToAvoidBottomInset: false,
             backgroundColor: ColorsManager.primary.withOpacity(1),
-            drawer: const MainDrawer(),
+            drawer: MainDrawer(),
             body: CustomScrollView(
               slivers: [
                 CustomSliverAppBar(

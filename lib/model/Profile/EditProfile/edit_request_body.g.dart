@@ -10,7 +10,8 @@ EditRequestBody _$EditRequestBodyFromJson(Map<String, dynamic> json) =>
     EditRequestBody(
       name: json['name'] as String?,
       address: json['address'] as String?,
-      avatar: json['avatar'] as String?,
+      avatar: json['avatar'],
+      email: json['email'] as String?,
     );
 
 Map<String, dynamic> _$EditRequestBodyToJson(EditRequestBody instance) =>
@@ -18,4 +19,5 @@ Map<String, dynamic> _$EditRequestBodyToJson(EditRequestBody instance) =>
       'name': instance.name,
       'address': instance.address,
       'avatar': instance.avatar,
+      'email': instance.email,
     };

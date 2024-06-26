@@ -4,7 +4,6 @@ import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/chatbot.dart';
 import 'package:egy_travel/view/Screens/events_screen.dart';
 import 'package:egy_travel/view/Screens/home_screen.dart';
-import 'package:egy_travel/view/Widgets/HomeWidgets/home_drawer.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryScreen extends StatefulWidget {
@@ -34,7 +33,6 @@ class PrimaryScreenState extends State<PrimaryScreen> {
 
     return SafeArea(
         child: Scaffold(
-      drawer: const MainDrawer(),
       body: actriveScreen,
       bottomNavigationBar: PopScope(
         canPop: _selectedPageIndex != 0 ? false : true,

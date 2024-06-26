@@ -7,7 +7,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepo _profileRepo;
   ProfileCubit(this._profileRepo) : super(const ProfileState.initial());
 
-  void getProfile() async {
+  Future<String?> getProfile() async {
     emit(const ProfileState.profileloading());
     final response = await _profileRepo.getProfile();
     response.when(
@@ -16,5 +16,6 @@ class ProfileCubit extends Cubit<ProfileState> {
     }, failure: (errorHandler) {
       emit(ProfileState.profileError(errorHandler));
     });
+    return response.when(success: (data) => data.status, failure: (error) => null);
   }
 }
