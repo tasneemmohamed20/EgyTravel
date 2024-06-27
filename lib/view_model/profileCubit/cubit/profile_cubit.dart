@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:egy_travel/model/Profile/get_profile_response.dart';
 import 'package:egy_travel/repositories/get_profile_repo.dart';
-import 'package:egy_travel/view_model/UserDataCubit/cubit/profile_state.dart';
+import 'package:egy_travel/view_model/profileCubit/cubit/profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepo _profileRepo;

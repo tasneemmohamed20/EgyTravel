@@ -1,7 +1,7 @@
 import 'package:egy_travel/core/helpers/constants.dart';
 import 'package:egy_travel/view/Screens/pick_language.dart';
 import 'package:egy_travel/res/const_functions.dart';
-import 'package:egy_travel/view_model/UserDataCubit/cubit/profile_cubit.dart';
+import 'package:egy_travel/view_model/profileCubit/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/res/app_assets.dart';

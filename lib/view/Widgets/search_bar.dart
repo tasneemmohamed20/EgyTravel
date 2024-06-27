@@ -10,6 +10,7 @@ class CustomSearchBar extends StatelessWidget {
   final double height;
   final bool readOnly;
   final VoidCallback? onTap;
+  final ValueChanged<String>? onSubmitted;
 
   const CustomSearchBar({
     this.onTap,
@@ -20,7 +21,7 @@ class CustomSearchBar extends StatelessWidget {
     required this.height,
     this.backgroundColor = Colors.white70,
     this.borderRadius = 15.0,
-    required this.readOnly,
+    required this.readOnly, this.onSubmitted, 
   });
 
   @override
@@ -39,7 +40,8 @@ class CustomSearchBar extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                child: TextFormField(
+                child: TextField(
+                  onSubmitted: onSubmitted,
                   onTap: onTap,
                   readOnly: readOnly,
                   controller: searchController,
@@ -49,6 +51,7 @@ class CustomSearchBar extends StatelessWidget {
                     prefixIcon: const Icon(Icons.search),
                   ),
                   onChanged: onChanged,
+                  
                 ),
               ),
             ],

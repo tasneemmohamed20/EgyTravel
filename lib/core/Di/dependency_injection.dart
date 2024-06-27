@@ -6,23 +6,27 @@ import 'package:egy_travel/repositories/change_password_repo.dart';
 import 'package:egy_travel/repositories/delete_repo.dart';
 import 'package:egy_travel/repositories/edit_repo.dart';
 import 'package:egy_travel/repositories/events_repo.dart';
+import 'package:egy_travel/repositories/favorites_repo.dart';
 import 'package:egy_travel/repositories/get_profile_repo.dart';
 import 'package:egy_travel/repositories/login_repo.dart';
 import 'package:egy_travel/repositories/places_repo.dart';
 import 'package:egy_travel/repositories/forgot_repo.dart';
 import 'package:egy_travel/repositories/reset_repo.dart';
+import 'package:egy_travel/repositories/search_repo.dart';
 import 'package:egy_travel/repositories/signup_repo.dart';
 import 'package:egy_travel/view_model/ArticlesCubit/cubit/articles_cubit.dart';
 import 'package:egy_travel/view_model/ChangePassword/cubit/change_password_cubit.dart';
 import 'package:egy_travel/view_model/DeleteCubit/cubit/delete_account_cubit.dart';
 import 'package:egy_travel/view_model/EditProfile/cubit/edit_cubit.dart';
 import 'package:egy_travel/view_model/EventsCubit/cubit/events_cubit.dart';
+import 'package:egy_travel/view_model/FavCubit/cubit/favorites_cubit.dart';
 import 'package:egy_travel/view_model/LoginCubit/cubit/login_cubit.dart';
 import 'package:egy_travel/view_model/PlacesCubit/places_cubit.dart';
 import 'package:egy_travel/view_model/ForgotPassword/cubit/forgot_password_cubit.dart';
 import 'package:egy_travel/view_model/ResetCubit/cubit/reset_password_cubit.dart';
+import 'package:egy_travel/view_model/SearchCubit/cubit/search_cubit.dart';
 import 'package:egy_travel/view_model/SignUpCubit/sign_up_cubit.dart';
-import 'package:egy_travel/view_model/UserDataCubit/cubit/profile_cubit.dart';
+import 'package:egy_travel/view_model/profileCubit/cubit/profile_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -77,4 +81,12 @@ Future<void> setupGetIt() async {
 // deleteAccount
   getIt.registerLazySingleton<DeleteRepo>(() => DeleteRepo(getIt()));
   getIt.registerFactory<DeleteAccountCubit>(() => DeleteAccountCubit(getIt()));
+
+// Search
+  getIt.registerLazySingleton<SearchRepo>(() => SearchRepo(getIt()));
+  getIt.registerLazySingleton<SearchCubit>(() => SearchCubit(getIt()));
+
+// Favorites
+  getIt.registerLazySingleton<FavRepo>(() => FavRepo(getIt()));
+  getIt.registerLazySingleton<FavCubit>(() => FavCubit(getIt()));
 }

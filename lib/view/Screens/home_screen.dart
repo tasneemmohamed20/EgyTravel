@@ -14,9 +14,9 @@ import 'package:egy_travel/view_model/ArticlesCubit/cubit/articles_cubit.dart';
 import 'package:egy_travel/view_model/ArticlesCubit/cubit/articles_state.dart';
 import 'package:egy_travel/view_model/PlacesCubit/places_cubit.dart';
 import 'package:egy_travel/view_model/PlacesCubit/places_state.dart';
+import 'package:egy_travel/view_model/SearchCubit/cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 class Home extends StatefulWidget {
   const Home({
@@ -62,7 +62,8 @@ class _HomeState extends State<Home> {
                     ),
                     onPressed: () {
                       _scaffoldKey.currentState?.openDrawer();
-                    },),
+                    },
+                  ),
                   title: "Home".tr(),
                   expandedHeight: 64.0,
                   // onLeadingPressed: () {
@@ -78,7 +79,10 @@ class _HomeState extends State<Home> {
                           onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SearchScreen()),
+                                builder: (context) => BlocProvider(
+                                      create: (context) => getIt<SearchCubit>(),
+                                      child: SearchScreen(),
+                                    )),
                           ),
                           readOnly: true,
                           width: mQwidth * 0.9,

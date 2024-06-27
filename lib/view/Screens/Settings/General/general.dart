@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:egy_travel/model/Profile/EditProfile/edit_request_body.dart';
 import 'package:egy_travel/model/Profile/get_profile_response.dart';
 import 'package:egy_travel/view/Widgets/edit_bloc_listener.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';

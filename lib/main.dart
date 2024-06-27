@@ -9,7 +9,7 @@ import 'package:egy_travel/res/string_manager.dart';
 import 'package:egy_travel/view/Screens/login_screen.dart';
 import 'package:egy_travel/view/Screens/primary_screen.dart';
 import 'package:egy_travel/view_model/RadioButtons/radio_cubit.dart';
-import 'package:egy_travel/view_model/UserDataCubit/cubit/profile_cubit.dart';
+import 'package:egy_travel/view_model/profileCubit/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:egy_travel/view/Screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -80,7 +80,7 @@ class PlacesDetailsScreen extends StatelessWidget {
                                 )),
                       ),
                       child: CustomGridCard(
-                        image: item['image'],
+                        image: [item['image']],
                         title: item['title'],
                         subtitle: item['subtitle'],
                         imageWidth: mQwidth * 0.4,

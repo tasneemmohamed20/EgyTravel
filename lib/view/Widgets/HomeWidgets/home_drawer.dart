@@ -10,16 +10,18 @@ import 'package:egy_travel/view/Screens/test_screen.dart';
 import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Widgets/tab_bar.dart';
-import 'package:egy_travel/view_model/UserDataCubit/cubit/profile_cubit.dart';
-import 'package:egy_travel/view_model/UserDataCubit/cubit/profile_state.dart';
+import 'package:egy_travel/view_model/FavCubit/cubit/favorites_cubit.dart';
+import 'package:egy_travel/view_model/profileCubit/cubit/profile_cubit.dart';
+import 'package:egy_travel/view_model/profileCubit/cubit/profile_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+// ignore: must_be_immutable
 class MainDrawer extends StatelessWidget {
   MainDrawer({
     super.key,
   });
- GetProfileResponseModel? profileModel;
+  GetProfileResponseModel? profileModel;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -96,7 +98,9 @@ class MainDrawer extends StatelessWidget {
                   onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>  ProfileScreen(profileModel:profileModel!,),
+                          builder: (context) => ProfileScreen(
+                            profileModel: profileModel!,
+                          ),
                         ),
                       )),
               CustomListTile(
@@ -106,8 +110,12 @@ class MainDrawer extends StatelessWidget {
                   onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TripsScreen(
-                            screenTilte: "MyTrips".tr(),
+                          builder: (context) => BlocProvider(
+                            create: (context) =>
+                                getIt<FavCubit>()..getFavorites(),
+                            child: TripsScreen(
+                              screenTilte: "MyTrips".tr(),
+                            ),
                           ),
                         ),
                       )),
@@ -128,7 +136,9 @@ class MainDrawer extends StatelessWidget {
                   onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SettingsScreen(profileModel:profileModel!,),
+                          builder: (context) => SettingsScreen(
+                            profileModel: profileModel!,
+                          ),
                         ),
                       )),
               CustomListTile(

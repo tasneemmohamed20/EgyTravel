@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:egy_travel/model/Favorites/favorites_response.dart';
 import 'package:egy_travel/model/Home/events_response.dart';
 import 'package:egy_travel/model/Home/articles_response.dart';
 import 'package:egy_travel/model/Home/places_response.dart';
@@ -10,10 +11,10 @@ import 'package:egy_travel/model/Profile/ChangePassword/change_request_body.dart
 import 'package:egy_travel/model/Profile/ChangePassword/change_response.dart';
 import 'package:egy_travel/model/Profile/DeleteAccount/delete_request_body.dart';
 import 'package:egy_travel/model/Profile/DeleteAccount/delete_response.dart';
-import 'package:egy_travel/model/Profile/EditProfile/edit_response.dart';
 import 'package:egy_travel/model/Profile/get_profile_response.dart';
 import 'package:egy_travel/model/ResetPassword/reset_request_body.dart';
 import 'package:egy_travel/model/ResetPassword/reset_response.dart';
+import 'package:egy_travel/model/Search/search_response.dart';
 import 'package:egy_travel/model/SignUp/signup_request_body.dart';
 import 'package:egy_travel/model/SignUp/signup_response.dart';
 import 'package:egy_travel/res/string_manager.dart';
@@ -57,8 +58,6 @@ abstract class ApiService {
   @GET(AppStrings.endPointUserData)
   Future<GetProfileResponseModel> getProfile();
 
-
-
   @PUT(AppStrings.endPointUpdatePassword)
   Future<ChangeResponseModel> changePassword(
       @Body() ChangeRequestBody changeRequestBody);
@@ -66,4 +65,12 @@ abstract class ApiService {
   @DELETE(AppStrings.endPointDeleteAccount)
   Future<DeleteResponseModel> deleteAccount(
       @Body() DeleteRequestBody deleteRequestBody);
+
+  @GET(AppStrings.endPointGetAllSearch)
+  Future<SearchResponseModel> searchPlaces(
+    @Query('search') String search,
+  );
+
+  @GET(AppStrings.endPointGetFavorite)
+  Future<FavResponseModel> favorites();
 }
