@@ -1,10 +1,30 @@
 import 'package:egy_travel/res/app_assets.dart';
 import 'package:egy_travel/res/colors_manager.dart';
+import 'package:egy_travel/src/controllers/location_controller.dart';
+import 'package:egy_travel/src/services/location_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
+import 'package:get/get.dart';
+import 'package:location/location.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class CustomFloatButtton extends StatelessWidget {
-  const CustomFloatButtton({super.key});
+class CustomFloatButtton extends StatefulWidget {
+  const CustomFloatButtton({super.key, required this.lat, required this.long});
+  final double lat;
+  final double long;
+
+  @override
+  State<CustomFloatButtton> createState() => _CustomFloatButttonState();
+}
+
+class _CustomFloatButttonState extends State<CustomFloatButtton> {
+  final LocationController locationController =
+      Get.put<LocationController>(LocationController());
+  @override
+  void initState() {
+    LocationService.instance.getLocation(controller: locationController);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +61,15 @@ class CustomFloatButtton extends StatelessWidget {
             Icons.location_on_outlined,
             color: ColorsManager.secondPrimary.withOpacity(1),
           ),
-          onPressed: () {},
+          onPressed: () async {
+            Location location = Location();
+            LocationData locationData;
+            locationData = await location.getLocation();
+            setState(() {
+              launchUrl(Uri.parse(
+                  'https://www.google.com/maps/dir/?api=1&origin=${locationData.latitude},${locationData.longitude}&destination=${widget.lat},${widget.long}'));
+            });
+          },
         ),
         FloatingActionButton(
           backgroundColor: ColorsManager.primary.withOpacity(1),

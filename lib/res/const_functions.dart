@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 void navigateFish(BuildContext context, Widget widget) {
@@ -27,17 +26,4 @@ void navigateFish(BuildContext context, Widget widget) {
 }
 
 //--------------------------------------------
-class LocalizationChecker {
-  static changeLanguage(BuildContext context) {
-    Locale? currentLocale = EasyLocalization.of(context)!.currentLocale;
-    currentLocale!.languageCode == 'en'
-        ? const Locale('ar', 'AE')
-        : const Locale('en', 'US');
-    EasyLocalization.of(context)!.setLocale(currentLocale);
-  }
-}
-// class LocalizationChecker {
-//   static changeLanguage(BuildContext context, Locale newLocale) {
-//     EasyLocalization.of(context)!.setLocale(newLocale);
-//   }
-// }
+

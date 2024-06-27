@@ -54,6 +54,8 @@ class TripsScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => PlacesDetailsScreen(
+                              lat: data[index].latitude ?? 0,
+                              long: data[index].longitude ?? 0,
                               description: [data[index].description ?? ''],
                               image: data[index].image ?? '',
                               subtitle: data[index].location ?? '',

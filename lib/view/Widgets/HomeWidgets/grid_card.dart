@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomGridCard extends StatelessWidget {
-  final List <String> image;
+  final List<String> image;
   final String title;
   final String? subtitle;
   final double imageWidth;
@@ -48,7 +48,8 @@ class CustomGridCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.all(4.0),
+              padding: EdgeInsetsDirectional.symmetric(
+                  vertical: (subtitle == "") ? 16 : 4, horizontal: 4),
               child: Text(
                 title,
                 maxLines: 2,
@@ -61,18 +62,19 @@ class CustomGridCard extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            Padding(
-              padding: const EdgeInsetsDirectional.symmetric(horizontal: 6.0),
-              child: Text(
-                subtitle ?? '',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 11,
-                  color: subtitleColor,
+            if (subtitle?.isNotEmpty ?? false)
+              Padding(
+                padding: const EdgeInsetsDirectional.symmetric(horizontal: 6.0),
+                child: Text(
+                  subtitle ?? '',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: subtitleColor,
+                  ),
                 ),
-              ),
-            ),
+              )
           ],
         ),
       ),

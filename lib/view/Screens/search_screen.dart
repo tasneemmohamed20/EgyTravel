@@ -61,6 +61,8 @@ class SearchScreen extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => PlacesDetailsScreen(
+                                    lat: placesData![index]?.latitude ?? 0,
+                                    long: placesData![index]?.longitude ?? 0,
                                     description: placesData![index]?.description
                                             as List<String>? ??
                                         [],

@@ -7,16 +7,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 
 class PlacesDetailsScreen extends StatelessWidget {
-  const PlacesDetailsScreen(
+   const PlacesDetailsScreen(
       {super.key,
       required this.image,
       required this.title,
       required this.subtitle,
-      required this.description});
+      required this.description,
+      required this.lat,
+      required this.long
+      });
   final String image;
   final String title;
   final String subtitle;
   final List<String> description;
+  final double lat;
+  final double long;
   @override
   Widget build(BuildContext context) {
     final mQwidth = MediaQuery.of(context).size.width;
@@ -73,6 +78,8 @@ class PlacesDetailsScreen extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => PlacesDetailsScreen(
+                                  lat: items[index]['lat'],
+                                  long: items[index]['long'],
                                   image: items[index]['image'],
                                   subtitle: items[index]['subtitle'],
                                   title: items[index]['title'],
@@ -96,7 +103,10 @@ class PlacesDetailsScreen extends StatelessWidget {
           ),
         ),
         floatingActionButtonLocation: ExpandableFab.location,
-        floatingActionButton: const CustomFloatButtton(),
+        floatingActionButton:  CustomFloatButtton(
+          lat: lat,
+          long: long,
+        ),
       ),
     );
   }

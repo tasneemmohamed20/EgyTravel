@@ -109,6 +109,7 @@ class EditBlocListener extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.pop(context);
+                Navigator.pop(context);
               },
               child: Text(
                 'Got it',

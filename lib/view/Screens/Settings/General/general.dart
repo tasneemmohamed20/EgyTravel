@@ -15,7 +15,6 @@ class GeneralSettings extends StatelessWidget {
 
   GeneralSettings({super.key, required this.profileModel});
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -103,7 +102,24 @@ class GeneralSettings extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
               CustomButton(
-                  onPressed: () => context.read<EditCubit>().updateProfile(),
+                  onPressed: () {
+                    if (context.read<EditCubit>().nameController.text == '') {
+                      context.read<EditCubit>().nameController.text =
+                          profileModel.data!.userData!.name!;
+                    } else if (context.read<EditCubit>().emailController.text ==
+                        '') {
+                      context.read<EditCubit>().emailController.text =
+                          profileModel.data!.userData!.email!;
+                    } else if (context
+                            .read<EditCubit>()
+                            .addressController
+                            .text ==
+                        '') {
+                      context.read<EditCubit>().addressController.text =
+                          profileModel.data!.userData!.address!;
+                    }
+                    context.read<EditCubit>().updateProfile();
+                  },
                   padding: const EdgeInsetsDirectional.symmetric(
                       horizontal: 128, vertical: 16),
                   backgroundColor: ColorsManager.secondPrimary.withOpacity(1),

@@ -28,7 +28,23 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _changeLanguage(context.locale);
+      // If you need to use EasyLocalization.of(context) to listen for locale changes, do it here
+    });
+  }
+
+  @override
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void _changeLanguage(Locale newLocale) async {
+    await context.setLocale(newLocale); // Update the locale
+    setState(() {}); // Rebuild the widget after locale change
+  }
+
   @override
   Widget build(BuildContext context) {
     final mQwidth = MediaQuery.of(context).size.width;

@@ -79,56 +79,61 @@ class SharedDetials extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: ColorsManager.primary.withOpacity(1),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 16.0, horizontal: 16),
-                  child: RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: title,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 16.0, horizontal: 16),
+                    child: RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: title,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
-                        ),
-                        WidgetSpan(
-                            child: SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.01)),
-                        WidgetSpan(
-                            child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 4.0),
-                                child: Icon(
-                                  Icons.location_on_outlined,
-                                  size: 16,
-                                ),
-                              ),
-                              Flexible(
-                                child: Text(
-                                  subtitle ?? '',
-                                  softWrap: true,
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 2,
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w800,
+                          WidgetSpan(
+                              child: SizedBox(
+                                  height: MediaQuery.of(context).size.height *
+                                      0.01)),
+                          if (subtitle?.isNotEmpty ?? false)
+                            WidgetSpan(
+                                child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 8.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 4.0),
+                                    child: Icon(
+                                      Icons.location_on_outlined,
+                                      size: 16,
+                                    ),
                                   ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ))
-                      ],
+                                  Flexible(
+                                    child: Text(
+                                      subtitle ?? '',
+                                      softWrap: true,
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
+                                      style: const TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w800,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ))
+                        ],
+                      ),
                     ),
                   ),
                 ),
