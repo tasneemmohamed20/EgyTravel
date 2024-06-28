@@ -1,6 +1,9 @@
 class ApiStrings {
   static const baseUrl = 'https://egytravel.codepeak.live/api/v1/';
 
+  static const baseUrlRecommended =
+      'https://recomend.codepeak.live/recommend/';
+
   static const signup = 'auth/signup';
 
   static const signin = 'auth/signin';

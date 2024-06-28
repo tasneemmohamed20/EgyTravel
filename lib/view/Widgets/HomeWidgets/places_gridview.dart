@@ -30,6 +30,7 @@ class PlacesGridView extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => PlacesDetailsScreen(
+                        recommendedId: placesData[index]?.id ?? 0,
                     lat: placesData[index]?.latitude ?? 0,
                         long: placesData[index]?.longitude ?? 0,
                         image: placesData[index]?.image ?? '',

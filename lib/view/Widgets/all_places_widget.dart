@@ -48,10 +48,10 @@ class _AllPlacesWState extends State<AllPlacesW> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => PlacesDetailsScreen(
+                    recommendedId: widget.data![index]?.id ?? 0,
                     lat: widget.data![index]?.latitude ?? 0,
                     long: widget.data![index]?.longitude ?? 0,
-                    description:
-                        widget.data![index]?.description as List<String>? ?? [],
+                    description: [widget.data![index]?.description ?? ''],
                     image: widget.data![index]?.image ?? '',
                     subtitle: widget.data![index]?.location ?? '',
                     title: widget.data![index]?.name ?? '',

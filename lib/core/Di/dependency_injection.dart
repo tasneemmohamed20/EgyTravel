@@ -11,6 +11,7 @@ import 'package:egy_travel/repositories/get_profile_repo.dart';
 import 'package:egy_travel/repositories/login_repo.dart';
 import 'package:egy_travel/repositories/places_repo.dart';
 import 'package:egy_travel/repositories/forgot_repo.dart';
+import 'package:egy_travel/repositories/recommended_repo.dart';
 import 'package:egy_travel/repositories/reset_repo.dart';
 import 'package:egy_travel/repositories/search_repo.dart';
 import 'package:egy_travel/repositories/signup_repo.dart';
@@ -23,6 +24,7 @@ import 'package:egy_travel/view_model/FavCubit/cubit/favorites_cubit.dart';
 import 'package:egy_travel/view_model/LoginCubit/cubit/login_cubit.dart';
 import 'package:egy_travel/view_model/PlacesCubit/places_cubit.dart';
 import 'package:egy_travel/view_model/ForgotPassword/cubit/forgot_password_cubit.dart';
+import 'package:egy_travel/view_model/RecommendedCubit/cubit/recommended_cubit.dart';
 import 'package:egy_travel/view_model/ResetCubit/cubit/reset_password_cubit.dart';
 import 'package:egy_travel/view_model/SearchCubit/cubit/search_cubit.dart';
 import 'package:egy_travel/view_model/SignUpCubit/sign_up_cubit.dart';
@@ -36,6 +38,8 @@ Future<void> setupGetIt() async {
   Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<Dio>(() => dio);
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+  getIt
+      .registerLazySingleton<RecommendedService>(() => RecommendedService(dio));
 
 // Login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
@@ -88,5 +92,9 @@ Future<void> setupGetIt() async {
 
 // Favorites
   getIt.registerLazySingleton<FavRepo>(() => FavRepo(getIt()));
-  getIt.registerLazySingleton<FavCubit>(() => FavCubit(getIt()));
+  getIt.registerFactory<FavCubit>(() => FavCubit(getIt()));
+
+// Recommended
+  getIt.registerLazySingleton<RecommendedRepo>(() => RecommendedRepo(getIt()));
+  getIt.registerFactory<RecommendedCubit>(() => RecommendedCubit(getIt()));
 }

@@ -8,7 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TripsScreen extends StatelessWidget {
-  const TripsScreen({super.key, required this.screenTilte});
+  const TripsScreen({
+    super.key,
+    required this.screenTilte,
+  });
   final String screenTilte;
   @override
   Widget build(BuildContext context) {
@@ -54,6 +57,7 @@ class TripsScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => PlacesDetailsScreen(
+                              recommendedId: data[index].id ?? 0,
                               lat: data[index].latitude ?? 0,
                               long: data[index].longitude ?? 0,
                               description: [data[index].description ?? ''],

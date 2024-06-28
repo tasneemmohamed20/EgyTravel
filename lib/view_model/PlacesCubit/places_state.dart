@@ -10,8 +10,12 @@ class PlacesState with _$PlacesState {
 
 // Places
   const factory PlacesState.getPlacesloading() = GetPlacesloading;
-  const factory PlacesState.getPlacesSuccess(List<PlacesData> places, bool isLastPage,
-    ) = GetPlacesSuccess;
+  const factory PlacesState.getPlacesSuccess(
+    List<PlacesData> places,
+    bool isLastPage,
+  ) = GetPlacesSuccess;
   const factory PlacesState.getPlacesError(ErrorHandler errorHandler) =
       GetPlacesError;
+
+ 
 }

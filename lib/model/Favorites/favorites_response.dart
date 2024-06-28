@@ -25,8 +25,7 @@ class Data {
 
 @JsonSerializable()
 class FavPlaces {
-  @JsonKey(name: '_id')
-  final String? id;
+  final int? id;
   final String? name;
   final String? description;
   final String? language;
@@ -59,8 +58,7 @@ class FavArticles {
 
 @JsonSerializable()
 class Trips {
-  @JsonKey(name: '_id')
-  final String? id;
+  final int? id;
   final String? name;
   final String? description;
   final String? image;

@@ -15,42 +15,60 @@ class PlacesCubit extends Cubit<PlacesState> {
   Future<void> getAllPlaces() async {
     emit(const PlacesState.getPlacesloading()); // Indicate initial loading
 
-   
-      final response = await _placesRepo.getAllPlaces(_currentPage); // Fetch initial page
+    final response =
+        await _placesRepo.getAllPlaces(_currentPage); // Fetch initial page
 
-      response.when(
-        success: (placesResponseModel) {
-          _places.addAll(placesResponseModel.data!.placesData!); // Update local list
-          _currentPage++;
-          _isLastPage = placesResponseModel.totalPages == _currentPage ? true : false;
-          emit(PlacesState.getPlacesSuccess(_places, _isLastPage));
-        },
-        failure: (errorHandler) {
-          emit(PlacesState.getPlacesError(errorHandler));
-        },
-      );
-   
+    response.when(
+      success: (placesResponseModel) {
+        _places
+            .addAll(placesResponseModel.data!.placesData!); // Update local list
+        _currentPage++;
+        _isLastPage =
+            placesResponseModel.totalPages == _currentPage ? true : false;
+        emit(PlacesState.getPlacesSuccess(_places, _isLastPage));
+      },
+      failure: (errorHandler) {
+        emit(PlacesState.getPlacesError(errorHandler));
+      },
+    );
   }
 
   Future<void> loadMorePlaces() async {
-    if (_isLastPage || state is GetPlacesloading) return; // Avoid unnecessary loads
+    if (_isLastPage || state is GetPlacesloading)
+      return; // Avoid unnecessary loads
 
     emit(const PlacesState.getPlacesloading()); // Indicate loading more
 
+    final response =
+        await _placesRepo.getAllPlaces(_currentPage); // Fetch next page
 
-      final response = await _placesRepo.getAllPlaces(_currentPage); // Fetch next page
-
-      response.when(
-        success: (placesResponseModel) {
-          _places.addAll(placesResponseModel.data!.placesData!);
-          _currentPage++;
-          _isLastPage = placesResponseModel.totalPages == _currentPage ? true : false;
-          emit(PlacesState.getPlacesSuccess(_places, _isLastPage));
-        },
-        failure: (errorHandler) {
-          emit(PlacesState.getPlacesError(errorHandler));
-        },
-      );
-   
+    response.when(
+      success: (placesResponseModel) {
+        _places.addAll(placesResponseModel.data!.placesData!);
+        _currentPage++;
+        _isLastPage =
+            placesResponseModel.totalPages == _currentPage ? true : false;
+        emit(PlacesState.getPlacesSuccess(_places, _isLastPage));
+      },
+      failure: (errorHandler) {
+        emit(PlacesState.getPlacesError(errorHandler));
+      },
+    );
   }
+
+  // Future<void> getRecommended(int id) async {
+  //   emit(const PlacesState.getRecommendedloading()); // Indicate initial loading
+
+  //   final response = await _placesRepo.getRecommended(id); // Fetch initial page
+
+  //   response.when(
+  //     success: (recommendedResponseModel) {
+  //       emit(PlacesState.getRecommendedSuccess(
+  //           recommendedResponseModel.recommendations));
+  //     },
+  //     failure: (errorHandler) {
+  //       emit(PlacesState.getPlacesError(errorHandler));
+  //     },
+  //   );
+  // }
 }

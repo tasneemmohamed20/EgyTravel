@@ -50,6 +50,7 @@ class FavTrips extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => PlacesDetailsScreen(
+                                recommendedId: data[index].id ?? 0,
                                 lat: data[index].latitude ?? 0,
                                 long: data[index].longitude ?? 0,
                                 description: [data[index].description ?? ''],

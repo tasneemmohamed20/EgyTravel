@@ -12,12 +12,14 @@ import 'package:egy_travel/model/Profile/ChangePassword/change_response.dart';
 import 'package:egy_travel/model/Profile/DeleteAccount/delete_request_body.dart';
 import 'package:egy_travel/model/Profile/DeleteAccount/delete_response.dart';
 import 'package:egy_travel/model/Profile/get_profile_response.dart';
+import 'package:egy_travel/model/Recommended/recommended_response.dart';
 import 'package:egy_travel/model/ResetPassword/reset_request_body.dart';
 import 'package:egy_travel/model/ResetPassword/reset_response.dart';
 import 'package:egy_travel/model/Search/search_response.dart';
 import 'package:egy_travel/model/SignUp/signup_request_body.dart';
 import 'package:egy_travel/model/SignUp/signup_response.dart';
 import 'package:egy_travel/res/string_manager.dart';
+import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 part 'api_service.g.dart';
 
@@ -73,4 +75,17 @@ abstract class ApiService {
 
   @GET(AppStrings.endPointGetFavorite)
   Future<FavResponseModel> favorites();
+
+  // @GET(AppStrings.baseUrlRecommended)
+  // Future<RecommendationResponseModel> recommended(int id);
+}
+
+@RestApi(baseUrl: AppStrings.baseUrlRecommended)
+abstract class RecommendedService {
+  factory RecommendedService(Dio dio, {String baseUrl}) = _RecommendedService;
+
+  @GET("recommend/{id}")
+    Future<RecommendationResponseModel> recommended(
+      @Path('id') int id,
+    );
 }

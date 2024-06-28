@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 class MayLikeList extends StatelessWidget {
   const MayLikeList({super.key, required this.placesData});
   final List<PlacesData?> placesData;
+
   @override
   Widget build(BuildContext context) {
     final mQwidth = MediaQuery.of(context).size.width;
@@ -28,13 +29,16 @@ class MayLikeList extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => PlacesDetailsScreen(
-                        lat:  placesData[index]?.latitude ?? 0,
-                            long: placesData[index]?.longitude ?? 0,
-                            image: placesData[index]?.image ?? '',
-                            subtitle: placesData[index]?.location ?? '',
-                            title: placesData[index]?.name ?? '',
-                            description: [placesData[index]?.description ?? ''],
-                          )),
+                        recommendedId: placesData[index]?.id ?? 0,
+                        lat: placesData[index]?.latitude ?? 0,
+                        long: placesData[index]?.longitude ?? 0,
+                        image: placesData[index]?.image ?? '',
+                        subtitle: placesData[index]?.location ?? '',
+                        title: placesData[index]?.name ?? '',
+                        description: [
+                          placesData[index]?.description ?? ''
+                        ],
+                      )),
                 ),
                 child: CustomListCard(
                   image: [placesData[index]?.image ?? ''],

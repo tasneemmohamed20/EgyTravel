@@ -16,4 +16,13 @@ class PlacesRepo {
       return ApiResult.failure(ErrorHandler.handle(e));
     }
   }
+
+  //  Future<ApiResult<RecommendationResponseModel>> getRecommended(int id) async {
+  //   try {
+  //     final response = await _apiService.recommended(id);
+  //     return ApiResult.success(response);
+  //   } catch (e) {
+  //     return ApiResult.failure(ErrorHandler.handle(e));
+  //   }
+  // }
 }

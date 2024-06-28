@@ -12,9 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchScreen extends StatelessWidget {
-  SearchScreen({super.key});
+  SearchScreen({super.key, this.recommendedID});
   final _searchController = TextEditingController();
-
+  final recommendedID;
   @override
   Widget build(BuildContext context) {
     final mQwidth = MediaQuery.of(context).size.width;
@@ -61,6 +61,7 @@ class SearchScreen extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => PlacesDetailsScreen(
+                                    recommendedId: placesData![index]?.id ?? 0,
                                     lat: placesData![index]?.latitude ?? 0,
                                     long: placesData![index]?.longitude ?? 0,
                                     description: placesData![index]?.description

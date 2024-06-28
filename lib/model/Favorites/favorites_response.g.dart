@@ -39,7 +39,7 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
     };
 
 FavPlaces _$FavPlacesFromJson(Map<String, dynamic> json) => FavPlaces(
-      json['_id'] as String?,
+      (json['id'] as num?)?.toInt(),
       json['name'] as String?,
       json['description'] as String?,
       json['language'] as String?,
@@ -51,7 +51,7 @@ FavPlaces _$FavPlacesFromJson(Map<String, dynamic> json) => FavPlaces(
     );
 
 Map<String, dynamic> _$FavPlacesToJson(FavPlaces instance) => <String, dynamic>{
-      '_id': instance.id,
+      'id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'language': instance.language,
@@ -78,7 +78,7 @@ Map<String, dynamic> _$FavArticlesToJson(FavArticles instance) =>
     };
 
 Trips _$TripsFromJson(Map<String, dynamic> json) => Trips(
-      json['_id'] as String?,
+      (json['id'] as num?)?.toInt(),
       json['name'] as String?,
       json['description'] as String?,
       json['image'] as String?,
@@ -89,7 +89,7 @@ Trips _$TripsFromJson(Map<String, dynamic> json) => Trips(
     );
 
 Map<String, dynamic> _$TripsToJson(Trips instance) => <String, dynamic>{
-      '_id': instance.id,
+      'id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'image': instance.image,

@@ -2,6 +2,8 @@ class AppStrings {
   AppStrings._();
   static const baseUrl = 'https://egytravel.codepeak.live/api/v1/';
 
+  static const baseUrlRecommended = 'https://recomend.codepeak.live/';
+
   static const signup = 'auth/signup';
 
   static const signin = 'auth/signin';
