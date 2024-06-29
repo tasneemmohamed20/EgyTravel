@@ -302,9 +302,15 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<SearchResponseModel> searchPlaces(String search) async {
+  Future<SearchResponseModel> searchPlaces(
+    String search,
+    String category,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'search': search};
+    final queryParameters = <String, dynamic>{
+      r'search': search,
+      r'category': category,
+    };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -315,7 +321,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'place/search?search',
+              'place/search',
               queryParameters: queryParameters,
               data: _data,
             )

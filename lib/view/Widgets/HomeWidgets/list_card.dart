@@ -1,7 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomListCard extends StatelessWidget {
-  final List <String> image;
+  final List<String> image;
   final String title;
   final String subtitle;
   final double imageWidth;
@@ -35,9 +36,14 @@ class CustomListCard extends StatelessWidget {
               child: SizedBox(
                 width: imageWidth,
                 height: imageWidth,
-                child: Image.network(
-                  image[0],
+                child: CachedNetworkImage(
+                  imageUrl: image[0],
                   fit: BoxFit.cover,
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  placeholderFadeInDuration: const Duration(milliseconds: 500),
                 ),
               ),
             ),

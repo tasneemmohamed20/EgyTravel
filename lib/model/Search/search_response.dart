@@ -24,8 +24,7 @@ class Data {
 
 @JsonSerializable()
 class PlacesData {
-  @JsonKey(name: '_id')
-  final String? id;
+  final int? id;
   final String? name;
   final String? description;
   final String? language;

@@ -20,7 +20,7 @@ mixin _$SearchState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function(SearchResponseModel data) success,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$SearchState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function(SearchResponseModel data)? success,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$SearchState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function(SearchResponseModel data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function(SearchResponseModel data) success,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function(SearchResponseModel data)? success,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function(SearchResponseModel data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function(SearchResponseModel data) success,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function(SearchResponseModel data)? success,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function(SearchResponseModel data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -320,7 +320,7 @@ abstract class _$$SuccessImplCopyWith<T, $Res> {
           _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
       __$$SuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({T data});
+  $Res call({SearchResponseModel data});
 }
 
 /// @nodoc
@@ -334,13 +334,13 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$SuccessImpl<T>(
-      freezed == data
+      null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as T,
+              as SearchResponseModel,
     ));
   }
 }
@@ -351,7 +351,7 @@ class _$SuccessImpl<T> implements Success<T> {
   const _$SuccessImpl(this.data);
 
   @override
-  final T data;
+  final SearchResponseModel data;
 
   @override
   String toString() {
@@ -363,12 +363,11 @@ class _$SuccessImpl<T> implements Success<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
@@ -381,7 +380,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function(SearchResponseModel data) success,
     required TResult Function(String message) error,
   }) {
     return success(data);
@@ -392,7 +391,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function(SearchResponseModel data)? success,
     TResult? Function(String message)? error,
   }) {
     return success?.call(data);
@@ -403,7 +402,7 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function(SearchResponseModel data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -452,9 +451,9 @@ class _$SuccessImpl<T> implements Success<T> {
 }
 
 abstract class Success<T> implements SearchState<T> {
-  const factory Success(final T data) = _$SuccessImpl<T>;
+  const factory Success(final SearchResponseModel data) = _$SuccessImpl<T>;
 
-  T get data;
+  SearchResponseModel get data;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -526,7 +525,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(T data) success,
+    required TResult Function(SearchResponseModel data) success,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -537,7 +536,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(T data)? success,
+    TResult? Function(SearchResponseModel data)? success,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -548,7 +547,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(T data)? success,
+    TResult Function(SearchResponseModel data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {

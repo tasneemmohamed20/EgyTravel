@@ -24,11 +24,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  @override
-  void initState() {
-    setState(() {});
-    super.initState();
-  }
+
 
   @override
   Widget build(BuildContext context) {

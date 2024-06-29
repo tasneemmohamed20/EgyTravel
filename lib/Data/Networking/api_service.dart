@@ -71,13 +71,11 @@ abstract class ApiService {
   @GET(AppStrings.endPointGetAllSearch)
   Future<SearchResponseModel> searchPlaces(
     @Query('search') String search,
+    @Query('category') String category,
   );
 
   @GET(AppStrings.endPointGetFavorite)
   Future<FavResponseModel> favorites();
-
-  // @GET(AppStrings.baseUrlRecommended)
-  // Future<RecommendationResponseModel> recommended(int id);
 }
 
 @RestApi(baseUrl: AppStrings.baseUrlRecommended)
@@ -85,7 +83,7 @@ abstract class RecommendedService {
   factory RecommendedService(Dio dio, {String baseUrl}) = _RecommendedService;
 
   @GET("recommend/{id}")
-    Future<RecommendationResponseModel> recommended(
-      @Path('id') int id,
-    );
+  Future<RecommendationResponseModel> recommended(
+    @Path('id') int id,
+  );
 }

@@ -8,9 +8,9 @@ class SearchRepo {
 
   SearchRepo(this._apiService);
 
-  Future<ApiResult<SearchResponseModel>> searchPlaces(String search) async {
+  Future<ApiResult<SearchResponseModel>> searchPlaces(String search, String category) async {
     try {
-      final response = await _apiService.searchPlaces(search);
+      final response = await _apiService.searchPlaces(search, category);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ErrorHandler.handle(e));

@@ -26,7 +26,7 @@ class AppStrings {
 
   static const endPointGetAllTrips = 'trips';
 
-  static const endPointGetAllSearch = 'place/search?search';
+  static const endPointGetAllSearch = 'place/search';
 
   static const endPointGetAllRecomended = 'place/recomended';
 

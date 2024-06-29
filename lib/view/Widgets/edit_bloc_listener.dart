@@ -1,6 +1,7 @@
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view_model/EditProfile/cubit/edit_cubit.dart';
 import 'package:egy_travel/view_model/EditProfile/cubit/edit_state.dart';
+import 'package:egy_travel/view_model/profileCubit/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,6 +30,8 @@ class EditBlocListener extends StatelessWidget {
           editSuccess: (resetResponse) {
             Navigator.pop(context);
             showSuccessDialog(context);
+                                  context.read<ProfileCubit>().getProfile();
+
           },
           editError: (error) {
             setupErrorState(context, error);

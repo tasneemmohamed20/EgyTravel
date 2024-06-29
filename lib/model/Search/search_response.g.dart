@@ -32,7 +32,7 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
     };
 
 PlacesData _$PlacesDataFromJson(Map<String, dynamic> json) => PlacesData(
-      json['_id'] as String?,
+      (json['id'] as num?)?.toInt(),
       json['name'] as String?,
       json['description'] as String?,
       json['language'] as String?,
@@ -45,7 +45,7 @@ PlacesData _$PlacesDataFromJson(Map<String, dynamic> json) => PlacesData(
 
 Map<String, dynamic> _$PlacesDataToJson(PlacesData instance) =>
     <String, dynamic>{
-      '_id': instance.id,
+      'id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'language': instance.language,
