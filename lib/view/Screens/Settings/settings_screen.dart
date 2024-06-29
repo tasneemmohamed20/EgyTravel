@@ -10,38 +10,52 @@ import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view_model/EditProfile/cubit/edit_cubit.dart';
 import 'package:egy_travel/view_model/profileCubit/cubit/profile_cubit.dart';
+import 'package:egy_travel/view_model/profileCubit/cubit/profile_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SettingsScreen extends StatelessWidget {
-    final GetProfileResponseModel profileModel;
+class SettingsScreen extends StatefulWidget {
+  final GetProfileResponseModel profileModel;
 
   const SettingsScreen({super.key, required this.profileModel});
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  @override
+  void initState() {
+    setState(() {});
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          backgroundColor: ColorsManager.primary.withOpacity(1),
-          appBar: CustomAppBar(
-            title: 'Settings'.tr(),
-            enableBack: false,
-            leading: backButton(context),
-          ),
-          body: Column(children: [
+      backgroundColor: ColorsManager.primary.withOpacity(1),
+      appBar: CustomAppBar(
+        title: 'Settings'.tr(),
+        enableBack: false,
+        leading: backButton(context),
+      ),
+      body: BlocBuilder<ProfileCubit, ProfileState>(
+        builder: (context, state) {
+          return Column(children: [
             Padding(
-              padding: EdgeInsetsDirectional.symmetric(
-                  horizontal: MediaQuery.of(context).size.width * 0.05,
-                  vertical: MediaQuery.of(context).size.height * 0.03),
-              child: 
-                Row(
+                padding: EdgeInsetsDirectional.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                    vertical: MediaQuery.of(context).size.height * 0.03),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CircleAvatar(
                         radius: 50,
-                        backgroundImage: CachedNetworkImageProvider(profileModel
-                          .data!.userData!.avatar ??
+                        backgroundImage: CachedNetworkImageProvider(context
+                                .read<ProfileCubit>()
+                                .avatar ??
                             'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png')),
                     Padding(
                       padding: const EdgeInsetsDirectional.only(
@@ -53,31 +67,27 @@ class SettingsScreen extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                           profileModel
-                          .data!.userData!.name?? '',
+                            context.read<ProfileCubit>().name ?? '',
                             style: TextStyle(
                                 overflow: TextOverflow.ellipsis,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
-                                color: ColorsManager.secondPrimary
-                                    .withOpacity(1)),
+                                color:
+                                    ColorsManager.secondPrimary.withOpacity(1)),
                           ),
                           Text(
-                             profileModel
-                          .data!.userData!.email ?? '',
+                            context.read<ProfileCubit>().email ?? '',
                             style: TextStyle(
                                 overflow: TextOverflow.ellipsis,
                                 fontSize: 14,
-                                color: ColorsManager.secondPrimary
-                                    .withOpacity(1)),
+                                color:
+                                    ColorsManager.secondPrimary.withOpacity(1)),
                           ),
                         ],
                       ),
                     ),
                   ],
-                )
-              
-            ),
+                )),
             Padding(
               padding: const EdgeInsetsDirectional.symmetric(horizontal: 50.0),
               child: Divider(
@@ -108,7 +118,9 @@ class SettingsScreen extends StatelessWidget {
                                             getIt<ProfileCubit>(),
                                       ),
                                     ],
-                                    child: GeneralSettings(profileModel: profileModel,),
+                                    child: GeneralSettings(
+                                      profileModel: widget.profileModel,
+                                    ),
                                   )),
                         );
                       },
@@ -132,8 +144,10 @@ class SettingsScreen extends StatelessWidget {
                 ],
               ),
             ),
-          ]),
-        ));
+          ]);
+        },
+      ),
+    ));
   }
 
   void _showCustomModalSheet(BuildContext context) {

@@ -14,13 +14,14 @@ class EditRepo {
     String? email,
     String? phone,
     MultipartFile? avatar,
+    String? spareAvatar,
   }) async {
     try {
       var formData = FormData.fromMap({
         'name': name ?? '',
         'email': email ?? '',
         'phone': phone ?? '',
-        if (avatar != null) 'avatar': avatar,
+        if (avatar != null) 'avatar': avatar else 'avatar': spareAvatar,
       });
 
       var response = await _dio.put(

@@ -9,7 +9,7 @@ import 'package:egy_travel/res/const_functions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PickLanguage extends StatelessWidget {
-   PickLanguage({super.key, this.selectedOption});
+  PickLanguage({super.key, this.selectedOption});
 
   final Future<SharedPreferences> _pref = SharedPreferences.getInstance();
 
@@ -51,7 +51,7 @@ class PickLanguage extends StatelessWidget {
                 await preferences.setBool(_onboarding, true);
                 navigateFish(context, const OnBoardingView());
               },
-              padding:  const EdgeInsetsDirectional.symmetric(
+              padding: const EdgeInsetsDirectional.symmetric(
                 vertical: 8,
                 horizontal: 32,
               ),
@@ -61,7 +61,7 @@ class PickLanguage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsetsDirectional.only(top: 10),
-              child: Text("YouCanChangeLanguage".tr(),
+              child: Text("YoucanChangeYourLanguage".tr(),
                   style: const TextStyle(
                       color: Colors.white70,
                       fontSize: 16,

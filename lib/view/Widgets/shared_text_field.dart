@@ -35,21 +35,26 @@ class CustomPasswordField extends StatelessWidget {
                   obscureText: context.read<ShowHideCubit>().secure,
                   controller: passwordController,
                   decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white.withOpacity(0.1),
                     labelText: labelText,
                     labelStyle: TextStyle(
                         color: ColorsManager.secondPrimary.withOpacity(1)),
                     enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
                       borderSide: BorderSide(
                         color: enabledColor.withOpacity(1),
                         width: 2.0,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
                       borderSide: BorderSide(
                         color: focusedColor.withOpacity(1),
                       ),
                     ),
                     errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
                       borderSide: BorderSide(
                         color: errorColor.withOpacity(1),
                       ),
@@ -103,21 +108,26 @@ class CustomTextField extends StatelessWidget {
         },
         controller: controller,
         decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.white.withOpacity(0.1),
           labelText: labelText,
           labelStyle:
               TextStyle(color: ColorsManager.secondPrimary.withOpacity(1)),
           enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide(
               color: enabledColor.withOpacity(1),
               width: 2.0,
             ),
           ),
           focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide(
               color: focusedColor.withOpacity(1),
             ),
           ),
           errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide(
               color: errorColor.withOpacity(1),
             ),

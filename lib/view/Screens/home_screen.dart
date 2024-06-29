@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/core/Di/dependency_injection.dart';
 import 'package:egy_travel/view/Screens/search_screen.dart';
@@ -33,7 +34,6 @@ class _HomeState extends State<Home> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _changeLanguage(context.locale);
-      // If you need to use EasyLocalization.of(context) to listen for locale changes, do it here
     });
   }
 
@@ -50,216 +50,270 @@ class _HomeState extends State<Home> {
     final mQwidth = MediaQuery.of(context).size.width;
     final mQheight = MediaQuery.of(context).size.height;
 
-    return SafeArea(
-      child: MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => getIt<PlacesCubit>()..getAllPlaces(),
-            ),
-            BlocProvider(
-              create: (context) => getIt<ArticlesCubit>()..getAllArticles(),
-            ),
-          ],
-          child: Scaffold(
-            key: _scaffoldKey,
-            extendBody: true,
-            resizeToAvoidBottomInset: false,
-            backgroundColor: ColorsManager.primary.withOpacity(1),
-            drawer: MainDrawer(),
-            body: CustomScrollView(
-              slivers: [
-                CustomSliverAppBar(
-                  spcae: 56,
-                  leading: IconButton(
-                    icon: Icon(
-                      Icons.menu,
-                      size: 30,
-                      color: ColorsManager.primary.withOpacity(1),
-                    ),
-                    onPressed: () {
-                      _scaffoldKey.currentState?.openDrawer();
-                    },
+    return StreamBuilder<ConnectivityResult>(
+        stream: Connectivity().onConnectivityChanged,
+        builder: (context, snapshot) {
+          return SafeArea(
+            child: MultiBlocProvider(
+                providers: [
+                  BlocProvider(
+                    create: (context) => getIt<PlacesCubit>()..getAllPlaces(),
                   ),
-                  title: "Home".tr(),
-                  expandedHeight: 64.0,
-                  // onLeadingPressed: () {
-                  //   _scaffoldKey.currentState?.openDrawer();
-                  // },
-                ),
-                SliverToBoxAdapter(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        child: CustomSearchBar(
-                          onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => BlocProvider(
-                                      create: (context) => getIt<SearchCubit>(),
-                                      child: SearchScreen(),
-                                    )),
-                          ),
-                          readOnly: true,
-                          width: mQwidth * 0.9,
-                          height: mQheight * 0.07,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 32),
-                        child: Align(
-                          alignment: AlignmentDirectional.topStart,
-                          child: Text(
-                            "YouMayLike".tr(),
-                            style: TextStyle(
-                              color: ColorsManager.secondPrimary.withOpacity(1),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25,
-                            ),
-                          ),
-                        ),
-                      ),
-                      BlocBuilder<PlacesCubit, PlacesState>(
-                        buildWhen: (previous, current) =>
-                            current is GetPlacesloading ||
-                            current is GetPlacesSuccess ||
-                            current is GetPlacesError,
-                        builder: (context, state) {
-                          return state.maybeWhen(getPlacesloading: () {
-                            return const SizedBox(
-                                height: 100,
-                                child:
-                                    Center(child: CircularProgressIndicator()));
-                          }, getPlacesSuccess: (placesList, isLastPage) {
-                            return Column(
-                              children: [
-                                MayLikeList(
-                                  placesData: placesList,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.only(
-                                      start: 32, top: 16, end: 32),
-                                  child: Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Places".tr(),
-                                          style: TextStyle(
-                                            color: ColorsManager.secondPrimary
-                                                .withOpacity(1),
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 25,
-                                          ),
-                                        ),
-                                        const Spacer(),
-                                        TextButton(
-                                          onPressed: () => Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    BlocProvider(
-                                                      create: (context) =>
-                                                          getIt<PlacesCubit>(),
-                                                      child:
-                                                          const ViewAllPlaces(),
-                                                    )),
-                                          ),
-                                          child: Text(
-                                            "ViewAll".tr(),
-                                            style: TextStyle(
-                                              color: ColorsManager.secondPrimary
-                                                  .withOpacity(1),
-                                              fontSize: 15,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                PlacesGridView(
-                                  placesData: placesList,
-                                ),
-                              ],
-                            );
-                          }, getPlacesError: (errorHandler) {
-                            return Text(errorHandler.apiErrorModel.message!);
-                          }, orElse: () {
-                            return const SizedBox.shrink();
-                          });
-                        },
-                      ),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(
-                            start: 32, top: 16, end: 32),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Row(
+                  BlocProvider(
+                    create: (context) =>
+                        getIt<ArticlesCubit>()..getAllArticles(),
+                  ),
+                ],
+                child: Scaffold(
+                  key: _scaffoldKey,
+                  extendBody: true,
+                  resizeToAvoidBottomInset: false,
+                  backgroundColor: ColorsManager.primary.withOpacity(1),
+                  drawer: MainDrawer(),
+                  body: snapshot.data == ConnectivityResult.none
+                      ? Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                "Articles".tr(),
-                                style: TextStyle(
-                                  color: ColorsManager.secondPrimary
-                                      .withOpacity(1),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
-                                ),
+                              Icon(
+                                Icons.wifi_off,
+                                size: 100,
+                                color:
+                                    ColorsManager.secondPrimary.withOpacity(1),
                               ),
-                              const Spacer(),
-                              TextButton(
-                                onPressed: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => BlocProvider(
-                                            create: (context) =>
-                                                getIt<ArticlesCubit>(),
-                                            child: const ViewAllArticles(),
-                                          )),
-                                ),
-                                child: Text(
-                                  "ViewAll".tr(),
+                              Text(
+                                  'No internet connection!, please check your connection and try again.',
+                                  softWrap: true,
+                                  maxLines: 2,
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                     color: ColorsManager.secondPrimary
                                         .withOpacity(1),
-                                    fontSize: 15,
-                                  ),
-                                ),
-                              ),
+                                    fontSize: 20,
+                                  )),
                             ],
                           ),
+                        )
+                      : CustomScrollView(
+                          slivers: [
+                            CustomSliverAppBar(
+                              spcae: 56,
+                              leading: IconButton(
+                                icon: Icon(
+                                  Icons.menu,
+                                  size: 30,
+                                  color: ColorsManager.primary.withOpacity(1),
+                                ),
+                                onPressed: () {
+                                  _scaffoldKey.currentState?.openDrawer();
+                                },
+                              ),
+                              title: "Home".tr(),
+                              expandedHeight: 64.0,
+                              // onLeadingPressed: () {
+                              //   _scaffoldKey.currentState?.openDrawer();
+                              // },
+                            ),
+                            SliverToBoxAdapter(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  InkWell(
+                                    child: CustomSearchBar(
+                                      onTap: () => Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => BlocProvider(
+                                                  create: (context) =>
+                                                      getIt<SearchCubit>(),
+                                                  child: SearchScreen(),
+                                                )),
+                                      ),
+                                      readOnly: true,
+                                      width: mQwidth * 0.9,
+                                      height: mQheight * 0.07,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.only(
+                                        start: 32),
+                                    child: Align(
+                                      alignment: AlignmentDirectional.topStart,
+                                      child: Text(
+                                        "YouMayLike".tr(),
+                                        style: TextStyle(
+                                          color: ColorsManager.secondPrimary
+                                              .withOpacity(1),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 25,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  BlocBuilder<PlacesCubit, PlacesState>(
+                                    buildWhen: (previous, current) =>
+                                        current is GetPlacesloading ||
+                                        current is GetPlacesSuccess ||
+                                        current is GetPlacesError,
+                                    builder: (context, state) {
+                                      return state.maybeWhen(
+                                          getPlacesloading: () {
+                                        return const SizedBox(
+                                            height: 100,
+                                            child: Center(
+                                                child:
+                                                    CircularProgressIndicator()));
+                                      }, getPlacesSuccess:
+                                              (placesList, isLastPage) {
+                                        return Column(
+                                          children: [
+                                            MayLikeList(
+                                              placesData: placesList,
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .only(
+                                                      start: 32,
+                                                      top: 16,
+                                                      end: 32),
+                                              child: Align(
+                                                alignment: Alignment.topLeft,
+                                                child: Row(
+                                                  children: [
+                                                    Text(
+                                                      "Places".tr(),
+                                                      style: TextStyle(
+                                                        color: ColorsManager
+                                                            .secondPrimary
+                                                            .withOpacity(1),
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 25,
+                                                      ),
+                                                    ),
+                                                    const Spacer(),
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                BlocProvider(
+                                                                  create: (context) =>
+                                                                      getIt<
+                                                                          PlacesCubit>(),
+                                                                  child:
+                                                                      const ViewAllPlaces(),
+                                                                )),
+                                                      ),
+                                                      child: Text(
+                                                        "ViewAll".tr(),
+                                                        style: TextStyle(
+                                                          color: ColorsManager
+                                                              .secondPrimary
+                                                              .withOpacity(1),
+                                                          fontSize: 15,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            PlacesGridView(
+                                              placesData: placesList,
+                                            ),
+                                          ],
+                                        );
+                                      }, getPlacesError: (errorHandler) {
+                                        return Text(errorHandler
+                                            .apiErrorModel.message!);
+                                      }, orElse: () {
+                                        return const SizedBox.shrink();
+                                      });
+                                    },
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.only(
+                                        start: 32, top: 16, end: 32),
+                                    child: Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            "Articles".tr(),
+                                            style: TextStyle(
+                                              color: ColorsManager.secondPrimary
+                                                  .withOpacity(1),
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 25,
+                                            ),
+                                          ),
+                                          const Spacer(),
+                                          TextButton(
+                                            onPressed: () => Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      BlocProvider(
+                                                        create: (context) =>
+                                                            getIt<
+                                                                ArticlesCubit>(),
+                                                        child:
+                                                            const ViewAllArticles(),
+                                                      )),
+                                            ),
+                                            child: Text(
+                                              "ViewAll".tr(),
+                                              style: TextStyle(
+                                                color: ColorsManager
+                                                    .secondPrimary
+                                                    .withOpacity(1),
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  BlocBuilder<ArticlesCubit, ArticleState>(
+                                    buildWhen: (previous, current) =>
+                                        current is GetArticlesloading ||
+                                        current is GetArticlesSuccess ||
+                                        current is GetArticlesError,
+                                    builder: (context, state) {
+                                      return state.maybeWhen(
+                                          getArticlesloading: () {
+                                        return const SizedBox(
+                                            height: 100,
+                                            child: Center(
+                                                child:
+                                                    CircularProgressIndicator()));
+                                      }, getArticlesSuccess:
+                                              (articlesResponseModel) {
+                                        var articlesList = articlesResponseModel
+                                            .data!.articlesData;
+                                        return ArticlesGridView(
+                                          articlesData: articlesList ?? [],
+                                        );
+                                      }, getArticlesError: (errorHandler) {
+                                        return Text(errorHandler
+                                            .apiErrorModel.message!);
+                                      }, orElse: () {
+                                        return const SizedBox.shrink();
+                                      });
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      BlocBuilder<ArticlesCubit, ArticleState>(
-                        buildWhen: (previous, current) =>
-                            current is GetArticlesloading ||
-                            current is GetArticlesSuccess ||
-                            current is GetArticlesError,
-                        builder: (context, state) {
-                          return state.maybeWhen(getArticlesloading: () {
-                            return const SizedBox(
-                                height: 100,
-                                child:
-                                    Center(child: CircularProgressIndicator()));
-                          }, getArticlesSuccess: (articlesResponseModel) {
-                            var articlesList =
-                                articlesResponseModel.data!.articlesData;
-                            return ArticlesGridView(
-                              articlesData: articlesList ?? [],
-                            );
-                          }, getArticlesError: (errorHandler) {
-                            return Text(errorHandler.apiErrorModel.message!);
-                          }, orElse: () {
-                            return const SizedBox.shrink();
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          )),
-    );
+                )),
+          );
+        });
   }
 }

@@ -68,6 +68,7 @@ dependencies:
   url_launcher: ^6.3.0
   permission_handler: ^11.3.1
   get: ^4.6.6
+  connectivity_plus: ^5.0.2
 
 dev_dependencies:
   flutter_test:

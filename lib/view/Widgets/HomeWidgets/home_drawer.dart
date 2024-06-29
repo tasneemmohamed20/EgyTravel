@@ -1,12 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/core/Di/dependency_injection.dart';
+import 'package:egy_travel/core/helpers/constants.dart';
+import 'package:egy_travel/core/helpers/shared_pref_helper.dart';
 import 'package:egy_travel/model/Profile/get_profile_response.dart';
 import 'package:egy_travel/view/Screens/Settings/settings_screen.dart';
-import 'package:egy_travel/view/Screens/chatbot.dart';
+import 'package:egy_travel/view/Screens/login_screen.dart';
 import 'package:egy_travel/view/Screens/mytrips_screen.dart';
 import 'package:egy_travel/view/Screens/profile.dart';
-import 'package:egy_travel/view/Screens/test_screen.dart';
 import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Widgets/tab_bar.dart';
@@ -136,19 +137,13 @@ class MainDrawer extends StatelessWidget {
                   onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SettingsScreen(
-                            profileModel: profileModel!,
+                          builder: (context) => BlocProvider(
+                            create: (context) =>
+                                getIt<ProfileCubit>()..getProfile(),
+                            child: SettingsScreen(
+                              profileModel: profileModel!,
+                            ),
                           ),
-                        ),
-                      )),
-              CustomListTile(
-                  leadingIcon: Icons.contact_support_rounded,
-                  title: "ContactUs".tr(),
-                  elementsColor: ColorsManager.primary.withOpacity(1),
-                  onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ChatbotScreen(),
                         ),
                       )),
               const Spacer(),
@@ -156,12 +151,14 @@ class MainDrawer extends StatelessWidget {
                   leadingIcon: Icons.logout_rounded,
                   title: "LogOut".tr(),
                   elementsColor: ColorsManager.primary.withOpacity(1),
-                  onTap: () => Navigator.push(
+                  onTap: () {
+                    SharedPrefHelper.removeData(SharedPrefKeys.userToken);
+                    Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const TestPage(),
-                        ),
-                      ))
+                            builder: (context) => const LogInScreen()),
+                        (route) => false);
+                  })
             ],
           )),
     );

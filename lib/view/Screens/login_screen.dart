@@ -127,23 +127,6 @@ class _LogInScreenState extends State<LogInScreen> {
                                     builder: (context) => ForgotPassword()),
                               )),
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.only(
-                          start: MediaQuery.of(context).size.width * 0.07),
-                      child: Row(
-                        children: [
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(Icons.check_box_rounded)),
-                          Text(
-                            "RememberMe".tr(),
-                            style: TextStyle(
-                                color: ColorsManager.secondPrimary,
-                                fontWeight: FontWeight.w500),
-                          )
-                        ],
-                      ),
-                    ),
                     const Spacer(),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                       Text(

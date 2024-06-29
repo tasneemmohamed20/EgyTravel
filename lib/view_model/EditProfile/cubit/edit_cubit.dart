@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:egy_travel/repositories/edit_repo.dart';
@@ -17,13 +16,18 @@ class EditCubit extends Cubit<EditState> {
   final TextEditingController addressController = TextEditingController();
   File? avatarFile;
 
-  Future<void> updateProfile() async {
+  Future<void> updateProfile(String? spareAvatar) async {
     emit(const EditState.editLoading());
+     MultipartFile? avatarMultipartFile;
+    if (avatarFile != null) {
+      avatarMultipartFile = await MultipartFile.fromFile(avatarFile!.path);
+    }
     final response = await _editRepo.editProfile(
       name: nameController.text ,
       email: emailController.text,
       phone: phoneController.text,
-      avatar: await MultipartFile.fromFile(avatarFile!.path),
+      avatar: avatarMultipartFile,
+      spareAvatar: spareAvatar
     );
     response.when(success: (editResponse) {
       emit(EditState.editSuccess(editResponse));
