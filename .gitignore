@@ -42,10 +42,12 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+
+# Build related
 linux/
 macos/
-
-
+android/
+ios/
 test/
 web/
 windows/
