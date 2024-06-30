@@ -41,3 +41,13 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+# Build related
+linux/
+macos/
+android/
+ios/
+test/
+web/
+windows/
