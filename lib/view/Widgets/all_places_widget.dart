@@ -31,7 +31,7 @@ class _AllPlacesWState extends State<AllPlacesW> {
   Widget build(BuildContext context) {
     final mQwidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.symmetric(
+      padding: const EdgeInsetsDirectional.symmetric(
         horizontal: 16.0,
       ),
       child: ListView.builder(
