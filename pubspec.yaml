@@ -103,6 +103,7 @@ flutter:
     # - images/a_dot_ham.jpeg
     - assets/images/
     - assets/translations/
+    - assets/lottie/
 
 flutter_assets:
   assets_path: assets/images/

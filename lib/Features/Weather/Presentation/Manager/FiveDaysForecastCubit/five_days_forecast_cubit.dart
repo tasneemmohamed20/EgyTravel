@@ -22,23 +22,23 @@ class FiveDaysForecastCubit extends Cubit<FiveDaysForecastState> {
     final locationData =
         await _locationService.getLocation(controller: _locationController);
 
-    // if (locationData == null) {
-    //   emit(FiveDaysForecastFailed('Location data not available'));
-    //   return;
-    // }
+    if (locationData == null) {
+      emit(FiveDaysForecastFailed('Location data not available'));
+      return;
+    }
 
-    // final Either<FailureE, FiveDaysForecast?> result = await CurrentWeatherRepo(
-    //   locationData.latitude,
-    //   locationData.longitude,
-    // ).getFiveDaysForecast();
+    final Either<FailureE, FiveDaysForecast?> result = await CurrentWeatherRepo(
+      locationData.latitude,
+      locationData.longitude,
+    ).getFiveDaysForecast();
 
-    // result.fold(
-    //   (failure) {
-    //     emit(FiveDaysForecastFailed(failure.errorMessage));
-    //   },
-    //   (forecastData) {
-    //     emit(FiveDaysForecastSuccess(fiveDaysForecastResponse: forecastData!));
-    //   },
-    // );
+    result.fold(
+      (failure) {
+        emit(FiveDaysForecastFailed(failure.errorMessage));
+      },
+      (forecastData) {
+        emit(FiveDaysForecastSuccess(fiveDaysForecastResponse: forecastData!));
+      },
+    );
   }
 }
