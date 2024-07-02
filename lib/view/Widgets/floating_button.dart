@@ -1,6 +1,9 @@
 import 'package:egy_travel/res/app_assets.dart';
 import 'package:egy_travel/res/colors_manager.dart';
-import 'package:egy_travel/view_model/AddRemove/cubit/add_remove_cubit.dart';
+import 'package:egy_travel/view_model/AreticlesById/cubit/articles_by_id_state.dart';
+import 'package:egy_travel/view_model/ArticlesAddRemove/cubit/art_add_remove_cubit.dart';
+import 'package:egy_travel/view_model/PlacesAddRemove/cubit/add_remove_cubit.dart';
+import 'package:egy_travel/view_model/AreticlesById/cubit/articles_by_id_cubit.dart';
 import 'package:egy_travel/view_model/PlaceById/cubit/placeid_cubit.dart';
 import 'package:egy_travel/view_model/PlaceById/cubit/placeid_state.dart';
 import 'package:flutter/material.dart';
@@ -189,6 +192,81 @@ class _CustomFloatButttonState extends State<CustomFloatButtton> {
                     },
                   ),
                 ],
+              );
+            },
+            error: (errorHandler) {
+              return const Text('Error!!!');
+            },
+            orElse: () {
+              return const SizedBox.shrink();
+            });
+      },
+    );
+  }
+}
+
+class ArtFav extends StatefulWidget {
+  const ArtFav({super.key, required this.id});
+  final String id;
+
+  @override
+  State<ArtFav> createState() => _ArtFavState();
+}
+
+class _ArtFavState extends State<ArtFav> {
+  @override
+  void initState() {
+    context.read<ArticleByIdCubit>().getArticleById(widget.id);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ArticleByIdCubit, ArticleByIdState>(
+      buildWhen: (previous, current) =>
+          current is ArtLoading || current is ArtSuccess || current is ArtError,
+      builder: (context, state) {
+        return state.maybeWhen(
+            loading: () => Align(
+                  alignment: AlignmentDirectional.bottomEnd,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: FloatingActionButton(
+                      backgroundColor: ColorsManager.primary.withOpacity(1),
+                      shape: const CircleBorder(),
+                      heroTag: null,
+                      child: Icon(
+                        Icons.favorite_border_outlined,
+                        color: ColorsManager.secondPrimary.withOpacity(1),
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                ),
+            success: (articlesById) {
+              return Align(
+                alignment: AlignmentDirectional.bottomEnd,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: FloatingActionButton(
+                    backgroundColor: ColorsManager.primary.withOpacity(1),
+                    shape: const CircleBorder(),
+                    heroTag: null,
+                    child: Icon(
+                      articlesById.data?.articlesData?.isFavorite == true
+                          ? Icons.favorite_rounded
+                          : Icons.favorite_border_outlined,
+                      color: ColorsManager.secondPrimary.withOpacity(1),
+                    ),
+                    onPressed: () {
+                      if (articlesById.data?.articlesData?.isFavorite == true) {
+                        context.read<ArtAddRemoveCubit>().removeFav(widget.id);
+                      } else {
+                        context.read<ArtAddRemoveCubit>().addFav(widget.id);
+                      }
+                    },
+                  ),
+                ),
               );
             },
             error: (errorHandler) {

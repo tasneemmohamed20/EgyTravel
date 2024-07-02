@@ -1,4 +1,4 @@
-import 'package:egy_travel/model/Home/articles_response.dart';
+import 'package:egy_travel/model/Home/ArticlesModels/articles_response.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/articles_details.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/grid_card.dart';
@@ -30,6 +30,7 @@ class ArticlesGridView extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => ArticlesDetailsScreen(
+                        id: articlesData[index].id ?? '',
                         description: articlesData[index].description ?? [],
                         image: articlesData[index].image ?? '',
                         title: articlesData[index].title ?? '',

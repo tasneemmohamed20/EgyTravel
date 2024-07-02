@@ -25,12 +25,14 @@ class ArtData {
 
 @JsonSerializable()
 class ArticlesData {
+  @JsonKey(name: '_id')
+  final String? id;
   final String? title;
   final String? image;
   @JsonKey(name: 'decription')
   final List<String>? description;
 
-  ArticlesData(this.title, this.description, this.image);
+  ArticlesData(this.title, this.description, this.image, this.id);
   factory ArticlesData.fromJson(Map<String, dynamic> json) =>
       _$ArticlesDataFromJson(json);
 }

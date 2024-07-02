@@ -1,4 +1,4 @@
-import 'package:egy_travel/model/Home/articles_response.dart';
+import 'package:egy_travel/model/Home/ArticlesModels/articles_response.dart';
 import 'package:egy_travel/repositories/articles_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'articles_state.dart';

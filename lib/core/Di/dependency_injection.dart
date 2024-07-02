@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:egy_travel/Data/Networking/api_service.dart';
 import 'package:egy_travel/Data/Networking/dio_factory.dart';
-import 'package:egy_travel/repositories/add_remove_repo.dart';
+import 'package:egy_travel/repositories/article_add_remove_repo.dart';
+import 'package:egy_travel/repositories/articles_by_id_repo.dart';
+import 'package:egy_travel/repositories/places_add_remove_repo.dart';
 import 'package:egy_travel/repositories/articles_repo.dart';
 import 'package:egy_travel/repositories/change_password_repo.dart';
 import 'package:egy_travel/repositories/delete_repo.dart';
@@ -17,7 +19,9 @@ import 'package:egy_travel/repositories/recommended_repo.dart';
 import 'package:egy_travel/repositories/reset_repo.dart';
 import 'package:egy_travel/repositories/search_repo.dart';
 import 'package:egy_travel/repositories/signup_repo.dart';
-import 'package:egy_travel/view_model/AddRemove/cubit/add_remove_cubit.dart';
+import 'package:egy_travel/view_model/ArticlesAddRemove/cubit/art_add_remove_cubit.dart';
+import 'package:egy_travel/view_model/PlacesAddRemove/cubit/add_remove_cubit.dart';
+import 'package:egy_travel/view_model/AreticlesById/cubit/articles_by_id_cubit.dart';
 import 'package:egy_travel/view_model/ArticlesCubit/cubit/articles_cubit.dart';
 import 'package:egy_travel/view_model/ChangePassword/cubit/change_password_cubit.dart';
 import 'package:egy_travel/view_model/DeleteCubit/cubit/delete_account_cubit.dart';
@@ -102,6 +106,11 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<PlacesByIdRepo>(() => PlacesByIdRepo(getIt()));
   getIt.registerFactory<PlaceByIdCubit>(() => PlaceByIdCubit(getIt()));
 
+// Articles By Id
+  getIt
+      .registerLazySingleton<ArticlesByIdRepo>(() => ArticlesByIdRepo(getIt()));
+  getIt.registerFactory<ArticleByIdCubit>(() => ArticleByIdCubit(getIt()));
+
 // Recommended
   getIt.registerLazySingleton<RecommendedRepo>(() => RecommendedRepo(getIt()));
   getIt.registerFactory<RecommendedCubit>(() => RecommendedCubit(getIt()));
@@ -113,4 +122,11 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<RemoveTripRepo>(() => RemoveTripRepo(getIt()));
   getIt.registerFactory<AddRemoveCubit>(
       () => AddRemoveCubit(getIt(), getIt(), getIt(), getIt()));
+
+// add/remove Articles
+  getIt.registerLazySingleton<AddFavArtRepo>(() => AddFavArtRepo(getIt()));
+  getIt
+      .registerLazySingleton<RemoveFavArtRepo>(() => RemoveFavArtRepo(getIt()));
+  getIt.registerFactory<ArtAddRemoveCubit>(
+      () => ArtAddRemoveCubit(getIt(), getIt()));
 }

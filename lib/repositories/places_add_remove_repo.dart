@@ -2,7 +2,7 @@
 import 'package:egy_travel/Data/Networking/api_error_handler.dart';
 import 'package:egy_travel/Data/Networking/api_result.dart';
 import 'package:egy_travel/Data/Networking/api_service.dart';
-import 'package:egy_travel/model/Favorites/add_remove_response.dart';
+import 'package:egy_travel/model/Favorites/places/add_remove_response.dart';
 
 class AddFavRepo {
   final ApiService _apiService;

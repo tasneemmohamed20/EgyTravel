@@ -3,7 +3,7 @@ import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Widgets/floating_button.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/grid_card.dart';
 import 'package:egy_travel/view/Widgets/shared_details.dart';
-import 'package:egy_travel/view_model/AddRemove/cubit/add_remove_cubit.dart';
+import 'package:egy_travel/view_model/PlacesAddRemove/cubit/add_remove_cubit.dart';
 import 'package:egy_travel/view_model/PlaceById/cubit/placeid_cubit.dart';
 import 'package:egy_travel/view_model/RecommendedCubit/cubit/recommended_cubit.dart';
 import 'package:egy_travel/view_model/RecommendedCubit/cubit/recommended_state.dart';

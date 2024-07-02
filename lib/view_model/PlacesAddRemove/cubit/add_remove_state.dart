@@ -1,4 +1,4 @@
-import 'package:egy_travel/model/Favorites/add_remove_response.dart';
+import 'package:egy_travel/model/Favorites/places/add_remove_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'add_remove_state.freezed.dart';
 

@@ -1,4 +1,4 @@
-import 'package:egy_travel/model/Home/articles_response.dart';
+import 'package:egy_travel/model/Home/ArticlesModels/articles_response.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/articles_details.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/list_card.dart';
@@ -48,6 +48,7 @@ class _AllArticlesWState extends State<AllArticlesW> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => ArticlesDetailsScreen(
+                    id: widget.data![index]?.id?? '',
                       description: widget.data![index]?.description ?? [],
                       image: widget.data![index]?.image ?? '',
                       title: widget.data![index]?.title ?? ''),

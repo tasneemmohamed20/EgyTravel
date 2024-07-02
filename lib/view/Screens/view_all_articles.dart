@@ -1,5 +1,5 @@
 import "package:easy_localization/easy_localization.dart";
-import "package:egy_travel/model/Home/articles_response.dart";
+import "package:egy_travel/model/Home/ArticlesModels/articles_response.dart";
 import "package:egy_travel/view/Widgets/all_articles_widget.dart";
 import "package:egy_travel/view/Widgets/shared_appbar.dart";
 import "package:egy_travel/res/colors_manager.dart";

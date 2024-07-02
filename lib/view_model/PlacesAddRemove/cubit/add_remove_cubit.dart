@@ -1,5 +1,5 @@
-import 'package:egy_travel/repositories/add_remove_repo.dart';
-import 'package:egy_travel/view_model/AddRemove/cubit/add_remove_state.dart';
+import 'package:egy_travel/repositories/places_add_remove_repo.dart';
+import 'package:egy_travel/view_model/PlacesAddRemove/cubit/add_remove_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddRemoveCubit extends Cubit<AddRemoveState> {

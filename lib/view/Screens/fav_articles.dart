@@ -51,6 +51,7 @@ class FavArticles extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => ArticlesDetailsScreen(
+                                id: data[index].atricleId ?? '',
                                 description: data[index].description ?? [],
                                 image: data[index].image ?? '',
                                 title: data[index].title ?? '',
