@@ -127,7 +127,7 @@ class _HomeState extends State<Home> {
                                             builder: (context) => BlocProvider(
                                                   create: (context) =>
                                                       getIt<SearchCubit>(),
-                                                  child: SearchScreen(),
+                                                  child: const SearchScreen(),
                                                 )),
                                       ),
                                       readOnly: true,

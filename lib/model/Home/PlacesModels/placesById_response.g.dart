@@ -1,59 +1,61 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'search_response.dart';
+part of 'placesById_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-SearchResponseModel _$SearchResponseModelFromJson(Map<String, dynamic> json) =>
-    SearchResponseModel(
+PlacesByIDResponseModel _$PlacesByIDResponseModelFromJson(
+        Map<String, dynamic> json) =>
+    PlacesByIDResponseModel(
       json['data'] == null
           ? null
           : Data.fromJson(json['data'] as Map<String, dynamic>),
       json['status'] as String?,
     );
 
-Map<String, dynamic> _$SearchResponseModelToJson(
-        SearchResponseModel instance) =>
+Map<String, dynamic> _$PlacesByIDResponseModelToJson(
+        PlacesByIDResponseModel instance) =>
     <String, dynamic>{
       'status': instance.status,
       'data': instance.data,
     };
 
 Data _$DataFromJson(Map<String, dynamic> json) => Data(
-      (json['places'] as List<dynamic>?)
-          ?.map((e) => PlacesData.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      json['place'] == null
+          ? null
+          : PlaceData.fromJson(json['place'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
-      'places': instance.placesData,
+      'place': instance.placesData,
     };
 
-PlacesData _$PlacesDataFromJson(Map<String, dynamic> json) => PlacesData(
+PlaceData _$PlaceDataFromJson(Map<String, dynamic> json) => PlaceData(
       (json['id'] as num?)?.toInt(),
       json['name'] as String?,
       json['description'] as String?,
       json['language'] as String?,
       json['image'] as String?,
       json['location'] as String?,
-      json['category'] as String?,
       (json['latitude'] as num?)?.toDouble(),
       (json['longitude'] as num?)?.toDouble(),
       json['_id'] as String?,
+      json['isFavorite'] as bool?,
+      json['isTrip'] as bool?,
     );
 
-Map<String, dynamic> _$PlacesDataToJson(PlacesData instance) =>
-    <String, dynamic>{
-      '_id': instance.placeId,
+Map<String, dynamic> _$PlaceDataToJson(PlaceData instance) => <String, dynamic>{
+      '_id': instance.sId,
       'id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'language': instance.language,
       'image': instance.image,
       'location': instance.location,
-      'category': instance.category,
       'latitude': instance.latitude,
       'longitude': instance.longitude,
+      'isFavorite': instance.isFavorite,
+      'isTrip': instance.isTrip,
     };

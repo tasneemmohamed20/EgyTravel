@@ -6,6 +6,8 @@ import 'package:egy_travel/core/helpers/extensions.dart';
 import 'package:egy_travel/core/helpers/shared_pref_helper.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/res/string_manager.dart';
+import 'package:egy_travel/src/controllers/location_controller.dart';
+import 'package:egy_travel/src/services/location_service.dart';
 import 'package:egy_travel/view/Screens/login_screen.dart';
 import 'package:egy_travel/view/Screens/primary_screen.dart';
 import 'package:egy_travel/view_model/RadioButtons/radio_cubit.dart';
@@ -14,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:egy_travel/view/Screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +26,7 @@ void main() async {
   setupGetIt();
   Bloc.observer = MyBlocObserver();
   await checkIFLoggedIn();
+  await getUserLocation();
   runApp(EasyLocalization(
       supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AE')],
       path: 'assets/translations',
@@ -40,6 +44,12 @@ checkIFLoggedIn() async {
   } else {
     isLoggedInUser = false;
   }
+}
+
+getUserLocation() async {
+  final LocationController locationController =
+      Get.put<LocationController>(LocationController());
+  LocationService.instance.getLocation(controller: locationController);
 }
 
 class MyApp extends StatelessWidget {

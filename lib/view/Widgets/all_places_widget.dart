@@ -1,4 +1,4 @@
-import 'package:egy_travel/model/Home/places_response.dart';
+import 'package:egy_travel/model/Home/PlacesModels/places_response.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/places_details_screen.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/list_card.dart';
@@ -48,6 +48,7 @@ class _AllPlacesWState extends State<AllPlacesW> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => PlacesDetailsScreen(
+                    placeId: widget.data![index]?.placeId ?? '',
                     recommendedId: widget.data![index]?.id ?? 0,
                     lat: widget.data![index]?.latitude ?? 0,
                     long: widget.data![index]?.longitude ?? 0,

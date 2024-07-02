@@ -22,6 +22,7 @@ Map<String, dynamic> _$RecommendationResponseModelToJson(
 
 Recommendation _$RecommendationFromJson(Map<String, dynamic> json) =>
     Recommendation(
+      json['_id'] as String?,
       id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String?,
       description: json['description'] as String?,
@@ -37,6 +38,7 @@ Recommendation _$RecommendationFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$RecommendationToJson(Recommendation instance) =>
     <String, dynamic>{
+      '_id': instance.placeId,
       'id': instance.id,
       'name': instance.name,
       'description': instance.description,

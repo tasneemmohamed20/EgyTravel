@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:egy_travel/Data/Networking/api_service.dart';
 import 'package:egy_travel/Data/Networking/dio_factory.dart';
+import 'package:egy_travel/repositories/add_remove_repo.dart';
 import 'package:egy_travel/repositories/articles_repo.dart';
 import 'package:egy_travel/repositories/change_password_repo.dart';
 import 'package:egy_travel/repositories/delete_repo.dart';
@@ -9,12 +10,14 @@ import 'package:egy_travel/repositories/events_repo.dart';
 import 'package:egy_travel/repositories/favorites_repo.dart';
 import 'package:egy_travel/repositories/get_profile_repo.dart';
 import 'package:egy_travel/repositories/login_repo.dart';
+import 'package:egy_travel/repositories/places_by_id_repo.dart';
 import 'package:egy_travel/repositories/places_repo.dart';
 import 'package:egy_travel/repositories/forgot_repo.dart';
 import 'package:egy_travel/repositories/recommended_repo.dart';
 import 'package:egy_travel/repositories/reset_repo.dart';
 import 'package:egy_travel/repositories/search_repo.dart';
 import 'package:egy_travel/repositories/signup_repo.dart';
+import 'package:egy_travel/view_model/AddRemove/cubit/add_remove_cubit.dart';
 import 'package:egy_travel/view_model/ArticlesCubit/cubit/articles_cubit.dart';
 import 'package:egy_travel/view_model/ChangePassword/cubit/change_password_cubit.dart';
 import 'package:egy_travel/view_model/DeleteCubit/cubit/delete_account_cubit.dart';
@@ -22,6 +25,7 @@ import 'package:egy_travel/view_model/EditProfile/cubit/edit_cubit.dart';
 import 'package:egy_travel/view_model/EventsCubit/cubit/events_cubit.dart';
 import 'package:egy_travel/view_model/FavCubit/cubit/favorites_cubit.dart';
 import 'package:egy_travel/view_model/LoginCubit/cubit/login_cubit.dart';
+import 'package:egy_travel/view_model/PlaceById/cubit/placeid_cubit.dart';
 import 'package:egy_travel/view_model/PlacesCubit/places_cubit.dart';
 import 'package:egy_travel/view_model/ForgotPassword/cubit/forgot_password_cubit.dart';
 import 'package:egy_travel/view_model/RecommendedCubit/cubit/recommended_cubit.dart';
@@ -94,7 +98,19 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<FavRepo>(() => FavRepo(getIt()));
   getIt.registerFactory<FavCubit>(() => FavCubit(getIt()));
 
+// Palces By Id
+  getIt.registerLazySingleton<PlacesByIdRepo>(() => PlacesByIdRepo(getIt()));
+  getIt.registerFactory<PlaceByIdCubit>(() => PlaceByIdCubit(getIt()));
+
 // Recommended
   getIt.registerLazySingleton<RecommendedRepo>(() => RecommendedRepo(getIt()));
   getIt.registerFactory<RecommendedCubit>(() => RecommendedCubit(getIt()));
+
+// add/remove Fav & Trip
+  getIt.registerLazySingleton<AddFavRepo>(() => AddFavRepo(getIt()));
+  getIt.registerLazySingleton<RemoveFavRepo>(() => RemoveFavRepo(getIt()));
+  getIt.registerLazySingleton<AddTripRepo>(() => AddTripRepo(getIt()));
+  getIt.registerLazySingleton<RemoveTripRepo>(() => RemoveTripRepo(getIt()));
+  getIt.registerFactory<AddRemoveCubit>(
+      () => AddRemoveCubit(getIt(), getIt(), getIt(), getIt()));
 }

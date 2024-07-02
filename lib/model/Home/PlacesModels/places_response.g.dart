@@ -49,10 +49,12 @@ PlacesData _$PlacesDataFromJson(Map<String, dynamic> json) => PlacesData(
       json['category'] == null
           ? null
           : Category.fromJson(json['category'] as Map<String, dynamic>),
+      json['_id'] as String,
     );
 
 Map<String, dynamic> _$PlacesDataToJson(PlacesData instance) =>
     <String, dynamic>{
+      '_id': instance.placeId,
       'id': instance.id,
       'name': instance.name,
       'description': instance.description,

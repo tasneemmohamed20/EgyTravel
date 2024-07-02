@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:egy_travel/model/Favorites/add_remove_response.dart';
 import 'package:egy_travel/model/Favorites/favorites_response.dart';
+import 'package:egy_travel/model/Home/PlacesModels/placesById_response.dart';
 import 'package:egy_travel/model/Home/events_response.dart';
 import 'package:egy_travel/model/Home/articles_response.dart';
-import 'package:egy_travel/model/Home/places_response.dart';
+import 'package:egy_travel/model/Home/PlacesModels/places_response.dart';
 import 'package:egy_travel/model/Login/login_request_body.dart';
 import 'package:egy_travel/model/Login/login_response.dart';
 import 'package:egy_travel/model/ForgotPassword/forgot_request_body.dart';
@@ -76,6 +78,33 @@ abstract class ApiService {
 
   @GET(AppStrings.endPointGetFavorite)
   Future<FavResponseModel> favorites();
+
+  @GET('${AppStrings.endPointGetAllPlaces}/{id}')
+  Future<PlacesByIDResponseModel> placesById(
+    @Path('id') String id,
+  );
+
+  @PUT(
+      '${AppStrings.endPointGetAllPlaces}${'/'}${AppStrings.endPointGetFavorite}/{id}')
+  Future<AddRemoveResponseModel> addFav(
+    @Path('id') String id,
+  );
+
+  @DELETE(
+      '${AppStrings.endPointGetAllPlaces}${'/'}${AppStrings.endPointGetFavorite}/{id}')
+  Future<AddRemoveResponseModel> removeFav(
+    @Path('id') String id,
+  );
+  @PUT(
+      '${AppStrings.endPointGetAllPlaces}${'/'}${AppStrings.endPointUserTips}/{id}')
+  Future<AddRemoveResponseModel> addTrip(
+    @Path('id') String id,
+  );
+  @DELETE(
+      '${AppStrings.endPointGetAllPlaces}${'/'}${AppStrings.endPointUserTips}/{id}')
+  Future<AddRemoveResponseModel> removeTrip(
+    @Path('id') String id,
+  );
 }
 
 @RestApi(baseUrl: AppStrings.baseUrlRecommended)

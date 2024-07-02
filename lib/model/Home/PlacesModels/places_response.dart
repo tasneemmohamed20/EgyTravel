@@ -33,6 +33,8 @@ class Data {
 
 @JsonSerializable()
 class PlacesData {
+  @JsonKey(name: '_id')
+  final String placeId;
   final int? id;
   final String? name;
   final String? description;
@@ -45,7 +47,7 @@ class PlacesData {
   final Category? category;
 
   PlacesData(this.id, this.name, this.description, this.language, this.image,
-      this.location, this.latitude, this.longitude, this.category);
+      this.location, this.latitude, this.longitude, this.category, this.placeId);
   factory PlacesData.fromJson(Map<String, dynamic> json) =>
       _$PlacesDataFromJson(json);
 }

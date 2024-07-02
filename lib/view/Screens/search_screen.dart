@@ -156,6 +156,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => PlacesDetailsScreen(
+                                        placeId: places[index].placeId ?? '',
                                         recommendedId: places[index].id ?? 0,
                                         lat: places[index].latitude ?? 0,
                                         long: places[index].longitude ?? 0,

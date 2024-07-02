@@ -3,6 +3,8 @@ import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Widgets/floating_button.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/grid_card.dart';
 import 'package:egy_travel/view/Widgets/shared_details.dart';
+import 'package:egy_travel/view_model/AddRemove/cubit/add_remove_cubit.dart';
+import 'package:egy_travel/view_model/PlaceById/cubit/placeid_cubit.dart';
 import 'package:egy_travel/view_model/RecommendedCubit/cubit/recommended_cubit.dart';
 import 'package:egy_travel/view_model/RecommendedCubit/cubit/recommended_state.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +20,8 @@ class PlacesDetailsScreen extends StatelessWidget {
       required this.description,
       required this.lat,
       required this.long,
-      required this.recommendedId});
+      required this.recommendedId,
+      required this.placeId});
   final String image;
   final String title;
   final String subtitle;
@@ -26,6 +29,7 @@ class PlacesDetailsScreen extends StatelessWidget {
   final double lat;
   final double long;
   final int recommendedId;
+  final String placeId;
   @override
   Widget build(BuildContext context) {
     final mQwidth = MediaQuery.of(context).size.width;
@@ -99,6 +103,8 @@ class PlacesDetailsScreen extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => PlacesDetailsScreen(
+                                          placeId:
+                                              recommended[index].placeId ?? '',
                                           recommendedId:
                                               recommended[index].id ?? 0,
                                           lat: recommended[index].latitude ?? 0,
@@ -139,9 +145,19 @@ class PlacesDetailsScreen extends StatelessWidget {
             ),
           ),
           floatingActionButtonLocation: ExpandableFab.location,
-          floatingActionButton: CustomFloatButtton(
-            lat: lat,
-            long: long,
+          floatingActionButton: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    getIt<PlaceByIdCubit>()..getPlaceById(placeId),
+              ),
+              BlocProvider(create: (context) => getIt<AddRemoveCubit>()),
+            ],
+            child: CustomFloatButtton(
+              placeId: placeId,
+              lat: lat,
+              long: long,
+            ),
           ),
         ),
       ),

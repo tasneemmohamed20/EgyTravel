@@ -16,6 +16,8 @@ class RecommendationResponseModel {
 
 @JsonSerializable()
 class Recommendation {
+  @JsonKey(name: '_id')
+  final String? placeId;
   final int? id;
   final String? name;
   final String? description;
@@ -26,7 +28,8 @@ class Recommendation {
   final double? longitude;
   final Category? category;
 
-  Recommendation({
+  Recommendation(
+    this.placeId, {
     required this.id,
     required this.name,
     required this.description,

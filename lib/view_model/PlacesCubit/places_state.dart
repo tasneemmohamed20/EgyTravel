@@ -1,5 +1,5 @@
 import 'package:egy_travel/Data/Networking/api_error_handler.dart';
-import 'package:egy_travel/model/Home/places_response.dart';
+import 'package:egy_travel/model/Home/PlacesModels/places_response.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'places_state.freezed.dart';

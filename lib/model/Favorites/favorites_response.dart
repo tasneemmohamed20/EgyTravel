@@ -25,6 +25,8 @@ class Data {
 
 @JsonSerializable()
 class FavPlaces {
+  @JsonKey(name: '_id')
+  final String? placeId;
   final int? id;
   final String? name;
   final String? description;
@@ -35,8 +37,17 @@ class FavPlaces {
   final double? latitude;
   final double? longitude;
 
-  FavPlaces(this.id, this.name, this.description, this.language, this.image,
-      this.location, this.category, this.latitude, this.longitude);
+  FavPlaces(
+      this.id,
+      this.name,
+      this.description,
+      this.language,
+      this.image,
+      this.location,
+      this.category,
+      this.latitude,
+      this.longitude,
+      this.placeId);
 
   factory FavPlaces.fromJson(Map<String, dynamic> json) =>
       _$FavPlacesFromJson(json);
@@ -45,12 +56,12 @@ class FavPlaces {
 @JsonSerializable()
 class FavArticles {
   @JsonKey(name: '_id')
-  final String? id;
+  final String? atricleId;
   final String? title;
   final String? image;
   @JsonKey(name: 'decription')
   final List<String>? description;
-  FavArticles(this.id, this.title, this.image, this.description);
+  FavArticles(this.atricleId, this.title, this.image, this.description);
 
   factory FavArticles.fromJson(Map<String, dynamic> json) =>
       _$FavArticlesFromJson(json);
@@ -58,6 +69,8 @@ class FavArticles {
 
 @JsonSerializable()
 class Trips {
+  @JsonKey(name: '_id')
+  final String? placeId;
   final int? id;
   final String? name;
   final String? description;
@@ -68,7 +81,7 @@ class Trips {
   final double? longitude;
 
   Trips(this.id, this.name, this.description, this.image, this.location,
-      this.category, this.latitude, this.longitude);
+      this.category, this.latitude, this.longitude, this.placeId);
 
   factory Trips.fromJson(Map<String, dynamic> json) => _$TripsFromJson(json);
 }

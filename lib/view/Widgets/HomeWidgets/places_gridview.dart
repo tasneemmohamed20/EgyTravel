@@ -1,5 +1,5 @@
 import 'package:egy_travel/Data/dummy_data.dart';
-import 'package:egy_travel/model/Home/places_response.dart';
+import 'package:egy_travel/model/Home/PlacesModels/places_response.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/places_details_screen.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/grid_card.dart';
@@ -30,17 +30,17 @@ class PlacesGridView extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => PlacesDetailsScreen(
-                        recommendedId: placesData[index]?.id ?? 0,
-                    lat: placesData[index]?.latitude ?? 0,
-                        long: placesData[index]?.longitude ?? 0,
-                        image: placesData[index]?.image ?? '',
-                        subtitle: placesData[index]?.location ?? '',
-                        title: placesData[index]?.name ?? '',
-                        description: [placesData[index]?.description ?? '']
-                      )),
+                      placeId: placesData[index]?.placeId ?? '',
+                      recommendedId: placesData[index]?.id ?? 0,
+                      lat: placesData[index]?.latitude ?? 0,
+                      long: placesData[index]?.longitude ?? 0,
+                      image: placesData[index]?.image ?? '',
+                      subtitle: placesData[index]?.location ?? '',
+                      title: placesData[index]?.name ?? '',
+                      description: [placesData[index]?.description ?? ''])),
             ),
             child: CustomGridCard(
-              image: [placesData[index]?.image ??''],
+              image: [placesData[index]?.image ?? ''],
               title: placesData[index]?.name ?? '',
               subtitle: placesData[index]?.location ?? '',
               imageWidth: mQwidth * 0.4,
