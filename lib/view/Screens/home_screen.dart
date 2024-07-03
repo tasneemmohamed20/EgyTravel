@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
     });
   }
 
-  @override
+  
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void _changeLanguage(Locale newLocale) async {

@@ -1,15 +1,15 @@
-// Add Fav
 import 'package:egy_travel/Data/Networking/api_error_handler.dart';
 import 'package:egy_travel/Data/Networking/api_result.dart';
 import 'package:egy_travel/Data/Networking/api_service.dart';
-import 'package:egy_travel/model/Favorites/places/add_remove_response.dart';
+
+import '../model/Profile/get_profile_response.dart';
 
 class AddFavRepo {
   final ApiService _apiService;
 
   AddFavRepo(this._apiService);
 
-  Future<ApiResult<AddRemoveResponseModel>> addFav(String id) async {
+  Future<ApiResult<GetProfileResponseModel>> addFav(String id) async {
     try {
       final response = await _apiService.addFav(id);
       return ApiResult.success(response);
@@ -24,7 +24,7 @@ class RemoveFavRepo {
 
   RemoveFavRepo(this._apiService);
 
-  Future<ApiResult<AddRemoveResponseModel>> removeFav(String id) async {
+  Future<ApiResult<GetProfileResponseModel>> removeFav(String id) async {
     try {
       final response = await _apiService.removeFav(id);
       return ApiResult.success(response);
@@ -39,7 +39,7 @@ class AddTripRepo {
 
   AddTripRepo(this._apiService);
 
-  Future<ApiResult<AddRemoveResponseModel>> addTrip(String id) async {
+  Future<ApiResult<GetProfileResponseModel>> addTrip(String id) async {
     try {
       final response = await _apiService.addTrip(id);
       return ApiResult.success(response);
@@ -54,7 +54,7 @@ class RemoveTripRepo {
 
   RemoveTripRepo(this._apiService);
 
-  Future<ApiResult<AddRemoveResponseModel>> removeTrip(String id) async {
+  Future<ApiResult<GetProfileResponseModel>> removeTrip(String id) async {
     try {
       final response = await _apiService.removeTrip(id);
       return ApiResult.success(response);

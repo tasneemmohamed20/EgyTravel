@@ -1,12 +1,13 @@
 import 'package:egy_travel/core/Di/dependency_injection.dart';
 import 'package:egy_travel/res/colors_manager.dart';
-import 'package:egy_travel/view/Widgets/floating_button.dart';
 import 'package:egy_travel/view/Widgets/shared_details.dart';
 import 'package:egy_travel/view_model/AreticlesById/cubit/articles_by_id_cubit.dart';
 import 'package:egy_travel/view_model/ArticlesAddRemove/cubit/art_add_remove_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
+
+import '../Widgets/fab_buttons/art_fav_fab_button.dart';
 
 class ArticlesDetailsScreen extends StatefulWidget {
   const ArticlesDetailsScreen({
@@ -30,8 +31,16 @@ class ArticlesDetailsScreen extends StatefulWidget {
 class _ArticlesDetailsScreenState extends State<ArticlesDetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => getIt<ArticleByIdCubit>()..getPlaceById(widget.id),
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<ArtAddRemoveCubit>(),
+          ),
+          BlocProvider(
+            create: (context) =>
+                getIt<ArticleByIdCubit>()..getArticleById(widget.id),
+          ),
+        ],
         child: SafeArea(
           child: Scaffold(
             backgroundColor: ColorsManager.primary.withOpacity(1),
@@ -52,20 +61,7 @@ class _ArticlesDetailsScreenState extends State<ArticlesDetailsScreen> {
               ),
             ),
             floatingActionButtonLocation: ExpandableFab.location,
-            floatingActionButton: MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (context) =>
-                      getIt<ArticleByIdCubit>()..getPlaceById(widget.id),
-                ),
-                BlocProvider(
-                  create: (context) => getIt<ArtAddRemoveCubit>(),
-                ),
-              ],
-              child: ArtFav(
-                id: widget.id,
-              ),
-            ),
+            floatingActionButton: ArtFav(id: widget.id),
           ),
         ));
   }

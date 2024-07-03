@@ -13,46 +13,46 @@ class AddRemoveCubit extends Cubit<AddRemoveState> {
       : super(const AddRemoveState.initial());
 
   Future<void> addFav(String id) async {
-    emit(const AddRemoveState.loading());
+    emit(const AddRemoveState.addFavLoading());
     final result = await _addFavRepo.addFav(id);
     result.when(
       success: (addRemoveResponseModel) =>
-          emit(AddRemoveState.success(addRemoveResponseModel)),
+          emit(AddRemoveState.addFavSuccess(addRemoveResponseModel)),
       failure: (error) => emit(
-          AddRemoveState.error(message: error.apiErrorModel.message ?? '')),
+          AddRemoveState.addFavError(message: error.apiErrorModel.message ?? '')),
     );
   }
 
   Future<void> removeFav(String id) async {
-    emit(const AddRemoveState.loading());
+    emit(const AddRemoveState.addFavLoading());
     final result = await _removeFavRepo.removeFav(id);
     result.when(
       success: (addRemoveResponseModel) =>
-          emit(AddRemoveState.success(addRemoveResponseModel)),
+          emit(AddRemoveState.addFavSuccess(addRemoveResponseModel)),
       failure: (error) => emit(
-          AddRemoveState.error(message: error.apiErrorModel.message ?? '')),
+          AddRemoveState.addFavError(message: error.apiErrorModel.message ?? '')),
     );
   }
 
     Future<void> addTrip(String id) async {
-    emit(const AddRemoveState.loading());
+    emit(const AddRemoveState.addTripLoading());
     final result = await _addTripRepo.addTrip(id);
     result.when(
       success: (addRemoveResponseModel) =>
-          emit(AddRemoveState.success(addRemoveResponseModel)),
+          emit(AddRemoveState.addTripSuccess(addRemoveResponseModel)),
       failure: (error) => emit(
-          AddRemoveState.error(message: error.apiErrorModel.message ?? '')),
+          AddRemoveState.addTripError(message: error.apiErrorModel.message ?? '')),
     );
   }
 
     Future<void> removeTrip(String id) async {
-    emit(const AddRemoveState.loading());
+    emit(const AddRemoveState.addTripLoading());
     final result = await _removeTripRepo.removeTrip(id);
     result.when(
       success: (addRemoveResponseModel) =>
-          emit(AddRemoveState.success(addRemoveResponseModel)),
+          emit(AddRemoveState.addTripSuccess(addRemoveResponseModel)),
       failure: (error) => emit(
-          AddRemoveState.error(message: error.apiErrorModel.message ?? '')),
+          AddRemoveState.addTripError(message: error.apiErrorModel.message ?? '')),
     );
   }
 }

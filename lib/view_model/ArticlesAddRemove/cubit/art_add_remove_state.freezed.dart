@@ -20,7 +20,7 @@ mixin _$ArtAddRemoveState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ArtAddRemoveResponseModel data) success,
+    required TResult Function(GetProfileResponseModel data) success,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$ArtAddRemoveState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ArtAddRemoveResponseModel data)? success,
+    TResult? Function(GetProfileResponseModel data)? success,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$ArtAddRemoveState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ArtAddRemoveResponseModel data)? success,
+    TResult Function(GetProfileResponseModel data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ArtAddRemoveResponseModel data) success,
+    required TResult Function(GetProfileResponseModel data) success,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ArtAddRemoveResponseModel data)? success,
+    TResult? Function(GetProfileResponseModel data)? success,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ArtAddRemoveResponseModel data)? success,
+    TResult Function(GetProfileResponseModel data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ArtAddRemoveResponseModel data) success,
+    required TResult Function(GetProfileResponseModel data) success,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ArtAddRemoveResponseModel data)? success,
+    TResult? Function(GetProfileResponseModel data)? success,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ArtAddRemoveResponseModel data)? success,
+    TResult Function(GetProfileResponseModel data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -320,7 +320,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ArtAddRemoveResponseModel data});
+  $Res call({GetProfileResponseModel data});
 }
 
 /// @nodoc
@@ -340,7 +340,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ArtAddRemoveResponseModel,
+              as GetProfileResponseModel,
     ));
   }
 }
@@ -351,7 +351,7 @@ class _$SuccessImpl implements Success {
   const _$SuccessImpl(this.data);
 
   @override
-  final ArtAddRemoveResponseModel data;
+  final GetProfileResponseModel data;
 
   @override
   String toString() {
@@ -380,7 +380,7 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ArtAddRemoveResponseModel data) success,
+    required TResult Function(GetProfileResponseModel data) success,
     required TResult Function(String message) error,
   }) {
     return success(data);
@@ -391,7 +391,7 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ArtAddRemoveResponseModel data)? success,
+    TResult? Function(GetProfileResponseModel data)? success,
     TResult? Function(String message)? error,
   }) {
     return success?.call(data);
@@ -402,7 +402,7 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ArtAddRemoveResponseModel data)? success,
+    TResult Function(GetProfileResponseModel data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -451,9 +451,9 @@ class _$SuccessImpl implements Success {
 }
 
 abstract class Success implements ArtAddRemoveState {
-  const factory Success(final ArtAddRemoveResponseModel data) = _$SuccessImpl;
+  const factory Success(final GetProfileResponseModel data) = _$SuccessImpl;
 
-  ArtAddRemoveResponseModel get data;
+  GetProfileResponseModel get data;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -525,7 +525,7 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(ArtAddRemoveResponseModel data) success,
+    required TResult Function(GetProfileResponseModel data) success,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -536,7 +536,7 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(ArtAddRemoveResponseModel data)? success,
+    TResult? Function(GetProfileResponseModel data)? success,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -547,7 +547,7 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(ArtAddRemoveResponseModel data)? success,
+    TResult Function(GetProfileResponseModel data)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {

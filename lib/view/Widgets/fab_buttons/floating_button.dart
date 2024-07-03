@@ -1,9 +1,5 @@
 import 'package:egy_travel/res/app_assets.dart';
 import 'package:egy_travel/res/colors_manager.dart';
-import 'package:egy_travel/view_model/AreticlesById/cubit/articles_by_id_state.dart';
-import 'package:egy_travel/view_model/ArticlesAddRemove/cubit/art_add_remove_cubit.dart';
-import 'package:egy_travel/view_model/PlacesAddRemove/cubit/add_remove_cubit.dart';
-import 'package:egy_travel/view_model/AreticlesById/cubit/articles_by_id_cubit.dart';
 import 'package:egy_travel/view_model/PlaceById/cubit/placeid_cubit.dart';
 import 'package:egy_travel/view_model/PlaceById/cubit/placeid_state.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:location/location.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'fav_fab_button.dart';
+import 'trip_fab_button.dart';
 
 class CustomFloatButtton extends StatefulWidget {
   const CustomFloatButtton(
@@ -21,8 +20,6 @@ class CustomFloatButtton extends StatefulWidget {
   final double lat;
   final double long;
   final String placeId;
-  final bool isTrip = false;
-  final bool isFavorite = false;
 
   @override
   State<CustomFloatButtton> createState() => _CustomFloatButttonState();
@@ -34,6 +31,9 @@ class _CustomFloatButttonState extends State<CustomFloatButtton> {
     super.initState();
     context.read<PlaceByIdCubit>().getPlaceById(widget.placeId);
   }
+
+  bool isTrip = false;
+  bool isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +108,8 @@ class _CustomFloatButttonState extends State<CustomFloatButtton> {
                   ],
                 ),
             success: (placeByIdModel) {
+              isTrip = placeByIdModel.data!.placesData!.isTrip!;
+              isFavorite = placeByIdModel.data!.placesData!.isFavorite!;
               return ExpandableFab(
                 openButtonBuilder: RotateFloatingActionButtonBuilder(
                   child: Image.asset(
@@ -151,46 +153,28 @@ class _CustomFloatButttonState extends State<CustomFloatButtton> {
                       });
                     },
                   ),
-                  FloatingActionButton(
-                    backgroundColor: ColorsManager.primary.withOpacity(1),
-                    shape: const CircleBorder(),
-                    heroTag: null,
-                    child: Icon(
-                      placeByIdModel.data?.placesData?.isTrip == true
-                          ? Icons.bookmark_rounded
-                          : Icons.bookmark_add_outlined,
-                      color: ColorsManager.secondPrimary.withOpacity(1),
-                    ),
-                    onPressed: () {
-                      if (placeByIdModel.data?.placesData?.isTrip == true) {
-                        context
-                            .read<AddRemoveCubit>()
-                            .removeTrip(widget.placeId);
-                      } else {
-                        context.read<AddRemoveCubit>().addTrip(widget.placeId);
-                      }
-                    },
-                  ),
-                  FloatingActionButton(
-                    backgroundColor: ColorsManager.primary.withOpacity(1),
-                    shape: const CircleBorder(),
-                    heroTag: null,
-                    child: Icon(
-                      placeByIdModel.data?.placesData?.isFavorite == true
-                          ? Icons.favorite_rounded
-                          : Icons.favorite_border_outlined,
-                      color: ColorsManager.secondPrimary.withOpacity(1),
-                    ),
-                    onPressed: () {
-                      if (placeByIdModel.data?.placesData?.isFavorite == true) {
-                        context
-                            .read<AddRemoveCubit>()
-                            .removeFav(widget.placeId);
-                      } else {
-                        context.read<AddRemoveCubit>().addFav(widget.placeId);
-                      }
-                    },
-                  ),
+                  TripFabButton(placeId: widget.placeId, isTrip: isTrip),
+                  // FloatingActionButton(
+                  //   backgroundColor: ColorsManager.primary.withOpacity(1),
+                  //   shape: const CircleBorder(),
+                  //   heroTag: null,
+                  //   child: Icon(
+                  //     placeByIdModel.data?.placesData?.isFavorite == true
+                  //         ? Icons.favorite_rounded
+                  //         : Icons.favorite_border_outlined,
+                  //     color: ColorsManager.secondPrimary.withOpacity(1),
+                  //   ),
+                  //   onPressed: () {
+                  //     if (placeByIdModel.data?.placesData?.isFavorite == true) {
+                  //       context
+                  //           .read<AddRemoveCubit>()
+                  //           .removeFav(widget.placeId);
+                  //     } else {
+                  //       context.read<AddRemoveCubit>().addFav(widget.placeId);
+                  //     }
+                  //   },
+                  // ),
+                  FavFabButton(placeId: widget.placeId, isFav: isFavorite),
                 ],
               );
             },
@@ -205,77 +189,3 @@ class _CustomFloatButttonState extends State<CustomFloatButtton> {
   }
 }
 
-class ArtFav extends StatefulWidget {
-  const ArtFav({super.key, required this.id});
-  final String id;
-
-  @override
-  State<ArtFav> createState() => _ArtFavState();
-}
-
-class _ArtFavState extends State<ArtFav> {
-  @override
-  void initState() {
-    context.read<ArticleByIdCubit>().getArticleById(widget.id);
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<ArticleByIdCubit, ArticleByIdState>(
-      buildWhen: (previous, current) =>
-          current is ArtLoading || current is ArtSuccess || current is ArtError,
-      builder: (context, state) {
-        return state.maybeWhen(
-            loading: () => Align(
-                  alignment: AlignmentDirectional.bottomEnd,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: FloatingActionButton(
-                      backgroundColor: ColorsManager.primary.withOpacity(1),
-                      shape: const CircleBorder(),
-                      heroTag: null,
-                      child: Icon(
-                        Icons.favorite_border_outlined,
-                        color: ColorsManager.secondPrimary.withOpacity(1),
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
-                ),
-            success: (articlesById) {
-              return Align(
-                alignment: AlignmentDirectional.bottomEnd,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: FloatingActionButton(
-                    backgroundColor: ColorsManager.primary.withOpacity(1),
-                    shape: const CircleBorder(),
-                    heroTag: null,
-                    child: Icon(
-                      articlesById.data?.articlesData?.isFavorite == true
-                          ? Icons.favorite_rounded
-                          : Icons.favorite_border_outlined,
-                      color: ColorsManager.secondPrimary.withOpacity(1),
-                    ),
-                    onPressed: () {
-                      if (articlesById.data?.articlesData?.isFavorite == true) {
-                        context.read<ArtAddRemoveCubit>().removeFav(widget.id);
-                      } else {
-                        context.read<ArtAddRemoveCubit>().addFav(widget.id);
-                      }
-                    },
-                  ),
-                ),
-              );
-            },
-            error: (errorHandler) {
-              return const Text('Error!!!');
-            },
-            orElse: () {
-              return const SizedBox.shrink();
-            });
-      },
-    );
-  }
-}

@@ -17,5 +17,4 @@ class ArticleByIdCubit extends Cubit<ArticleByIdState> {
     );
   }
 
-  getPlaceById(String id) {}
 }

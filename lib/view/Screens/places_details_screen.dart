@@ -1,6 +1,6 @@
 import 'package:egy_travel/core/Di/dependency_injection.dart';
 import 'package:egy_travel/res/colors_manager.dart';
-import 'package:egy_travel/view/Widgets/floating_button.dart';
+import 'package:egy_travel/view/Widgets/fab_buttons/floating_button.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/grid_card.dart';
 import 'package:egy_travel/view/Widgets/shared_details.dart';
 import 'package:egy_travel/view_model/PlacesAddRemove/cubit/add_remove_cubit.dart';

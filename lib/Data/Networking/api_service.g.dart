@@ -389,13 +389,13 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<AddRemoveResponseModel> addFav(String id) async {
+  Future<GetProfileResponseModel> addFav(String id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<AddRemoveResponseModel>(Options(
+        _setStreamType<GetProfileResponseModel>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
@@ -411,18 +411,18 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = AddRemoveResponseModel.fromJson(_result.data!);
+    final value = GetProfileResponseModel.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<AddRemoveResponseModel> removeFav(String id) async {
+  Future<GetProfileResponseModel> removeFav(String id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<AddRemoveResponseModel>(Options(
+        _setStreamType<GetProfileResponseModel>(Options(
       method: 'DELETE',
       headers: _headers,
       extra: _extra,
@@ -438,18 +438,18 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = AddRemoveResponseModel.fromJson(_result.data!);
+    final value = GetProfileResponseModel.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<AddRemoveResponseModel> addTrip(String id) async {
+  Future<GetProfileResponseModel> addTrip(String id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<AddRemoveResponseModel>(Options(
+        _setStreamType<GetProfileResponseModel>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
@@ -465,18 +465,18 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = AddRemoveResponseModel.fromJson(_result.data!);
+    final value = GetProfileResponseModel.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<AddRemoveResponseModel> removeTrip(String id) async {
+  Future<GetProfileResponseModel> removeTrip(String id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<AddRemoveResponseModel>(Options(
+        _setStreamType<GetProfileResponseModel>(Options(
       method: 'DELETE',
       headers: _headers,
       extra: _extra,
@@ -492,7 +492,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = AddRemoveResponseModel.fromJson(_result.data!);
+    final value = GetProfileResponseModel.fromJson(_result.data!);
     return value;
   }
 
@@ -524,13 +524,13 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<ArtAddRemoveResponseModel> addArt(String id) async {
+  Future<GetProfileResponseModel> addArt(String id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ArtAddRemoveResponseModel>(Options(
+        _setStreamType<GetProfileResponseModel>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
@@ -546,18 +546,18 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ArtAddRemoveResponseModel.fromJson(_result.data!);
+    final value = GetProfileResponseModel.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<ArtAddRemoveResponseModel> removeArt(String id) async {
+  Future<GetProfileResponseModel> removeArt(String id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ArtAddRemoveResponseModel>(Options(
+        _setStreamType<GetProfileResponseModel>(Options(
       method: 'DELETE',
       headers: _headers,
       extra: _extra,
@@ -573,7 +573,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ArtAddRemoveResponseModel.fromJson(_result.data!);
+    final value = GetProfileResponseModel.fromJson(_result.data!);
     return value;
   }
 

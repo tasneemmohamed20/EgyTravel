@@ -1,14 +1,15 @@
 import 'package:egy_travel/Data/Networking/api_error_handler.dart';
 import 'package:egy_travel/Data/Networking/api_result.dart';
 import 'package:egy_travel/Data/Networking/api_service.dart';
-import 'package:egy_travel/model/Favorites/articles/art_add_remove_response.dart';
+
+import '../model/Profile/get_profile_response.dart';
 
 class AddFavArtRepo {
   final ApiService _apiService;
 
   AddFavArtRepo(this._apiService);
 
-  Future<ApiResult<ArtAddRemoveResponseModel>> addArt(String id) async {
+  Future<ApiResult<GetProfileResponseModel>> addArt(String id) async {
     try {
       final response = await _apiService.addArt(id);
       return ApiResult.success(response);
@@ -23,7 +24,7 @@ class RemoveFavArtRepo {
 
   RemoveFavArtRepo(this._apiService);
 
-  Future<ApiResult<ArtAddRemoveResponseModel>> removeArt(String id) async {
+  Future<ApiResult<GetProfileResponseModel>> removeArt(String id) async {
     try {
       final response = await _apiService.removeArt(id);
       return ApiResult.success(response);

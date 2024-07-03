@@ -88,23 +88,23 @@ abstract class ApiService {
 
   @PUT(
       '${AppStrings.endPointGetAllPlaces}${'/'}${AppStrings.endPointGetFavorite}/{id}')
-  Future<AddRemoveResponseModel> addFav(
+  Future<GetProfileResponseModel> addFav(
     @Path('id') String id,
   );
 
   @DELETE(
       '${AppStrings.endPointGetAllPlaces}${'/'}${AppStrings.endPointGetFavorite}/{id}')
-  Future<AddRemoveResponseModel> removeFav(
+  Future<GetProfileResponseModel> removeFav(
     @Path('id') String id,
   );
   @PUT(
       '${AppStrings.endPointGetAllPlaces}${'/'}${AppStrings.endPointUserTips}/{id}')
-  Future<AddRemoveResponseModel> addTrip(
+  Future<GetProfileResponseModel> addTrip(
     @Path('id') String id,
   );
   @DELETE(
       '${AppStrings.endPointGetAllPlaces}${'/'}${AppStrings.endPointUserTips}/{id}')
-  Future<AddRemoveResponseModel> removeTrip(
+  Future<GetProfileResponseModel> removeTrip(
     @Path('id') String id,
   );
 
@@ -115,12 +115,12 @@ abstract class ApiService {
 
   @PUT(
       '${AppStrings.endPointArticles}${'/'}${AppStrings.endPointGetFavorite}/{id}')
-  Future<ArtAddRemoveResponseModel> addArt(
+  Future<GetProfileResponseModel> addArt(
     @Path('id') String id,
   );
   @DELETE(
       '${AppStrings.endPointArticles}${'/'}${AppStrings.endPointGetFavorite}/{id}')
-  Future<ArtAddRemoveResponseModel> removeArt(
+  Future<GetProfileResponseModel> removeArt(
     @Path('id') String id,
   );
 }
