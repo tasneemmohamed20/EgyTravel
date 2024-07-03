@@ -38,20 +38,22 @@ class LocationService {
     return false;
   }
 
-  Future<void> getLocation({required LocationController controller}) async {
+  Future<LocationData?> getLocation(
+      {required LocationController controller}) async {
     controller.updateIsAccessingLocation(true);
     if (!(await checkForServiceAvailability())) {
       controller.errorDescription.value = 'Location service is not enabled';
       controller.updateIsAccessingLocation(false);
-      return;
+      return null;
     }
     if (!(await checkForPermission())) {
       controller.updateIsAccessingLocation(false);
-      return;
+      return null;
     }
 
     final LocationData data = await _location.getLocation();
     controller.updateUserLocation(data);
     controller.updateIsAccessingLocation(false);
+    return data;
   }
 }
