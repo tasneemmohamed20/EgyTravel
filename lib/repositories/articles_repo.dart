@@ -8,11 +8,10 @@ class ArticlesRepo{
 
   ArticlesRepo(this._apiService);
 
-  Future<ApiResult<ArticlesResponseModel>> getAllArticles() async {
+  Future<ApiResult<ArticlesResponseModel>> getAllArticles(String defaultLocal) async {
     try {
 
-      final response = await _apiService.getAllArticles(
-      );
+      final response = await _apiService.getAllArticles(defaultLocal);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ErrorHandler.handle(e));

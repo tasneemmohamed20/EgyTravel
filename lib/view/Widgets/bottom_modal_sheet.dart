@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
+import 'package:egy_travel/view_model/ArticlesCubit/cubit/articles_cubit.dart';
 import 'package:egy_travel/view_model/PlacesCubit/places_cubit.dart';
 import 'package:egy_travel/view_model/RadioButtons/radio_cubit.dart';
 import 'package:flutter/material.dart';
@@ -66,9 +67,15 @@ class CustomModalSheet extends StatelessWidget {
                                 .read<RadioButtonCubit>()
                                 .selectRadio(value, context);
                             if (value == 0) {
+                              context
+                                  .read<ArticlesCubit>()
+                                  .getAllArticles('en');
                               context.read<PlacesCubit>().getAllPlaces('en');
                             } else if (value == 1) {
                               context.read<PlacesCubit>().getAllPlaces('ar');
+                              context
+                                  .read<ArticlesCubit>()
+                                  .getAllArticles('ar');
                             }
                           }
                         },

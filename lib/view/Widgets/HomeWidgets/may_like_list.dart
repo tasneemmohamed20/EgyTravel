@@ -1,4 +1,3 @@
-import 'package:egy_travel/Data/dummy_data.dart';
 import 'package:egy_travel/model/Home/PlacesModels/places_response.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/places_details_screen.dart';
@@ -20,7 +19,7 @@ class MayLikeList extends StatelessWidget {
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount:
-              placesData.length > 10 ? 10 : items.length, // Change this line
+              placesData.length > 10 ? 10 : placesData.length, // Change this line
           itemBuilder: (context, index) {
             return SizedBox(
               width: mQwidth * 0.9,

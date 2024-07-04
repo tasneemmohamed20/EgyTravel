@@ -88,6 +88,74 @@ class $AssetsImagesGen {
       ];
 }
 
+class $AssetsLottieGen {
+  const $AssetsLottieGen();
+
+  /// File path: assets/lottie/ClearSky.json
+  String get clearSky => 'assets/lottie/ClearSky.json';
+
+  /// File path: assets/lottie/CloudyNight.json
+  String get cloudyNight => 'assets/lottie/CloudyNight.json';
+
+  /// File path: assets/lottie/DayRain.json
+  String get dayRain => 'assets/lottie/DayRain.json';
+
+  /// File path: assets/lottie/DayStorm.json
+  String get dayStorm => 'assets/lottie/DayStorm.json';
+
+  /// File path: assets/lottie/Foggy.json
+  String get foggy => 'assets/lottie/Foggy.json';
+
+  /// File path: assets/lottie/Mist.json
+  String get mist => 'assets/lottie/Mist.json';
+
+  /// File path: assets/lottie/PartlyCloudy.json
+  String get partlyCloudy => 'assets/lottie/PartlyCloudy.json';
+
+  /// File path: assets/lottie/RainyNight.json
+  String get rainyNight => 'assets/lottie/RainyNight.json';
+
+  /// File path: assets/lottie/Snow.json
+  String get snow => 'assets/lottie/Snow.json';
+
+  /// File path: assets/lottie/SnowNight.json
+  String get snowNight => 'assets/lottie/SnowNight.json';
+
+  /// File path: assets/lottie/Storm.json
+  String get storm => 'assets/lottie/Storm.json';
+
+  /// File path: assets/lottie/Sunny.json
+  String get sunny => 'assets/lottie/Sunny.json';
+
+  /// File path: assets/lottie/Sunny_Snow.json
+  String get sunnySnow => 'assets/lottie/Sunny_Snow.json';
+
+  /// File path: assets/lottie/Thunder.json
+  String get thunder => 'assets/lottie/Thunder.json';
+
+  /// File path: assets/lottie/Windy.json
+  String get windy => 'assets/lottie/Windy.json';
+
+  /// List of all assets
+  List<String> get values => [
+        clearSky,
+        cloudyNight,
+        dayRain,
+        dayStorm,
+        foggy,
+        mist,
+        partlyCloudy,
+        rainyNight,
+        snow,
+        snowNight,
+        storm,
+        sunny,
+        sunnySnow,
+        thunder,
+        windy
+      ];
+}
+
 class $AssetsTranslationsGen {
   const $AssetsTranslationsGen();
 
@@ -105,6 +173,7 @@ class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLottieGen lottie = $AssetsLottieGen();
   static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }
 

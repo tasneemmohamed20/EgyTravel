@@ -3,7 +3,6 @@ import 'package:egy_travel/Features/Weather/Presentation/View/Widgets/animated_d
 import 'package:egy_travel/Features/Weather/Presentation/View/Widgets/weather_tab_item.dart';
 import 'package:egy_travel/Features/Weather/Presentation/View/Widgets/weather_veiw_body.dart';
 import 'package:egy_travel/Features/Weather/Presentation/View/Widgets/weather_view_header.dart';
-import 'package:egy_travel/core/utils/color_manager.dart';
 import 'package:egy_travel/core/utils/styles.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';

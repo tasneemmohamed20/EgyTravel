@@ -1,4 +1,3 @@
-import 'package:egy_travel/Data/dummy_data.dart';
 import 'package:egy_travel/model/Home/PlacesModels/places_response.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/places_details_screen.dart';
@@ -23,7 +22,7 @@ class PlacesGridView extends StatelessWidget {
           mainAxisSpacing: 8.0,
           childAspectRatio: 0.75,
         ),
-        itemCount: placesData.length > 4 ? 4 : items.length,
+        itemCount: placesData.length > 4 ? 4 : placesData.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () => Navigator.push(

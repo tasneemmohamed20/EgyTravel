@@ -1,6 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:egy_travel/model/Favorites/articles/art_add_remove_response.dart';
-import 'package:egy_travel/model/Favorites/places/add_remove_response.dart';
 import 'package:egy_travel/model/Favorites/favorites_response.dart';
 import 'package:egy_travel/model/Home/ArticlesModels/articles_by_id_response.dart';
 import 'package:egy_travel/model/Home/PlacesModels/placesById_response.dart';
@@ -46,8 +44,7 @@ abstract class ApiService {
 
   @GET(AppStrings.endPointArticles)
   Future<ArticlesResponseModel> getAllArticles(
-      // @Query('page') int page,
-      // @Query('lang') String defaultLocale,
+      @Query('lang') String defaultLocale,
       );
 
   @POST(AppStrings.forgotPassword)

@@ -8,6 +8,7 @@ import 'package:egy_travel/view/Widgets/bottom_modal_sheet.dart';
 import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
 import 'package:egy_travel/res/colors_manager.dart';
+import 'package:egy_travel/view_model/ArticlesCubit/cubit/articles_cubit.dart';
 import 'package:egy_travel/view_model/EditProfile/cubit/edit_cubit.dart';
 import 'package:egy_travel/view_model/PlacesCubit/places_cubit.dart';
 import 'package:egy_travel/view_model/profileCubit/cubit/profile_cubit.dart';
@@ -152,8 +153,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
       ),
       isScrollControlled: true, // Allows for a larger modal sheet
-      builder: (context) => BlocProvider(
-        create: (context) => getIt<PlacesCubit>(),
+      builder: (context) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<PlacesCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => getIt<ArticlesCubit>(),
+          ),
+        ],
         child: CustomModalSheet(),
       ),
     );

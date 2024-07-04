@@ -24,7 +24,7 @@ class ViewAllArticlesState extends State<ViewAllArticles> {
   void initState() {
     super.initState();
     _scrollController.addListener(_onScroll);
-    context.read<ArticlesCubit>().getAllArticles();
+    // context.read<ArticlesCubit>().getAllArticles(defaultLocale);
   }
 
   // void _onScroll() {

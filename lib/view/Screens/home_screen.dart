@@ -72,7 +72,7 @@ class _HomeState extends State<Home> {
                   ),
                   BlocProvider(
                     create: (context) =>
-                        getIt<ArticlesCubit>()..getAllArticles(),
+                        getIt<ArticlesCubit>()..getAllArticles(defaultLocale),
                   ),
                 ],
                 child: Scaffold(

@@ -7,9 +7,11 @@ class ArticlesCubit extends Cubit<ArticleState> {
   final ArticlesRepo _articlesRepo;
   ArticlesCubit(this._articlesRepo) : super(const ArticleState.initial());
 
-  void getAllArticles() async {
+  void getAllArticles(String defaultLocale) async {
+    // Assign a default value here or modify according to your requirements
+
     emit(const ArticleState.getArticlesloading());
-    final response = await _articlesRepo.getAllArticles();
+    final response = await _articlesRepo.getAllArticles(defaultLocale);
     response.when(
       success: (ArticlesResponseModel articlesResponseModel) {
         emit(ArticleState.getArticlesSuccess(articlesResponseModel));
