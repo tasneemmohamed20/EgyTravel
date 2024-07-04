@@ -20,8 +20,10 @@ class ViewAllPlacesState extends State<ViewAllPlaces> {
   @override
   void initState() {
     super.initState();
-    _scrollController.addListener(_onScroll);
-    context.read<PlacesCubit>().getAllPlaces();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollController.addListener(_onScroll);
+      context.read<PlacesCubit>().getAllPlaces(context.locale.languageCode);
+    });
   }
 
   // void _onScroll() {
@@ -36,7 +38,6 @@ class ViewAllPlacesState extends State<ViewAllPlaces> {
     final threshold = maxScroll * 0.8; // 80% of the maximum scroll extent
 
     if (currentScroll >= threshold) {
-      // Trigger to load more data
       context.read<PlacesCubit>().loadMorePlaces();
     }
   }

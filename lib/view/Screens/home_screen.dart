@@ -30,23 +30,33 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  ValueNotifier<String>? defaultLocaleNotifier;
+
+  @override
   void initState() {
-    super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _changeLanguage(context.locale);
+      // context.read<PlacesCubit>().getAllPlaces(context.locale.languageCode);
+      defaultLocaleNotifier =
+          ValueNotifier<String>(context.locale.languageCode);
+      defaultLocaleNotifier!.addListener(() {
+        setState(() {});
+      });
     });
+
+    super.initState();
   }
 
-  
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   void _changeLanguage(Locale newLocale) async {
-    await context.setLocale(newLocale); // Update the locale
-    setState(() {}); // Rebuild the widget after locale change
+    await context.setLocale(newLocale);
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
+    String defaultLocale = context.locale.languageCode;
+
     final mQwidth = MediaQuery.of(context).size.width;
     final mQheight = MediaQuery.of(context).size.height;
 
@@ -57,7 +67,8 @@ class _HomeState extends State<Home> {
             child: MultiBlocProvider(
                 providers: [
                   BlocProvider(
-                    create: (context) => getIt<PlacesCubit>()..getAllPlaces(),
+                    create: (context) =>
+                        getIt<PlacesCubit>()..getAllPlaces(defaultLocale),
                   ),
                   BlocProvider(
                     create: (context) =>
@@ -107,6 +118,8 @@ class _HomeState extends State<Home> {
                                 ),
                                 onPressed: () {
                                   _scaffoldKey.currentState?.openDrawer();
+                                  setState(() {});
+                                  // Scaffold.of(context).openDrawer();
                                 },
                               ),
                               title: "Home".tr(),

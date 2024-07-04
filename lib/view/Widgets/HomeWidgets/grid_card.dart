@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomGridCard extends StatelessWidget {
@@ -38,14 +39,18 @@ class CustomGridCard extends StatelessWidget {
               width: imageWidth,
               height: imageWidth,
               child: ClipRRect(
-                borderRadius: borderRadius,
-                child: Image.network(
-                  image[0],
-                  fit: BoxFit.cover,
-                  height: imageWidth,
-                  width: double.infinity,
-                ),
-              ),
+                  borderRadius: borderRadius,
+                  child: CachedNetworkImage(
+                    imageUrl: image[0],
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                    placeholderFadeInDuration:
+                        const Duration(milliseconds: 500),
+                  )),
             ),
             Padding(
               padding: EdgeInsetsDirectional.symmetric(

@@ -155,18 +155,20 @@ class MainDrawer extends StatelessWidget {
                   leadingIcon: Icons.settings,
                   title: "Settings".tr(),
                   elementsColor: ColorsManager.primary.withOpacity(1),
-                  onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BlocProvider(
-                            create: (context) =>
-                                getIt<ProfileCubit>()..getProfile(),
-                            child: SettingsScreen(
-                              profileModel: profileModel!,
-                            ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BlocProvider(
+                          create: (context) =>
+                              getIt<ProfileCubit>()..getProfile(),
+                          child: SettingsScreen(
+                            profileModel: profileModel!,
                           ),
                         ),
-                      )),
+                      ),
+                    );
+                  }),
               const Spacer(),
               CustomListTile(
                   leadingIcon: Icons.logout_rounded,

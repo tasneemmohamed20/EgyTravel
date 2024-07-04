@@ -38,14 +38,6 @@ class CustomSliverAppBar extends StatelessWidget {
               color: ColorsManager.primary.withOpacity(1),
             ),
           ),
-          background: backgroundImageUrl != null
-              ? Image.network(
-                  backgroundImageUrl!,
-                  fit: BoxFit.cover,
-                )
-              : Container(
-                  color: ColorsManager.secondPrimary.withOpacity(1),
-                ),
         ),
         leading: leading);
   }

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -23,10 +24,16 @@ class SharedDetials extends StatelessWidget {
         SizedBox(
           height: mQheight * 2 / 5,
           width: mQwidth,
-          child: Image.network(
-            image,
-            fit: BoxFit.cover,
-          ),
+          child: 
+          CachedNetworkImage(
+                  imageUrl: image,
+                  fit: BoxFit.cover,
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  placeholderFadeInDuration: const Duration(milliseconds: 500),
+                ),
         ),
         Positioned(
           top: mQheight * 2 / 5 - 50,

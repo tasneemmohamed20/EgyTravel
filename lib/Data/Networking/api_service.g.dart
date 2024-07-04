@@ -78,9 +78,15 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<PlacesResponseModel> getAllPlaces(int page) async {
+  Future<PlacesResponseModel> getAllPlaces(
+    int page,
+    String defaultLocale,
+  ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'page': page};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'lang': defaultLocale,
+    };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(

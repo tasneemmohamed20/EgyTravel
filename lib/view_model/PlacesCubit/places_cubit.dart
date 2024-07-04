@@ -1,3 +1,4 @@
+import 'package:egy_travel/core/helpers/constants.dart';
 import 'package:egy_travel/model/Home/PlacesModels/places_response.dart';
 import 'package:egy_travel/repositories/places_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,11 +13,13 @@ class PlacesCubit extends Cubit<PlacesState> {
 
   PlacesCubit(this._placesRepo) : super(const PlacesState.initial());
 
-  Future<void> getAllPlaces() async {
+  Future<void> getAllPlaces(
+    String defaultLocale,
+  ) async {
     emit(const PlacesState.getPlacesloading()); // Indicate initial loading
 
-    final response =
-        await _placesRepo.getAllPlaces(_currentPage); // Fetch initial page
+    final response = await _placesRepo.getAllPlaces(
+        _currentPage, defaultLocale); // Fetch initial page
 
     response.when(
       success: (placesResponseModel) {
@@ -33,14 +36,18 @@ class PlacesCubit extends Cubit<PlacesState> {
     );
   }
 
-  Future<void> loadMorePlaces() async {
-    if (_isLastPage || state is GetPlacesloading)
-      return; // Avoid unnecessary loads
+  void rebuild() {
+    emit(const PlacesState.initial());
+  }
 
+  Future<void> loadMorePlaces() async {
+    if (_isLastPage || state is GetPlacesloading) {
+      return;
+    } // Do nothing if already loading or reached last page
     emit(const PlacesState.getPlacesloading()); // Indicate loading more
 
-    final response =
-        await _placesRepo.getAllPlaces(_currentPage); // Fetch next page
+    final response = await _placesRepo.getAllPlaces(
+        _currentPage, defaultLocale); // Fetch next page
 
     response.when(
       success: (placesResponseModel) {
@@ -55,20 +62,4 @@ class PlacesCubit extends Cubit<PlacesState> {
       },
     );
   }
-
-  // Future<void> getRecommended(int id) async {
-  //   emit(const PlacesState.getRecommendedloading()); // Indicate initial loading
-
-  //   final response = await _placesRepo.getRecommended(id); // Fetch initial page
-
-  //   response.when(
-  //     success: (recommendedResponseModel) {
-  //       emit(PlacesState.getRecommendedSuccess(
-  //           recommendedResponseModel.recommendations));
-  //     },
-  //     failure: (errorHandler) {
-  //       emit(PlacesState.getPlacesError(errorHandler));
-  //     },
-  //   );
-  // }
 }

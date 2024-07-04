@@ -9,6 +9,7 @@ import 'package:egy_travel/view/Widgets/shared_appbar.dart';
 import 'package:egy_travel/view/Widgets/shared_list_tile.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view_model/EditProfile/cubit/edit_cubit.dart';
+import 'package:egy_travel/view_model/PlacesCubit/places_cubit.dart';
 import 'package:egy_travel/view_model/profileCubit/cubit/profile_cubit.dart';
 import 'package:egy_travel/view_model/profileCubit/cubit/profile_state.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +25,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -153,7 +152,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
       ),
       isScrollControlled: true, // Allows for a larger modal sheet
-      builder: (context) => CustomModalSheet(),
+      builder: (context) => BlocProvider(
+        create: (context) => getIt<PlacesCubit>(),
+        child: CustomModalSheet(),
+      ),
     );
   }
 }

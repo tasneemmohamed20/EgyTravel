@@ -41,7 +41,7 @@ abstract class ApiService {
   @GET(AppStrings.endPointGetAllPlaces)
   Future<PlacesResponseModel> getAllPlaces(
     @Query('page') int page,
-    // @Query('lang') String defaultLocale,
+    @Query('lang') String defaultLocale,
   );
 
   @GET(AppStrings.endPointArticles)

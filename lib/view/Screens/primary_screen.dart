@@ -18,8 +18,7 @@ class PrimaryScreenState extends State<PrimaryScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _changeLanguage(context.locale);
-      // If you need to use EasyLocalization.of(context) to listen for locale changes, do it here
+      _changeLanguage(context.locale);     
     });
   }
 
@@ -47,6 +46,7 @@ class PrimaryScreenState extends State<PrimaryScreen> {
 
     return SafeArea(
         child: Scaffold(
+          
       body: actriveScreen,
       bottomNavigationBar: PopScope(
         canPop: _selectedPageIndex != 0 ? false : true,

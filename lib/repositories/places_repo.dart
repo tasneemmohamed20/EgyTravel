@@ -8,13 +8,13 @@ class PlacesRepo {
 
   PlacesRepo(this._apiService);
 
-  Future<ApiResult<PlacesResponseModel>> getAllPlaces(int currentPage) async {
+  Future<ApiResult<PlacesResponseModel>> getAllPlaces(
+      int page, String defaultLocale) async {
     try {
-      final response = await _apiService.getAllPlaces(currentPage);
+      final response = await _apiService.getAllPlaces(page, defaultLocale);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ErrorHandler.handle(e));
     }
   }
-
 }
