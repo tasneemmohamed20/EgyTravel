@@ -22,7 +22,7 @@ class ProfileScreen extends StatelessWidget {
           ),
           body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsetsDirectional.symmetric(vertical: 32.0),
@@ -46,13 +46,9 @@ class ProfileScreen extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.symmetric(vertical: 8.0),
-                child: Row(
-                  children: [
-                    ProfileDetail(
-                        label: 'Email'.tr(),
-                        value: profileModel.data!.userData!.email ?? ''),
-                  ],
-                ),
+                child: ProfileDetail(
+                    label: 'Email'.tr(),
+                    value: profileModel.data!.userData!.email ?? ''),
               ),
               Padding(
                   padding: const EdgeInsetsDirectional.symmetric(vertical: 8.0),
