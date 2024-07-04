@@ -56,16 +56,19 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                           children: [
                             Align(
                               alignment: AlignmentDirectional.topStart,
-                              child: Text(
-                                softWrap: true,
-                                controller.items[index].title,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white70,
-                                    fontSize:
-                                        (MediaQuery.of(context).size.width *
-                                                0.5) *
-                                            0.15),
+                              child: SizedBox(
+                                width: 320,
+                                child: Text(
+                                  softWrap: true,
+                                  controller.items[index].title,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white70,
+                                      fontSize:
+                                          (MediaQuery.of(context).size.width *
+                                                  0.5) *
+                                              0.15),
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -73,17 +76,20 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                     MediaQuery.of(context).size.height * 0.02),
                             Align(
                               alignment: AlignmentDirectional.topStart,
-                              child: Text(
-                                softWrap: true,
-                                controller.items[index].descripton,
-                                maxLines: 3,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: ColorsManager.white,
-                                    fontSize:
-                                        (MediaQuery.of(context).size.width *
-                                                0.5) *
-                                            0.08),
+                              child: SizedBox(
+                                width: 332,
+                                child: Text(
+                                  softWrap: true,
+                                  controller.items[index].descripton,
+                                  maxLines: 3,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: ColorsManager.white,
+                                      fontSize:
+                                          (MediaQuery.of(context).size.width *
+                                                  0.5) *
+                                              0.08),
+                                ),
                               ),
                             ),
                           ],

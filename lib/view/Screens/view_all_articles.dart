@@ -8,6 +8,8 @@ import "package:egy_travel/view_model/ArticlesCubit/cubit/articles_state.dart";
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 
+import "../../core/helpers/constants.dart";
+
 class ViewAllArticles extends StatefulWidget {
   const ViewAllArticles({
     super.key,
@@ -24,7 +26,7 @@ class ViewAllArticlesState extends State<ViewAllArticles> {
   void initState() {
     super.initState();
     _scrollController.addListener(_onScroll);
-    // context.read<ArticlesCubit>().getAllArticles(defaultLocale);
+     context.read<ArticlesCubit>().getAllArticles(defaultLocale);
   }
 
   // void _onScroll() {

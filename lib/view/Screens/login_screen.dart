@@ -81,7 +81,7 @@ class _LogInScreenState extends State<LogInScreen> {
                           CustomPasswordField(
                             validator: (value) {
                               if (value.isEmpty) {
-                                return 'Please enter a valid password';
+                                return 'Please enter a valid password'.tr();
                               }
                             },
                             passwordController:

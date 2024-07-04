@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/login_screen.dart';
 import 'package:egy_travel/view_model/DeleteCubit/cubit/delete_account_cubit.dart';
@@ -50,7 +51,7 @@ class DeleteBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          error.tr(),
           textAlign: TextAlign.center,
           style: TextStyle(
             color: ColorsManager.primary.withOpacity(1),
@@ -64,7 +65,7 @@ class DeleteBlocListener extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Text(
-              'Got it',
+              'Got it'.tr(),
               style: TextStyle(
                 color: ColorsManager.primary.withOpacity(1),
                 fontSize: 16,
@@ -83,13 +84,13 @@ class DeleteBlocListener extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           backgroundColor: ColorsManager.secondPrimary,
-          title: const Text('Account Deleted'),
+          title:  Text('Account Deleted'.tr(),textAlign: TextAlign.center, ),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
                 Text(
-                  'You have deleted your account.',
-                  textAlign: TextAlign.left,
+                  'You have deleted your account.'.tr(),
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     color: ColorsManager.primary.withOpacity(1),
                     fontSize: 16,
@@ -114,7 +115,7 @@ class DeleteBlocListener extends StatelessWidget {
                     (route) => false);
               },
               child: Text(
-                'Got it',
+                'Got it'.tr(),
                 style: TextStyle(
                   color: ColorsManager.primary.withOpacity(1),
                   fontSize: 16,

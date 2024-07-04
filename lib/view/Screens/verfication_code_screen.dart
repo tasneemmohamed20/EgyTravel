@@ -141,7 +141,7 @@ class VerficationCodeScreen extends StatelessWidget {
                                 labelText: "Password".tr(),
                                 validator: (value) {
                                   if (value.isEmpty) {
-                                    return 'Please enter a valid password';
+                                    return 'Please enter a valid password'.tr();
                                   }
                                 },
                               ),
@@ -153,7 +153,7 @@ class VerficationCodeScreen extends StatelessWidget {
                                 labelText: "ConfirmPassword".tr(),
                                 validator: (value) {
                                   if (value.isEmpty) {
-                                    return 'Please enter a valid password';
+                                    return 'Please enter a valid password'.tr();
                                   }
                                 },
                               ),

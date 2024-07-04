@@ -84,7 +84,7 @@ class ForgotPassword extends StatelessWidget {
                             CustomTextField(
                               validator: (value) {
                                 if (value.isEmpty) {
-                                  return 'Please enter a valid password';
+                                  return 'Please enter a valid password'.tr();
                                 }
                               },
                               controller:

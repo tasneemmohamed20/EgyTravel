@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/core/Di/dependency_injection.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Widgets/fab_buttons/floating_button.dart';
@@ -59,7 +60,7 @@ class PlacesDetailsScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         Text(
-                          'Recommendations',
+                          'Recommendations'.tr(),
                           style: TextStyle(
                             color: ColorsManager.secondPrimary.withOpacity(1),
                             fontWeight: FontWeight.bold,

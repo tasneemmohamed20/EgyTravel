@@ -11,8 +11,11 @@ import 'package:egy_travel/view_model/DeleteCubit/cubit/delete_account_cubit.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../model/Profile/get_profile_response.dart';
+
 class DeleteAccount extends StatefulWidget {
-  const DeleteAccount({super.key});
+  final GetProfileResponseModel profileModel;
+  const DeleteAccount({super.key, required this.profileModel});
 
   @override
   State<DeleteAccount> createState() => _DeleteAccountState();
@@ -30,6 +33,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
 
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
         child: Scaffold(
       resizeToAvoidBottomInset: true,
@@ -49,7 +53,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
             child: Align(
               alignment: AlignmentDirectional.topStart,
               child: Text(
-                "${"Hi".tr()}Tasneem${"DeleteAccountCaption1".tr()}",
+                "${"Hi".tr()}\n${widget.profileModel.data!.userData!.name} ${"DeleteAccountCaption".tr()}",
                 softWrap: true,
                 style: TextStyle(
                     fontSize: 18,
@@ -108,7 +112,7 @@ class _DeleteAccountState extends State<DeleteAccount> {
               labelText: 'YourPassword'.tr(),
               validator: (value) {
                 if (value.isEmpty) {
-                  return 'Please enter a valid password';
+                  return 'Please enter a valid password'.tr();
                 }
               },
             ),

@@ -128,7 +128,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Privacy()),
+                                builder: (context) =>  Privacy(profileModel: widget.profileModel,)),
                           ),
                       leadingIcon: Icons.shield_rounded),
                   CustomListTile(

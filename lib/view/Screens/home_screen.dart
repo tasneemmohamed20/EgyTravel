@@ -93,7 +93,7 @@ class _HomeState extends State<Home> {
                                     ColorsManager.secondPrimary.withOpacity(1),
                               ),
                               Text(
-                                  'No internet connection!, please check your connection and try again.',
+                                  'No internet connection!, please check your connection and try again.'.tr(),
                                   softWrap: true,
                                   maxLines: 2,
                                   textAlign: TextAlign.center,

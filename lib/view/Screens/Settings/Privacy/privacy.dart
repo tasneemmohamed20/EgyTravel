@@ -10,8 +10,11 @@ import 'package:egy_travel/view_model/DeleteCubit/cubit/delete_account_cubit.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../model/Profile/get_profile_response.dart';
+
 class Privacy extends StatelessWidget {
-  const Privacy({super.key});
+  final GetProfileResponseModel profileModel;
+  const Privacy({super.key, required this.profileModel});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +71,7 @@ class Privacy extends StatelessWidget {
                           builder: (context) => BlocProvider(
                                 create: (context) =>
                                     getIt<DeleteAccountCubit>(),
-                                child: const DeleteAccount(),
+                                child:  DeleteAccount(profileModel: profileModel),
                               )),
                     ),
                 leadingIcon: Icons.delete_outline),

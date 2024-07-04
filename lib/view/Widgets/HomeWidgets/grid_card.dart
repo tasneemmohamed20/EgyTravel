@@ -57,8 +57,8 @@ class CustomGridCard extends StatelessWidget {
                   vertical: (subtitle == "") ? 16 : 4, horizontal: 4),
               child: Text(
                 title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+                overflow: TextOverflow.clip, //! HERE
                 style: TextStyle(
                   color: titleColor,
                   fontWeight: FontWeight.bold,

@@ -170,7 +170,7 @@
 
   "____________________________________":"________________________________",
 
-    "Verfication" : "Verfication",
+    "Verfication" : "Verification",
 
     "VerficationCaption" : "Kindly input the code that was supplied to the email address you registered.",
 
@@ -198,7 +198,64 @@
 
   "At least one special character": "At least one special character",
 
-  "At least 8 character long": "At least 8 character long"
+  "At least 8 character long": "At least 8 character long",
+
+  "_____________________________________" : "________________________________",
+
+  "No internet connection!, please check your connection and try again." : "No internet connection!, please check your connection and try again.",
+
+  "Please enter a valid password" : "Please enter a valid password",
+
+  "You have deleted your account.": "You have deleted your account.",
+  "Password required" : "Password required",
+  "Current password required" : "Current password required",
+  "Email required" : "Email required",
+  "New password required" : "New password required",
+  "Confirm password required" : "Confirm password required",
+  "Reset password succeeded": "Reset password succeeded",
+  "Congratulations, you have reset password successfully!" : "Congratulations, you have reset password successfully!",
+  "Please enter a valid name": "Please enter a valid name",
+  "Please enter a valid Email": "Please enter a valid Email",
+  "Please enter a valid address": "Please enter a valid address",
+  "updating succeeded" : "updating succeeded",
+  "Congratulations, you have updated your data successfully!": "Congratulations, you have updated your data successfully!",
+
+  "Incorrect email or password": "Incorrect email or password",
+  "Invalid email address" : "Invalid email address",
+  "Invalid password" : "Invalid password",
+  "Password must be at least 8 characters":  "Password must be at least 8 characters",
+  "Password do not match" : "Password do not match",
+  "Your current password is incorrect" : "Your current password is incorrect",
+  "Account Deleted" : "Account Deleted",
+
+  "All" : "All",
+  "Ecotourism" : "Ecotourism",
+  "Religious" : "Religious",
+  "Cultural" : "Cultural",
+  "Leisure" : "Leisure",
+  "Medical" : "Medical",
+  "Sports" : "Sports",
+
+  "SearchTitle": "Search",
+
+  "Recommendations": "Recommendations",
+
+  "Email dose not found" : "Email is not found",
+
+  "Invalid token": "Seems like you got OTP wrong"
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

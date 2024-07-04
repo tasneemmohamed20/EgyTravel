@@ -146,7 +146,7 @@
 
     "ConfirmNewPassword" : "تأكيد كلمة السر الجديدة",
 
-    "Hi" : "Hi, ",
+    "Hi" : "أهلا! ",
 
     "DeleteAccountCaption" : "\nنأسف لسماع أنك ترغب في حذف حسابك.",
 
@@ -190,7 +190,65 @@
   "At least one uppercase letter" : "على الأقل حرف كبير واحد",
   "At least one number": "على الأقل رقم واحد",
   "At least one special character": "على الأقل حرف خاص واحد",
-  "At least 8 character long": "يجب أن يكون طول كلمة المرور على الأقل ٨ أحرف"
+  "At least 8 character long": "يجب أن يكون طول كلمة المرور على الأقل ٨ أحرف",
+
+  "_____________________________________" : "________________________________",
+
+  "No internet connection!, please check your connection and try again." : "لا يوجد اتصال بالإنترنت!، يرجى التحقق من اتصالك والمحاولة مرة أخرى.",
+
+  "Please enter a valid password" : "يرجى إدخال كلمة مرور صالحة",
+
+  "You have deleted your account." : "لقد قمت بحذف حسابك.",
+  "Password required" : "كلمة المرور مطلوبة",
+  "Current password required" : "كلمة المرور الحالية مطلوبة",
+  "Email required" : "البريد الإلكتروني مطلوب",
+  "New password required" : "كلمة المرور الجديدة مطلوبة",
+  "Confirm password required" : "تأكيد كلمة المرور مطلوب",
+  "Reset password succeeded" : "تم إعادة تعيين كلمة المرور بنجاح",
+  "Congratulations, you have reset password successfully!" : "تهانينا، لقد تم إعادة تعيين كلمة المرور بنجاح!",
+
+  "Please enter a valid name" : "يرجى إدخال اسم صالح",
+  "Please enter a valid Email" : "يرجى إدخال بريد إلكتروني صالح",
+  "Please enter a valid address" : "يرجى إدخال عنوان صالح",
+  "updating succeeded" : "تم التحديث بنجاح",
+  "Congratulations, you have updated your data successfully!" : "تهانينا، لقد تم تحديث بياناتك بنجاح!",
+
+
+
+  "Incorrect email or password" : "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+  "Invalid email address" : "عنوان البريد الإلكتروني غير صالح",
+  "Invalid password" : "كلمة المرور غير صالحة",
+  "Password must be at least 8 characters" : "يجب أن تكون كلمة المرور مكونة من ٨ أحرف على الأقل",
+  "Password do not match" : "كلمات المرور غير متطابقة",
+  "Your current password is incorrect" : "كلمة المرور الحالية غير صحيحة",
+  "Account Deleted" : "تم حذف الحساب",
+
+  "All" : "الكل",
+  "Ecotourism" : "السياحة البيئية",
+  "Religious" : "ديني",
+  "Cultural" : "ثقافي",
+  "Leisure" : "ترفيهي",
+  "Medical" : "طبي",
+  "Sports" : "رياضي",
+
+  "SearchTitle": "بحث",
+
+  "Recommendations": "مقترحات",
+
+  "Email dose not found" : "البريد الإلكتروني غير موجود",
+
+
+  "Invalid token" : "يبدو أنك أدخلت رمز التحقق بشكل خاطئ"
+
+
+
+
+
+
+
+
+
+
 
 
 }
