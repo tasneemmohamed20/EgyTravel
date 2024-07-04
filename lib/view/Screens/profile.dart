@@ -44,9 +44,16 @@ class ProfileScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold)),
                 ),
               ),
-              ProfileDetail(
-                  label: 'Email'.tr(),
-                  value: profileModel.data!.userData!.email ?? ''),
+              Padding(
+                padding: const EdgeInsetsDirectional.symmetric(vertical: 8.0),
+                child: Row(
+                  children: [
+                    ProfileDetail(
+                        label: 'Email'.tr(),
+                        value: profileModel.data!.userData!.email ?? ''),
+                  ],
+                ),
+              ),
               Padding(
                   padding: const EdgeInsetsDirectional.symmetric(vertical: 8.0),
                   child: Divider(
@@ -55,9 +62,12 @@ class ProfileScreen extends StatelessWidget {
                     indent: MediaQuery.of(context).size.width * 0.1,
                     endIndent: MediaQuery.of(context).size.width * 0.1,
                   )),
-              ProfileDetail(
-                  label: 'Address'.tr(),
-                  value: profileModel.data!.userData!.address ?? ''),
+              Padding(
+                padding: const EdgeInsetsDirectional.symmetric(vertical: 8.0),
+                child: ProfileDetail(
+                    label: 'Address'.tr(),
+                    value: profileModel.data!.userData!.address ?? ''),
+              ),
             ],
           )),
     );

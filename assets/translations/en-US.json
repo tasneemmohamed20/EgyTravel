@@ -1,5 +1,5 @@
 {
-    "WelcomeToEgyTravel" : "W elcome to EgyTravel",
+    "WelcomeToEgyTravel" : "Welcome to EgyTravel",
 
     "Languages" : "Languages",
 
@@ -76,6 +76,8 @@
     "validAddress" : "Please enter your address.",
 
     "ConfirmPassword" : "Confirm Password",
+
+    "Password does ot match" : "Password does not match",
 
     
   "______________________________":"________________________________",
@@ -172,5 +174,33 @@
 
     "VerficationCaption" : "Kindly input the code that was supplied to the email address you registered.",
 
-    "Verify" : "Verify"
-  }
+    "Verify" : "Verify",
+
+  "_________________________________________":"_________________________________________",
+
+  "Weather" : "Weather",
+
+  "__________________________________________":"_________________________________________",
+
+  "Got it" : "Got it!",
+
+  "Signup Successful" : "Signup Successful",
+
+  "Congratulations, you have signed up successfully!" : "Congratulations, you have signed up successfully!",
+
+  "Continue" : "Continue",
+
+  "At least one lowercase letter" : "At least one lowercase letter",
+
+  "At least one uppercase letter" : "At least one uppercase letter",
+
+  "At least one number": "At least one number",
+
+  "At least one special character": "At least one special character",
+
+  "At least 8 character long": "At least 8 character long"
+
+
+
+
+}

@@ -27,42 +27,45 @@ class ChatbotScreen extends StatelessWidget {
   Widget _buildUI() {
     return BlocBuilder<ChatbotCubit, ChatbotState>(
       builder: (context, state) {
-        return DashChat(
-          messageOptions: MessageOptions(
-            currentUserContainerColor:
-                ColorsManager.secondPrimary.withOpacity(1),
-            currentUserTextColor: Colors.white70,
-            containerColor: ColorsManager.secondPrimary.withOpacity(1),
-            textColor: Colors.white70,
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 8),
+          child: DashChat(
+            messageOptions: MessageOptions(
+              currentUserContainerColor:
+                  ColorsManager.secondPrimary.withOpacity(1),
+              currentUserTextColor: Colors.white70,
+              containerColor: ColorsManager.secondPrimary.withOpacity(1),
+              textColor: Colors.white70,
+            ),
+            inputOptions: InputOptions(
+                inputToolbarPadding: const EdgeInsets.symmetric(horizontal: 16),
+                trailing: [
+                  IconButton(
+                    onPressed: () =>
+                        context.read<ChatbotCubit>().sendMediaMessage(),
+                    icon: Icon(
+                      Icons.image_rounded,
+                      color: ColorsManager.secondPrimary.withOpacity(1),
+                    ),
+                  )
+                ],
+                sendOnEnter: true,
+                sendButtonBuilder: (Function onSend) {
+                  return IconButton(
+                    onPressed: () {
+                      onSend();
+                    },
+                    icon: Icon(
+                      Icons.send_rounded,
+                      color: ColorsManager.secondPrimary.withOpacity(1),
+                    ),
+                  );
+                }),
+            currentUser: context.read<ChatbotCubit>().currentUser,
+            onSend: (chatMessage) =>
+                context.read<ChatbotCubit>().sendMessage(chatMessage),
+            messages: state.messages,
           ),
-          inputOptions: InputOptions(
-              inputToolbarPadding: const EdgeInsets.symmetric(horizontal: 16),
-              trailing: [
-                IconButton(
-                  onPressed: () =>
-                      context.read<ChatbotCubit>().sendMediaMessage(),
-                  icon: Icon(
-                    Icons.image_rounded,
-                    color: ColorsManager.secondPrimary.withOpacity(1),
-                  ),
-                )
-              ],
-              sendOnEnter: true,
-              sendButtonBuilder: (Function onSend) {
-                return IconButton(
-                  onPressed: () {
-                    onSend();
-                  },
-                  icon: Icon(
-                    Icons.send_rounded,
-                    color: ColorsManager.secondPrimary.withOpacity(1),
-                  ),
-                );
-              }),
-          currentUser: context.read<ChatbotCubit>().currentUser,
-          onSend: (chatMessage) =>
-              context.read<ChatbotCubit>().sendMessage(chatMessage),
-          messages: state.messages,
         );
       },
     );

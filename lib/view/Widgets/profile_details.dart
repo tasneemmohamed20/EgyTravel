@@ -10,39 +10,34 @@ class ProfileDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.1,
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                label,
-                style: TextStyle(
-                    fontSize: 25,
-                    color: ColorsManager.secondPrimary.withOpacity(1),
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
+          child: Text(
+            label,
+            style: TextStyle(
+                fontSize: 25,
+                color: ColorsManager.secondPrimary.withOpacity(1),
+                fontWeight: FontWeight.bold),
           ),
         ),
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.1,
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                value,
-                style: TextStyle(
-                    fontSize: 20,
-                    color: ColorsManager.secondPrimary.withOpacity(1),
-                    fontWeight: FontWeight.w500),
-              ),
-            ],
+          child: Text(
+            value,
+            softWrap: true,
+            // textAlign: TextAlign.start,
+
+            style: TextStyle(
+
+                fontSize: 20,
+                color: ColorsManager.secondPrimary.withOpacity(1),
+                fontWeight: FontWeight.w500),
           ),
         ),
         
