@@ -81,6 +81,9 @@ class VerficationCodeScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 32),
                           child: Pinput(
+                            controller: context
+                                .read<ResetPasswordCubit>()
+                                .otpController,
                             length: 4,
                             defaultPinTheme: PinTheme(
                                 width: 56,

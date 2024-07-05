@@ -175,7 +175,7 @@ class MainDrawer extends StatelessWidget {
                   title: "LogOut".tr(),
                   elementsColor: ColorsManager.primary.withOpacity(1),
                   onTap: () {
-                    SharedPrefHelper.removeData(SharedPrefKeys.userToken);
+                    // SharedPrefHelper.removeData(SharedPrefKeys.userToken);
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
