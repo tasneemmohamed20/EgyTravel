@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view_model/ChangePassword/cubit/change_password_cubit.dart';
 import 'package:egy_travel/view_model/ChangePassword/cubit/change_password_state.dart';
@@ -49,7 +50,7 @@ class ChangeBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          error.tr(),
           textAlign: TextAlign.center,
           style: TextStyle(
             color: ColorsManager.primary.withOpacity(1),
@@ -63,7 +64,7 @@ class ChangeBlocListener extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Text(
-              'Got it',
+              'Got it'.tr(),
               style: TextStyle(
                 color: ColorsManager.primary.withOpacity(1),
                 fontSize: 16,
@@ -82,13 +83,13 @@ class ChangeBlocListener extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           backgroundColor: ColorsManager.secondPrimary,
-          title: const Text('Reset password succeeded'),
+          title:  Text('Reset password succeeded'.tr()),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
                 Text(
-                  'Congratulations, you have reset password successfully!',
-                  textAlign: TextAlign.left,
+                  'Congratulations, you have reset password successfully!'.tr(),
+                  textAlign: TextAlign.start,
                   style: TextStyle(
                     color: ColorsManager.primary.withOpacity(1),
                     fontSize: 16,
@@ -110,7 +111,7 @@ class ChangeBlocListener extends StatelessWidget {
                 Navigator.pop(context);
               },
               child: Text(
-                'Got it',
+                'Got it'.tr(),
                 style: TextStyle(
                   color: ColorsManager.primary.withOpacity(1),
                   fontSize: 16,

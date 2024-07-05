@@ -4,28 +4,15 @@ import 'package:egy_travel/view/Screens/places_details_screen.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/list_card.dart';
 import 'package:flutter/material.dart';
 
-class AllPlacesW extends StatefulWidget {
+class AllPlacesW extends StatelessWidget {
+  final List<PlacesData?>? data;
+  final ScrollController? _scrollController;
+
   const AllPlacesW({
     super.key,
-    this.data,
-    this.scrollController,
-  });
-
-  final List<PlacesData?>? data;
-  final ScrollController? scrollController; // Store the scroll controller
-
-  @override
-  State<AllPlacesW> createState() => _AllPlacesWState();
-}
-
-class _AllPlacesWState extends State<AllPlacesW> {
-  final ScrollController _scrollController = ScrollController();
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController.addListener(loadMoreData);
-  }
+    required this.data,
+    required ScrollController? scrollController,
+  }) : _scrollController = scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +20,14 @@ class _AllPlacesWState extends State<AllPlacesW> {
     return Padding(
       padding: const EdgeInsetsDirectional.symmetric(
         horizontal: 16.0,
+        vertical: 6,
       ),
       child: ListView.builder(
         physics: const AlwaysScrollableScrollPhysics(),
         shrinkWrap: false,
         controller: _scrollController,
         scrollDirection: Axis.vertical,
-        itemCount: widget.data!.length,
+        itemCount: data!.length,
         itemBuilder: (context, index) {
           return SizedBox(
             width: mQwidth * 0.9,
@@ -48,21 +36,21 @@ class _AllPlacesWState extends State<AllPlacesW> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => PlacesDetailsScreen(
-                    placeId: widget.data![index]?.placeId ?? '',
-                    recommendedId: widget.data![index]?.id ?? 0,
-                    lat: widget.data![index]?.latitude ?? 0,
-                    long: widget.data![index]?.longitude ?? 0,
-                    description: [widget.data![index]?.description ?? ''],
-                    image: widget.data![index]?.image ?? '',
-                    subtitle: widget.data![index]?.location ?? '',
-                    title: widget.data![index]?.name ?? '',
+                    placeId: data![index]?.placeId ?? '',
+                    recommendedId: data![index]?.id ?? 0,
+                    lat: data![index]?.latitude ?? 0,
+                    long: data![index]?.longitude ?? 0,
+                    description: [data![index]?.description ?? ''],
+                    image: data![index]?.image ?? '',
+                    subtitle: data![index]?.location ?? '',
+                    title: data![index]?.name ?? '',
                   ),
                 ),
               ),
               child: CustomListCard(
-                image: [widget.data![index]?.image ?? ''],
-                subtitle: widget.data![index]?.location ?? '',
-                title: widget.data![index]?.name ?? '',
+                image: [data![index]?.image ?? ''],
+                subtitle: data![index]?.location ?? '',
+                title: data![index]?.name ?? '',
                 imageWidth: mQwidth * 0.4,
                 cardColor: ColorsManager.secondPrimary.withOpacity(1),
                 titleColor: ColorsManager.primary.withOpacity(1),
@@ -73,9 +61,5 @@ class _AllPlacesWState extends State<AllPlacesW> {
         },
       ),
     );
-  }
-
-  void loadMoreData() {
-    // Load more data
   }
 }

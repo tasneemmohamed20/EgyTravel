@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/login_screen.dart';
 import 'package:egy_travel/view_model/SignUpCubit/sign_up_cubit.dart';
@@ -46,12 +47,12 @@ class SignupBlocListener extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           backgroundColor: ColorsManager.secondPrimary,
-          title: const Text('Signup Successful'),
+          title:  Text('Signup Successful'.tr()),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
                 Text(
-                  'Congratulations, you have signed up successfully!',
+                  'Congratulations, you have signed up successfully!'.tr(),
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     color: ColorsManager.primary.withOpacity(1),
@@ -76,7 +77,7 @@ class SignupBlocListener extends StatelessWidget {
                 );
               },
               child: Text(
-                'Continue',
+                'Continue'.tr(),
                 style: TextStyle(
                   color: ColorsManager.primary.withOpacity(1),
                   fontSize: 16,

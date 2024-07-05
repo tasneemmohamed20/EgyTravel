@@ -60,7 +60,7 @@ class PickLanguage extends StatelessWidget {
               foregroundColor: Colors.grey.shade700,
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.only(top: 10),
+              padding: const EdgeInsetsDirectional.only(top: 10, start: 8, end: 8),
               child: Text("YoucanChangeYourLanguage".tr(),
                   style: const TextStyle(
                       color: Colors.white70,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +55,7 @@ class LoginBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          error.tr(),
           textAlign: TextAlign.center,
           style: TextStyle(
             color: ColorsManager.primary.withOpacity(1),
@@ -68,7 +69,7 @@ class LoginBlocListener extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Text(
-              'Got it',
+              'Got it'.tr(),
               style: TextStyle(
                 color: ColorsManager.primary.withOpacity(1),
                 fontSize: 16,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view/Screens/places_details_screen.dart';
 import 'package:egy_travel/view/Widgets/HomeWidgets/list_card.dart';
@@ -36,13 +37,13 @@ class _SearchScreenState extends State<SearchScreen> {
   final _searchController = TextEditingController();
 
   final List<String> categories = [
-    'All',
-    'Ecotourism',
-    'Religious',
-    'Cultural',
-    'Leisure',
-    'Medical',
-    'Sports',
+    'All'.tr(),
+    'Ecotourism'.tr(),
+    'Religious'.tr(),
+    'Cultural'.tr(),
+    'Leisure'.tr(),
+    'Medical'.tr(),
+    'Sports'.tr(),
   ];
   final List<String> categoriesId = [
     '',
@@ -62,7 +63,7 @@ class _SearchScreenState extends State<SearchScreen> {
       child: Scaffold(
           backgroundColor: ColorsManager.primary.withOpacity(1),
           appBar: CustomAppBar(
-            title: 'Search',
+            title: 'SearchTitle'.tr(),
             enableBack: false,
             leading: backButton(context),
           ),

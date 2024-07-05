@@ -26,12 +26,6 @@ class ViewAllPlacesState extends State<ViewAllPlaces> {
     });
   }
 
-  // void _onScroll() {
-  //   if (_scrollController.position.pixels ==
-  //       _scrollController.position.maxScrollExtent * 0.8) {
-  //     context.read<PlacesCubit>().loadMorePlaces();
-  //   }
-  // }
   void _onScroll() {
     final maxScroll = _scrollController.position.maxScrollExtent;
     final currentScroll = _scrollController.position.pixels;
@@ -66,9 +60,9 @@ class ViewAllPlacesState extends State<ViewAllPlaces> {
                 scrollController: _scrollController,
               ),
               getPlacesloading: () =>
-                  const Center(child: CircularProgressIndicator()),
+              const Center(child: CircularProgressIndicator()),
               getPlacesError: (errorHandler) {
-                return Text(errorHandler.apiErrorModel.message!);
+                return Center(child: Text(errorHandler.apiErrorModel.message!));
               }, // Display error message
               orElse: () => const SizedBox(), // Handle other states (initial)
             );

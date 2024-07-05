@@ -74,14 +74,14 @@ class _LogInScreenState extends State<LogInScreen> {
                             validator: (value) {
                               if (value.isEmpty ||
                                   !AppRegex.isEmailValid(value)) {
-                                return 'Please enter a valid email';
+                                return 'ValidEmail'.tr();
                               }
                             },
                           ),
                           CustomPasswordField(
                             validator: (value) {
                               if (value.isEmpty) {
-                                return 'Please enter a valid password';
+                                return 'Please enter a valid password'.tr();
                               }
                             },
                             passwordController:

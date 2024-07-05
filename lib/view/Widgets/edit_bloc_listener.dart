@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/view_model/EditProfile/cubit/edit_cubit.dart';
 import 'package:egy_travel/view_model/EditProfile/cubit/edit_state.dart';
@@ -54,7 +55,7 @@ class EditBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          error.tr(),
           textAlign: TextAlign.center,
           style: TextStyle(
             color: ColorsManager.primary.withOpacity(1),
@@ -68,7 +69,7 @@ class EditBlocListener extends StatelessWidget {
               Navigator.pop(context);
             },
             child: Text(
-              'Got it',
+              'Got it'.tr(),
               style: TextStyle(
                 color: ColorsManager.primary.withOpacity(1),
                 fontSize: 16,
@@ -87,12 +88,12 @@ class EditBlocListener extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           backgroundColor: ColorsManager.secondPrimary,
-          title: const Text('updating succeeded'),
+          title:  Text('updating succeeded'.tr()),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
                 Text(
-                  'Congratulations, you have updated your data successfully!',
+                  'Congratulations, you have updated your data successfully!'.tr(),
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     color: ColorsManager.primary.withOpacity(1),
@@ -115,7 +116,7 @@ class EditBlocListener extends StatelessWidget {
                 Navigator.pop(context);
               },
               child: Text(
-                'Got it',
+                'Got it'.tr(),
                 style: TextStyle(
                   color: ColorsManager.primary.withOpacity(1),
                   fontSize: 16,

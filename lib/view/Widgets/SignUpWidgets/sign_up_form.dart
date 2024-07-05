@@ -66,7 +66,7 @@ class SignUpFormState extends State<SignUpForm> {
               labelText: "Name".tr(),
               validator: (value) {
                 if (value.isEmpty) {
-                  return 'Please enter a valid name';
+                  return "ValidName".tr();
                 }
               }),
           const SizedBox(height: 6.0),
@@ -75,7 +75,7 @@ class SignUpFormState extends State<SignUpForm> {
             labelText: "Email".tr(),
             validator: (value) {
               if (value.isEmpty || !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid email';
+                return "ValidEmail".tr();
               }
             },
           ),
@@ -85,7 +85,7 @@ class SignUpFormState extends State<SignUpForm> {
               labelText: "Address".tr(),
               validator: (value) {
                 if (value.isEmpty) {
-                  return 'Please enter a valid address';
+                  return "validAddress".tr();
                 }
               }),
           const SizedBox(height: 6.0),
@@ -94,7 +94,7 @@ class SignUpFormState extends State<SignUpForm> {
             labelText: "Password".tr(),
             validator: (value) {
               if (value.isEmpty) {
-                return 'Please enter a valid password';
+                return "validPassword".tr();
               }
             },
           ),
@@ -105,7 +105,7 @@ class SignUpFormState extends State<SignUpForm> {
             labelText: "ConfirmPassword".tr(),
             validator: (value) {
               if (value.isEmpty) {
-                return 'Please enter a valid password';
+                return "Password does ot match".tr();
               }
             },
           ),

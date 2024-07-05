@@ -73,7 +73,7 @@ class GeneralSettings extends StatelessWidget {
               CustomTextField(
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter a valid name';
+                    return 'Please enter a valid name'.tr();
                   }
                 },
                 controller: context.read<EditCubit>().nameController,
@@ -83,7 +83,7 @@ class GeneralSettings extends StatelessWidget {
               CustomTextField(
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter a valid Email';
+                    return 'Please enter a valid Email'.tr();
                   }
                 },
                 controller: context.read<EditCubit>().emailController,
@@ -93,7 +93,7 @@ class GeneralSettings extends StatelessWidget {
               CustomTextField(
                 validator: (value) {
                   if (value.isEmpty) {
-                    return 'Please enter a valid address';
+                    return 'Please enter a valid address'.tr();
                   }
                 },
                 controller: context.read<EditCubit>().addressController,

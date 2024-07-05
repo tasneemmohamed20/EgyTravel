@@ -4,6 +4,7 @@ import 'package:egy_travel/core/helpers/bloc_observer.dart';
 import 'package:egy_travel/core/helpers/constants.dart';
 import 'package:egy_travel/core/helpers/extensions.dart';
 import 'package:egy_travel/core/helpers/shared_pref_helper.dart';
+import 'package:egy_travel/core/utils/styles.dart';
 import 'package:egy_travel/res/colors_manager.dart';
 import 'package:egy_travel/res/string_manager.dart';
 import 'package:egy_travel/src/controllers/location_controller.dart';
@@ -17,6 +18,7 @@ import 'package:egy_travel/view/Screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -69,6 +71,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primaryColor: ColorsManager.primary,
               useMaterial3: true,
+              fontFamily: Styles.kPrimaryFontStyle,
             ),
             routes: {
               '/login': (context) => const LogInScreen(),
