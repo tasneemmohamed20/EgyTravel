@@ -3,8 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:egy_travel/Features/Weather/Presentation/Manager/FiveDaysForecastCubit/five_days_forecast_cubit.dart';
 import 'package:egy_travel/Features/Weather/Presentation/View/weather_view.dart';
 import 'package:egy_travel/core/Di/dependency_injection.dart';
-import 'package:egy_travel/core/helpers/constants.dart';
-import 'package:egy_travel/core/helpers/shared_pref_helper.dart';
 import 'package:egy_travel/model/Profile/get_profile_response.dart';
 import 'package:egy_travel/src/controllers/location_controller.dart';
 import 'package:egy_travel/src/services/location_service.dart';

@@ -19,8 +19,9 @@ class MayLikeList extends StatelessWidget {
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount:
-              placesData.length > 10 ? 10 : placesData.length, // Change this line
+              placesData.length > 8 ? 8 : placesData.length, // Change this line
           itemBuilder: (context, index) {
+            int fakeIndex = index + 11;
             return SizedBox(
               width: mQwidth * 0.9,
               child: InkWell(
@@ -28,20 +29,22 @@ class MayLikeList extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => PlacesDetailsScreen(
-                            placeId: placesData[index]?.placeId?? '',
-                            recommendedId: placesData[index]?.id ?? 0,
-                            lat: placesData[index]?.latitude ?? 0,
-                            long: placesData[index]?.longitude ?? 0,
-                            image: placesData[index]?.image ?? '',
-                            subtitle: placesData[index]?.location ?? '',
-                            title: placesData[index]?.name ?? '',
-                            description: [placesData[index]?.description ?? ''],
+                            placeId: placesData[fakeIndex]?.placeId ?? '',
+                            recommendedId: placesData[fakeIndex]?.id ?? 0,
+                            lat: placesData[fakeIndex]?.latitude ?? 0,
+                            long: placesData[fakeIndex]?.longitude ?? 0,
+                            image: placesData[fakeIndex]?.image ?? '',
+                            subtitle: placesData[fakeIndex]?.location ?? '',
+                            title: placesData[fakeIndex]?.name ?? '',
+                            description: [
+                              placesData[fakeIndex]?.description ?? ''
+                            ],
                           )),
                 ),
                 child: CustomListCard(
-                  image: [placesData[index]?.image ?? ''],
-                  title: placesData[index]?.name ?? '',
-                  subtitle: placesData[index]?.location ?? '',
+                  image: [placesData[fakeIndex]?.image ?? ''],
+                  title: placesData[fakeIndex]?.name ?? '',
+                  subtitle: placesData[fakeIndex]?.location ?? '',
                   imageWidth: mQwidth * 0.4,
                   cardColor: ColorsManager.secondPrimary.withOpacity(1),
                   titleColor: ColorsManager.primary.withOpacity(1),
