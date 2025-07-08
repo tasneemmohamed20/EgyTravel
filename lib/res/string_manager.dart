@@ -39,4 +39,7 @@ class AppStrings {
   static const endPointUserTips = 'usertips';
 
   static const geminiApiKey = 'AIzaSyDcGWFM0GBKHl-VZML7ihIJyYCUeEIsxGo';
+
+  static const openAiApiKey = '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';
+
 }

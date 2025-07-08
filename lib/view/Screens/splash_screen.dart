@@ -39,15 +39,15 @@ class _SplashScreenState extends State<SplashScreen> {
   _checkIfUserSeenOnBoarding() async {
     SharedPreferences sharedPreferences = await _pref;
     bool? hasSeenOnBoarding = sharedPreferences.getBool(_onboarding);
-    if (hasSeenOnBoarding == null || hasSeenOnBoarding == false) {
+    // if (hasSeenOnBoarding == null || hasSeenOnBoarding == false) {
       navigateToHome();
-    } else {
-      Future.delayed(const Duration(seconds: 2), () {
-        _navigateToNextScreen();
-      });
+    // } else {
+    //   Future.delayed(const Duration(seconds: 2), () {
+    //     _navigateToNextScreen();
+    //   });
       // navigateFish(context, const TestPage());
       // navigateToHome();
-    }
+    // }
   }
 
   _navigateToNextScreen() async {

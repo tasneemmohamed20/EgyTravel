@@ -24,7 +24,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
-  Gemini.init(apiKey: AppStrings.geminiApiKey);
+  // Gemini.init(apiKey: AppStrings.geminiApiKey);
   setupGetIt();
   Bloc.observer = MyBlocObserver();
   await checkIFLoggedIn();
@@ -79,7 +79,7 @@ class MyApp extends StatelessWidget {
             },
             home: BlocProvider(
               create: (context) => getIt<ProfileCubit>()..getProfile(),
-              child: const SplashScreen(),
+              child: const PrimaryScreen(),
             ),
           );
         },
